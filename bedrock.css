@@ -90,6 +90,10 @@ pre, code {
     text-align: left;
     padding: 2em 6em;
 }
+.content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .content-title {
     color: rgb(174, 216, 255);
