@@ -64,7 +64,7 @@ pre, code {
     font-size: 1.1em;
     background: transparent;
     border: 1px solid white;
-    color: white;
+    color: white !important;
 }
 
 .header-button:hover {
