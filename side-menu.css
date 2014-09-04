@@ -25,7 +25,6 @@ This is the parent `<div>` that contains the menu and the content area.
 }
     #layout.active {
         position: relative;
-        left: 175px;
     }
         #layout.active #menu {
             left: 175px;
@@ -58,6 +57,7 @@ appears on the left side of the page.
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     border-right: 1px solid #333;
+    box-shadow: 1px 0 10px rgba(0,0,0,0.3);
 }
     /*
     All anchors inside the menu should be styled like this.
