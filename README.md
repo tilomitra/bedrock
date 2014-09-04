@@ -1,24 +1,24 @@
-Node Boilerplate
-================
+Bedrock
+=======
 
-Node Boilerplate makes it easy to start building a NodeJS app. Its a fast way to get working on your Node website without having to worry about the setup. It takes care of all the boring parts like:
+Bedrock is a minimalist Boilerplate for [Express](http://expressjs.com) apps. It's a fast way to get working on your webapp without having to worry about the setup, and is a collection of modules/libraries that I find myself using in every Express app that I make. Bedrock does things like:
 
 * Setting up your views and layout files
 * Configuring a basic Express server
 * Having useful Handlebars helpers
 * Setting up a place to store config data
-* 404/500 pages
+* Creating 404/500 pages
 * Route Handling
 * Loading popular front-end code (jQuery/BootStrap by default)
 * Sharing templates/partials with the front-end
 * Sharing JavaScript variables with the front-end 
 
-## Goals
+## Project Goals
 1. To end the repetition involved with starting a new Node web app.
 2. To never install anything outside of the project directory (For easier production deployment).
 
 ## Stack
-By default, Node Boilerplate comes with the following:
+By default, Bedrock is built using the following stack:
 
 * Express 4.x
 * Handlebars View Engine
@@ -27,22 +27,25 @@ By default, Node Boilerplate comes with the following:
 * Allows you to share Handlebars templates/partials between the server and the client.
 
 ## Installation
-To install and run the Node Boilerplate template app:
+To install and run Bedrock:
 
 ```shell
-    $ git clone github.com/tilomitra/node-boilerplate/ <your-app-folder-name>
+    $ git clone --depth 1 git@github.com:tilomitra/bedrock.git <your-app-folder-name>
+    $ git checkout <latest-tag>
     $ npm install
     $ npm start
 ```
 
 Then, go to [http://localhost:8000](http://localhost:8000).
 
+I recommend using `--depth 1` so that you don't get the commit history in Bedrock, which you probably don't care about since you'll be adding your application-specific commits.
+
 ## Other Node.js Starter Apps
-This project is not suitable for everyone. Notably, Node Boilerplate does not come with a database, user authentication system, OAuth login support, or build tasks. I want to keep Node Boilerplate simple. However, there are some great open source projects available if you need these features. 
+This project is not suitable for everyone. Notably, Bedrock does not come with a database, user authentication system, OAuth login support, or build tasks. I want to keep Bedrock simple. However, there are some great open source projects available if you need these features. 
 
 * [Hackathon Starter](https://github.com/sahat/hackathon-starter)
 * [Nodember](https://github.com/mgenev/nodember)
 
 
 ## LICENSE
-This software is free to use under the Yahoo! Inc. BSD license. See the LICENSE file for license text and copyright information.
+MIT
