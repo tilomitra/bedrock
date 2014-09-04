@@ -1,1 +1,8 @@
 /* Application CSS */
+body {
+    background: #eee;
+    text-align: center;
+}
+.jumbotron {
+    padding: 2em 6em;
+}
