@@ -69,7 +69,7 @@ pre, code {
 
 .header-button:hover {
     background: white;
-    color: #333;
+    color: #333 !important;
 }
 
 .header-title {
