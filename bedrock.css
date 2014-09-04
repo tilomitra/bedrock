@@ -36,6 +36,10 @@ pre, code {
     border-radius: 3px;
     background: rgb(23, 23, 36);
 }
+
+.code-comment {
+    color: #697199;
+}
 .t-right {
     text-align: right;
 }
@@ -54,7 +58,9 @@ pre, code {
 }
 
 .header-title,
-.content-title {
+.pure-menu-heading,
+.content-title,
+.content-subtitle {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -96,9 +102,19 @@ pre, code {
     margin: 0 auto;
 }
 
-.content-title {
+.content-title,
+.content-subtitle {
     color: rgb(174, 216, 255);
     margin-top: 2em;
+    border-bottom: 1px solid #333;
+}
+
+.content-filename {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-left: 2px solid rgb(35, 140, 238);
+    padding-left: 1em;
 }
 
 .footer {

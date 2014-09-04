@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bedrock</title>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="side-menu.css">
+    <link rel="stylesheet" href="bedrock.css">
+    <script type="text/javascript" src="//use.typekit.net/eeu1jcy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body>
+
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu pure-menu-open">
+                <a class="pure-menu-heading" href="#">Bedrock</a>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="server.html">Configuring the Server</a></li>
+                    <li class="pure-menu-selected"><a href="views.html">Rendering Views</a></li>
+                    <li><a href="sharing.html">Sharing Code</a></li>
+
+                    <li class="menu-item-divided">
+                        <a href="http://github.com/tilomitra/bedrock/">GitHub</a>
+                    </li>
+
+                    <li><a href="http://twitter.com/tilomitra/">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="l-wrap">
+                <div class="header">
+                    <h1 class="header-title">Bedrock</h1>
+                    <h2 class="header-subtitle">A minimalist boilerplate for Express apps.</h2>
+                    <a class="header-button pure-button" href="http://github.com/tilomitra/bedrock">View on GitHub</a>
+                </div>
+
+                <div class="content">
+                    <div class="l-inner">
+                        <h3 class="content-title">The View Engine</h3>
+                        <p>
+                            When building your app on top of Bedrock, you will write your views using the <a href="handlebarsjs.com">Handlebars Templating Language</a>. Bedrock uses <a href="https://github.com/ericf/express-handlebars">express-handlebars</a> as its view engine to generate HTML from Handlebars.
+                        </p>
+
+                        <p>
+                            Express Handlebars supports the concept of views, layouts, partials, and helpers. It also supports <a href="https://github.com/ericf/express-handlebars#template-caching">template caching</a> and has a nice <a href="https://github.com/ericf/express-handlebars#api">API.</a> Here's the folder structure that Bedrock uses by default for Handlebars:
+                        </p>
+                        <ul>
+                            <li>Views live inside <code>views/</code>.</li>
+                            <li>Layouts live inside <code>views/layouts/</code>.</li>
+                            <li>The default layout is <code>views/layouts/main.handlebars</code>.</li>
+                            <li>Partials live inside <code>views/partials/</code> and <code>shared/templates/</code>. The latter should be used only for partials that you want to use on the client and server.</li>
+                            <li>Helpers can be defined inside <code>lib/helpers.js</code> as simple functions.</li>
+                        </ul>
+                        <p>
+                            These settings can be changed inside <code>lib/exphbs.js</code>.
+                        </p>
+
+                        <h3 class="content-title">Rendering Views</h3>
+                        <p>
+                            To render a view, you can call <code>routes.render()</code> inside a route handler and pass in the file name of the view that you want to render. In the example below, <code>views/bar.handlebars</code> will get rendered when the user navigates to the <code>/bar</code> route. 
+                        </p>
+
+                        <pre class="code-snippet"><code>
+router.get('/bar', routes.render('bar'));
+                        </code></pre>
+
+                        <h3 class="content-title">Passing in data to views</h3>
+                        <p>
+                            You can pass in data to your views in two different ways:
+                        </p>
+                        <ul>
+                            <li>Storing the data inside <code>res.locals</code></li>
+                            <li>Passing in the data directly via <code>res.render()</code></li>
+                        </ul>
+                        <p>
+                            Here's an example that demonstrates both options:
+                        </p>
+
+                        <h5 class="content-filename">server.js</h5>
+                        <pre class="code-snippet"><code>
+router.get('/bar', function (req, res, next) {
+    res.locals.name = "Tilo";
+    res.render('bar');
+    <span class="code-comment">//Optionally, I could write res.render('bar', {name: "Tilo"});</span>
+});
+                        </code></pre>
+
+                        <h5 class="content-filename">bar.handlebars</h5>
+                        <pre class="code-snippet"><code>
+Hello, my name is {{name}}.
+                        </code></pre>
+
+                        <h3 class="content-title">Learn More</h3>
+                        <p>
+                            To learn more about Handlebars and how it works, I recommend reading the <a href="http://handlebarsjs.com/">Handlebars Docs Page</a>. It's an easy read and does a good job explaining the various concepts of the language.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="l-inner">
+                        <div class="pure-g">
+                            <div class="pure-u-1-2">
+                                <a href="http://twitter.com/tilomitra">Made by Tilo</a>
+                            </div>
+                            <div class="pure-u-1-2 t-right">
+                                <span class="t-muted">Built on shoulders of giants. MIT Licensed.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

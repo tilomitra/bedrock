@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bedrock</title>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="side-menu.css">
+    <link rel="stylesheet" href="bedrock.css">
+    <script type="text/javascript" src="//use.typekit.net/eeu1jcy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body>
+
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu pure-menu-open">
+                <a class="pure-menu-heading" href="#">Bedrock</a>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="pure-menu-selected"><a href="server.html">Configuring the Server</a></li>
+                    <li><a href="views.html">Rendering Views</a></li>
+                    <li><a href="sharing.html">Sharing Code</a></li>
+
+                    <li class="menu-item-divided">
+                        <a href="http://github.com/tilomitra/bedrock/">GitHub</a>
+                    </li>
+
+                    <li><a href="http://twitter.com/tilomitra/">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="l-wrap">
+                <div class="header">
+                    <h1 class="header-title">Bedrock</h1>
+                    <h2 class="header-subtitle">A minimalist boilerplate for Express apps.</h2>
+                    <a class="header-button pure-button" href="http://github.com/tilomitra/bedrock">View on GitHub</a>
+                </div>
+
+                <div class="content">
+                    <div class="l-inner">
+                        <h3 class="content-title" id="overview">Starting the Server</h3>
+                        <p>
+                            The file that instantiates the Express server in Bedrock is <code>server.js</code>. To start Bedrock's server, just run:
+                            <pre class="code-snippet"><code>npm start</code></pre>
+                        </p>
+                        <p>
+                            I recommend using a tool like <a href="https://github.com/remy/nodemon">nodemon</a> or <a href="https://github.com/isaacs/node-supervisor">node-supervisor</a> so that your server restarts anytime a file is changed.
+                        </p>
+
+                        <h3 class="content-title" id="features">Configuring the Server</h3>
+                        <p>
+                            Bedrock's server comprises of an Express 4.x app instance and a single router. You can view and modify the default app-level settings in <code>server.js</code>. <a href="https://github.com/tilomitra/bedrock/blob/master/server.js">The file</a> is self-explanatory and comment-heavy, so I perusing through it quickly.
+                        </p>
+
+                        <h3 class="content-title" id="features">Route Handling</h3>
+                        <p>
+                            Route handling works just like you would expect it to inside an Express App. You can add routes to the <code>server.js</code> file:
+                        </p>
+
+                        <pre class="code-snippet"><code>
+router.get('/foo', function (req, res, next) {
+    doSomething();
+    res.render('foo');
+});
+                        </code></pre>
+
+                        <p>
+                            Bedrock has some helper methods to make route handling less verbose. The <code>routes</code> object in <code>server.js</code> exports <code>render()</code> and <code>redirect()</code> methods.
+                        </p>
+
+                        <p>
+                            <code>routes.render()</code> can take a <code>viewName</code> and an optional <code>layoutPath</code> and call <code>res.render()</code> under-the-hood. This lets you just do the following:
+                        </p>
+
+                        <pre class="code-snippet"><code>router.get('/foo', routes.render('foo'));</code></pre>
+
+                        <p>
+                            <code>routes.redirect()</code> can take a <code>URL</code> and an optional <code>statusCode</code> and call <code>res.redirect()</code> under-the-hood. This lets you just do the following:
+                        </p>
+
+                        <pre class="code-snippet"><code>router.get('/foo', routes.redirect('/bar', 301));</code></pre>
+
+
+                        <h3 class="content-title" id="features">Middleware</h3>
+                        <p>
+                            Middleware can be defined inside the <code>middleware/</code> directory, and can be called inside a route handler within <code>server.js</code>. By default, Bedrock comes with Middleware to handle:
+                            <ul>
+                                <li>Logging</li>
+                                <li>Strict Routing</li>
+                                <li>Exposing Templates to the Client</li>
+                            </ul>
+                            Here's an example on how you can use middleware inside a route handler:
+                        </p>
+                            <pre class="code-snippet"><code>router.get('/', [ middleware.exposeTemplates(), routes.render('home') ]);</code>    </pre>
+                        <p>
+                            In the example above, all routes to <code>/</code> will go through <code>middleware.exposeTemplates</code>, which will expose Handlebars partials that are stored within the <code>shared/templates/</code> directory to the client-side JavaScript under <code>App.templates</code>. Read more about this in the <a href="sharing.html">Sharing Code</a> section.a>
+                        </p>
+
+                        <h3 class="content-title" id="features">Static Files</h3>
+                        <p>
+                            Static files like images, CSS, and JS files should be stored inside the <code>public/</code> directory.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="l-inner">
+                        <div class="pure-g">
+                            <div class="pure-u-1-2">
+                                <a href="http://twitter.com/tilomitra">Made by Tilo</a>
+                            </div>
+                            <div class="pure-u-1-2 t-right">
+                                <span class="t-muted">Built on shoulders of giants. MIT Licensed.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
