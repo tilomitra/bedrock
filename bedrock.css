@@ -4,6 +4,7 @@ body {
     background: black url('images/bedrock-image.png') no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-position: 0 -150px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -88,9 +89,9 @@ pre, code {
     background: #111;
     color: #eee;
     text-align: left;
-    padding: 2em 6em;
+    padding: 1em;
 }
-.content-inner {
+.l-inner {
     max-width: 800px;
     margin: 0 auto;
 }
@@ -102,10 +103,20 @@ pre, code {
 
 .footer {
     text-align: left;
-    padding: 1em 6em;
+    padding: 1em;
     font-size: 80%;
 }
 .footer a {
     color: #ddd;
     font-weight: bold;
+}
+
+@media (min-width: 480px) {
+    .content {
+        padding: 2em 6em
+    }
+
+    .footer {
+        padding: 1em 6em;
+    }
 }
