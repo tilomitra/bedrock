@@ -9,7 +9,7 @@
 
         <ul>
             <li {% if page.permalink == '/' %} class='pure-menu-selected' {% endif %}>
-                <a href="/">Home</a>
+                <a href="{{site.baseurl}}">Home</a>
             </li>
             <li{% if page.permalink == '/server/' %} class='pure-menu-selected' {% endif %}>
                 <a href="{{site.baseurl}}/server/">Configuring the Server</a>
