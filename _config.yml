@@ -1,0 +1,11 @@
+# Site settings
+title: Bedrock
+email: tilomitra@gmail.com
+description: A minimalist boilerplate for Express apps.
+baseurl: "/bedrock" # the subpath of your site, e.g. /blog/
+url: "http://tilomitra.github.io" # the base hostname & protocol for your site
+twitter_username: tilomitra
+github_username:  tilomitra
+
+# Build settings
+# markdown: kramdown

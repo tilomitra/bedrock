@@ -1,10 +1,73 @@
----
-layout: default
-title: Bedrock - Sharing Code
-permalink: /sharing-code/
----
+<!DOCTYPE html>
+<html>
 
-<h3 class="content-title">Keeping things DRY</h3>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bedrock - Sharing Code</title>
+    <meta name="description" content="A minimalist boilerplate for Express apps.">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/bedrock/css/side-menu.css">
+    <link rel="stylesheet" href="/bedrock/css/bedrock.css">
+    <link rel="canonical" href="http://tilomitra.github.io/bedrock/bedrock/sharing-code/">
+    <script type="text/javascript" src="//use.typekit.net/eeu1jcy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+  <body>
+    
+    <div id="layout">
+      
+      <!-- Menu toggle -->
+<a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+</a>
+<div id="menu">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="#">Bedrock</a>
+
+        <ul>
+            <li >
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/server/">Configuring the Server</a>
+            </li>
+            <li>
+                <a href="/views/">Rendering Views</a>
+            </li>
+            <li class='pure-menu-selected' >
+                <a href="/sharing-code/">Sharing Code</a>
+            </li>
+
+            <li class="menu-item-divided">
+                <a href="http://github.com/tilomitra/bedrock/">GitHub</a>
+            </li>
+
+            <li><a href="http://twitter.com/tilomitra/">Twitter</a></li>
+        </ul>
+    </div>
+</div>
+
+      <div id="main">
+        <div class="l-wrap">
+          <div class="header">
+    <h1 class="header-title">Bedrock</h1>
+    <h2 class="header-subtitle">A minimalist boilerplate for Express apps.</h2>
+    <a class="header-button pure-button" href="http://github.com/tilomitra/bedrock">View on GitHub</a>
+</div>
+
+          <div class="content">
+            <div class="l-inner">
+              <h3 class="content-title">Keeping things DRY</h3>
 <p>
     Using NodeJS allows you to share code between the server and the client since you're writing JavaScript on both sides. This allows you to keep your code <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>. Bedrock exercises this principle and provides ways for you to write code once, but share it between the client and the server.
 </p>
@@ -85,12 +148,12 @@ res.render('userPage', {user: user});
 
 <h5 class="content-filename">name.handlebars</h5>
 <p>Let's assume we create a file called <code>name.handlebars</code> inside <code>shared/templates/</code></p>
-<pre class="code-snippet"><code>&lt;p&gt;Hello, my name is {{name}}.&lt;/p&gt;</code></pre>
+<pre class="code-snippet"><code>&lt;p&gt;Hello, my name is .&lt;/p&gt;</code></pre>
 
 <h5 class="content-filename">myView.handlebars</h5>
-<p>We can use it as a partial from the server, through the regular <code>{{> partial}}</code> syntax.</p>
+<p>We can use it as a partial from the server, through the regular <code></code> syntax.</p>
 <pre class="code-snippet"><code>
-{{> name}}
+
 &lt;p&gt;Hello World.&lt;/p&gt;
 </code></pre>
 
@@ -112,3 +175,25 @@ console.log(html);
 
 
 
+
+            </div>
+          </div>
+
+          <div class="footer">
+    <div class="l-inner">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <a href="http://twitter.com/tilomitra">Made by Tilo</a>
+            </div>
+            <div class="pure-u-1-2 t-right">
+                <span class="t-muted">Built on shoulders of giants. MIT Licensed.</span>
+            </div>
+        </div>
+    </div>
+</div>
+          <script src="/bedrock/js/ui.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

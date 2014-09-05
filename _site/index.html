@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bedrock</title>
+    <meta name="description" content="A minimalist boilerplate for Express apps.">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/bedrock/css/side-menu.css">
+    <link rel="stylesheet" href="/bedrock/css/bedrock.css">
+    <link rel="canonical" href="http://tilomitra.github.io/bedrock/bedrock/">
+    <script type="text/javascript" src="//use.typekit.net/eeu1jcy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+  <body>
+    
+    <div id="layout">
+      
+      <!-- Menu toggle -->
+<a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+</a>
+<div id="menu">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="#">Bedrock</a>
+
+        <ul>
+            <li  class='pure-menu-selected' >
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/server/">Configuring the Server</a>
+            </li>
+            <li>
+                <a href="/views/">Rendering Views</a>
+            </li>
+            <li>
+                <a href="/sharing-code/">Sharing Code</a>
+            </li>
+
+            <li class="menu-item-divided">
+                <a href="http://github.com/tilomitra/bedrock/">GitHub</a>
+            </li>
+
+            <li><a href="http://twitter.com/tilomitra/">Twitter</a></li>
+        </ul>
+    </div>
+</div>
+
+      <div id="main">
+        <div class="l-wrap">
+          <div class="header">
+    <h1 class="header-title">Bedrock</h1>
+    <h2 class="header-subtitle">A minimalist boilerplate for Express apps.</h2>
+    <a class="header-button pure-button" href="http://github.com/tilomitra/bedrock">View on GitHub</a>
+</div>
+
+          <div class="content">
+            <div class="l-inner">
+              <h3 class="content-title" id="overview">Overview</h3>
+<p>
+    Bedrock is a quick way to start an Express app with nice defaults without having to worry about setup and configuration. It is a collection of modules and libraries that I find myself using in almost every Express app that I make. Bedrock removes the repetition that is involved when building a new Express app.
+</p>
+
+<h3 class="content-title" id="features">Features</h3>
+<p>Bedrock does the following for you:</p>
+<ul>
+    <li>Sets up your views and layout files</li>
+    <li>Configures a basic Express 4.0 Server</li>
+    <li>Sets up a Handlebars View Engine</li>
+    <li>Exposes useful Handlebars helpers</li>
+    <li>Sets up a place to store config data</li>
+    <li>Creates 404/500 pages</li>
+    <li>Basic Route Handling</li>
+    <li>Loads popular front-end code (jQuery/Pure by default)</li>
+    <li>Shares Handlebars partials with the client</li>
+    <li>Shares JavaScript variables with the client</li>
+</ul>
+
+<h3 class="content-title" id="stack">Stack</h3>
+<p>By default, Bedrock is built on the following stack:</p>
+<ul class="task-list">
+    <li><a href="http://expressjs.com/migrating-4.html">Express 4.x</a></li>
+    <li>Handlebars View Engine, with <a href="https://github.com/ericf/express-handlebars">express-handlebars</a></li>
+    <li>Common Handlebars Helpers like <code></code>, <code></code> and others to make it easy to load CSS/JS on a per-page basis.</li>
+    <li>Uses <a href="https://github.com/yahoo/express-state">express-state</a> to expose data from the server to the client.</li>
+    <li>Allows you to share Handlebars templates/partials between the server and the client.</li>
+</ul>
+
+<h3 class="content-title" id="installation">Installation</h3>
+<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off an <a href="https://github.com/tilomitra/bedrock/releases">existing release</a>.</p>
+
+<pre class="code-snippet"><code>
+git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
+git checkout &lt;latest-tag&gt;
+npm install
+npm start
+</code></pre>
+
+<p>Then, go to <a href="http://localhost:8000">http://localhost:8000</a>. I recommend using <code>--depth 1</code> so that you don't get Bedrock's commit history, which you probably don't care about since you'll be adding your application-specific commits.</p>
+            </div>
+          </div>
+
+          <div class="footer">
+    <div class="l-inner">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <a href="http://twitter.com/tilomitra">Made by Tilo</a>
+            </div>
+            <div class="pure-u-1-2 t-right">
+                <span class="t-muted">Built on shoulders of giants. MIT Licensed.</span>
+            </div>
+        </div>
+    </div>
+</div>
+          <script src="/bedrock/js/ui.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

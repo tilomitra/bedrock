@@ -35,6 +35,7 @@ pre, code {
     padding: 1em;
     border-radius: 3px;
     background: rgb(23, 23, 36);
+    transition: box-shadow 0.25s;
 }
 
 .code-comment {

@@ -1,0 +1,31 @@
+<!-- Menu toggle -->
+<a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+</a>
+<div id="menu">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="#">Bedrock</a>
+
+        <ul>
+            <li {% if page.permalink == '/' %} class='pure-menu-selected' {% endif %}>
+                <a href="/">Home</a>
+            </li>
+            <li{% if page.permalink == '/server/' %} class='pure-menu-selected' {% endif %}>
+                <a href="/server/">Configuring the Server</a>
+            </li>
+            <li{% if page.permalink == '/views/' %} class='pure-menu-selected' {% endif %}>
+                <a href="/views/">Rendering Views</a>
+            </li>
+            <li{% if page.permalink == '/sharing-code/' %} class='pure-menu-selected' {% endif %}>
+                <a href="/sharing-code/">Sharing Code</a>
+            </li>
+
+            <li class="menu-item-divided">
+                <a href="http://github.com/tilomitra/bedrock/">GitHub</a>
+            </li>
+
+            <li><a href="http://twitter.com/tilomitra/">Twitter</a></li>
+        </ul>
+    </div>
+</div>

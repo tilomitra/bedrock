@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    
+    <div id="layout">
+      
+      {% include menu.html %}
+
+      <div id="main">
+        <div class="l-wrap">
+          {% include header.html %}
+
+          <div class="content">
+            <div class="l-inner">
+              {{ content }}
+            </div>
+          </div>
+
+          {% include footer.html %}
+          <script src="{{ "/js/ui.js" | prepend: site.baseurl }}"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

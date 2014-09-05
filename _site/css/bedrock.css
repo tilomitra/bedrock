@@ -1,0 +1,139 @@
+body {
+    font: 300 16px/1.7 "Source Sans", "Source Sans Pro", sans-serif;
+    color: white;
+    background: black url('http://38.media.tumblr.com/63748da1fab7ccebe70355807587d659/tumblr_n6rz5eNBG51st5lhmo1_1280.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0 -150px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus {
+    color: rgb(34, 161, 237);
+    text-decoration: none;
+    transition: all 0.25s;
+}
+
+
+code {
+    color: rgb(174, 216, 255);
+    background: rgb(23, 23, 36);
+}
+
+pre, code {
+    font: 300 0.9em/1.6 "Source Code", "Source Code Pro", monospace;
+}
+.code-snippet {
+    border: 1px solid rgb(39, 39, 58);
+    padding: 1em;
+    border-radius: 3px;
+    background: rgb(23, 23, 36);
+    transition: box-shadow 0.25s;
+}
+
+.code-comment {
+    color: #697199;
+}
+.t-right {
+    text-align: right;
+}
+.t-muted {
+    opacity: 0.7;
+
+}
+.l-wrap {
+    text-align: center;
+    overflow: hidden;
+    padding: 6em 0 0;
+}
+
+.header {
+    padding-bottom: 4em;
+}
+
+.header-title,
+.pure-menu-heading,
+.content-title,
+.content-subtitle {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+.header-button {
+    font-size: 1.1em;
+    background: transparent;
+    border: 1px solid white;
+    color: white !important;
+}
+
+.header-button:hover {
+    background: white;
+    color: #333 !important;
+}
+
+.header-title {
+    font-size: 2em;
+}
+
+
+.header-subtitle {
+    font-weight: 100;
+    margin-top: 5px;
+    font-size: 2em;
+    opacity: 0.8;
+}
+
+.content {
+    background: #111;
+    color: #eee;
+    text-align: left;
+    padding: 1em;
+}
+.l-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-title,
+.content-subtitle {
+    color: rgb(174, 216, 255);
+    margin-top: 2em;
+    border-bottom: 1px solid #333;
+}
+
+.content-filename {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-left: 2px solid rgb(35, 140, 238);
+    padding-left: 1em;
+}
+
+.footer {
+    text-align: left;
+    padding: 1em;
+    font-size: 80%;
+}
+.footer a {
+    color: #ddd;
+    font-weight: bold;
+}
+
+@media (min-width: 480px) {
+    .content {
+        padding: 2em 6em
+    }
+
+    .footer {
+        padding: 1em 6em;
+    }
+}
