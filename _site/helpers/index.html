@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bedrock</title>
+    <title>Bedrock - Helpers</title>
     <meta name="description" content="A minimalist boilerplate for Express apps.">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <!--[if lte IE 8]>
@@ -16,7 +16,7 @@
     <!--<![endif]-->
     <link rel="stylesheet" href="/bedrock/css/side-menu.css">
     <link rel="stylesheet" href="/bedrock/css/bedrock.css">
-    <link rel="canonical" href="http://tilomitra.github.io/bedrock/">
+    <link rel="canonical" href="http://tilomitra.github.io/bedrock/helpers/">
     <script type="text/javascript" src="//use.typekit.net/eeu1jcy.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
@@ -35,7 +35,7 @@
         <a class="pure-menu-heading" href="#">Bedrock</a>
 
         <ul>
-            <li  class='pure-menu-selected' >
+            <li >
                 <a href="/bedrock">Home</a>
             </li>
             <li>
@@ -44,7 +44,7 @@
             <li>
                 <a href="/bedrock/views/">Rendering Views</a>
             </li>
-            <li>
+            <li class='pure-menu-selected' >
                 <a href="/bedrock/helpers/">Handlebars Helpers</a>
             </li>
             <li>
@@ -70,47 +70,33 @@
 
           <div class="content">
             <div class="l-inner">
-              <h3 class="content-title" id="overview">Overview</h3>
-<p>
-    Bedrock is a quick way to start an Express app with nice defaults without having to worry about setup and configuration. It is a collection of modules and libraries that I find myself using in almost every Express app that I make. Bedrock removes the repetition that is involved when building a new Express app.
+              <p>
+    Bedrock comes with a few Handlebars helpers that makes it easier for you to write HTML/CSS.
 </p>
 
-<h3 class="content-title" id="features">Features</h3>
-<p>Bedrock does the following for you:</p>
-<ul>
-    <li>Sets up your views and layout files</li>
-    <li>Configures a basic Express 4.0 Server</li>
-    <li>Sets up a Handlebars View Engine</li>
-    <li>Exposes useful Handlebars helpers</li>
-    <li>Sets up a place to store config data</li>
-    <li>Creates 404/500 pages</li>
-    <li>Basic Route Handling</li>
-    <li>Loads popular front-end code (jQuery/Pure by default)</li>
-    <li>Shares Handlebars partials with the client</li>
-    <li>Shares JavaScript variables with the client</li>
-</ul>
+<h3 class="content-title" id="localcss"><code>&#123;&#123;addLocalCSS&#125;&#125;</code></h3>
+<p>The <code>addLocalCSS</code> helper lets you add local css files on a per-page basis. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;addLocalCSS "path/to/app.css"&#125;&#125;</code></pre>
+<p>The example above will load <code>app.css</code> when the view is rendered.</p>
 
-<h3 class="content-title" id="stack">Stack</h3>
-<p>By default, Bedrock is built on the following stack:</p>
-<ul class="task-list">
-    <li><a href="http://expressjs.com/migrating-4.html">Express 4.x</a></li>
-    <li>Handlebars View Engine, with <a href="https://github.com/ericf/express-handlebars">express-handlebars</a></li>
-    <li>Common Handlebars Helpers like <code></code>, <code></code> and others to make it easy to load CSS/JS on a per-page basis.</li>
-    <li>Uses <a href="https://github.com/yahoo/express-state">express-state</a> to expose data from the server to the client.</li>
-    <li>Allows you to share Handlebars templates/partials between the server and the client.</li>
-</ul>
+<h3 class="content-title" id="remotecss"><code>&#123;&#123;addRemoteCSS&#125;&#125;</code></h3>
+<p>The <code>addRemoteCSS</code> helper lets you add remote css files on a per-page basis. For example:
+</p>
+<pre><code></code></pre>
+<p>The example above will load a new CSS file from the path that is specified.</p>
 
-<h3 class="content-title" id="installation">Installation</h3>
-<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off an <a href="https://github.com/tilomitra/bedrock/releases">existing release</a>.</p>
+<h3 class="content-title" id="localjs"><code>&#123;&#123;addLocalJS&#125;&#125;</code></h3>
+<p>The <code>addLocalJS</code> helper lets you add local JavaScript files on a per-page basis. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;addLocalJS "path/to/app.js"}}</code></pre>
+<p>The example above will load <code>app.js</code> when the view is rendered.</p>
 
-<pre class="code-snippet"><code>
-git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
-git checkout &lt;latest-tag&gt;
-npm install
-npm start
-</code></pre>
+<h3 class="content-title" id="settitle"><code>&#123;&#123;setTitle</code></h3>
+<p>The <code>setTitle</code> helper lets you set the HTML <code>title</code> attribute. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;setTitle "Bedrock - Helpers"}}</code></pre>
 
-<p>Then, go to <a href="http://localhost:8000">http://localhost:8000</a>. I recommend using <code>--depth 1</code> so that you don't get Bedrock's commit history, which you probably don't care about since you'll be adding your application-specific commits.</p>
             </div>
           </div>
 

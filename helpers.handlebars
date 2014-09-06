@@ -1,0 +1,32 @@
+---
+layout: default
+title: Bedrock - Helpers
+permalink: /helpers/
+---
+
+<p>
+    Bedrock comes with a few Handlebars helpers that makes it easier for you to write HTML/CSS.
+</p>
+
+<h3 class="content-title" id="localcss"><code>&#123;&#123;addLocalCSS&#125;&#125;</code></h3>
+<p>The <code>addLocalCSS</code> helper lets you add local css files on a per-page basis. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;addLocalCSS "path/to/app.css"&#125;&#125;</code></pre>
+<p>The example above will load <code>app.css</code> when the view is rendered.</p>
+
+<h3 class="content-title" id="remotecss"><code>&#123;&#123;addRemoteCSS&#125;&#125;</code></h3>
+<p>The <code>addRemoteCSS</code> helper lets you add remote css files on a per-page basis. For example:
+</p>
+<pre><code>{{addRemoteCSS "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}}</code></pre>
+<p>The example above will load a new CSS file from the path that is specified.</p>
+
+<h3 class="content-title" id="localjs"><code>&#123;&#123;addLocalJS&#125;&#125;</code></h3>
+<p>The <code>addLocalJS</code> helper lets you add local JavaScript files on a per-page basis. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;addLocalJS "path/to/app.js"}}</code></pre>
+<p>The example above will load <code>app.js</code> when the view is rendered.</p>
+
+<h3 class="content-title" id="settitle"><code>&#123;&#123;setTitle</code></h3>
+<p>The <code>setTitle</code> helper lets you set the HTML <code>title</code> attribute. For example:
+</p>
+<pre class="code-snippet"><code>&#123;&#123;setTitle "Bedrock - Helpers"}}</code></pre>
