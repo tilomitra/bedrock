@@ -8,9 +8,12 @@ hbs          = require('./lib/exphbs'),
 routes       = require('./routes'),
 middleware   = require('./middleware'),
 config       = require('./config'),
+utils        = require('./lib/utils'),
 app          = express(),
 port         = (process.env.PORT || 8000),
-server       = app.listen(port, 'localhost'),
+server       = app.listen(port, function () {
+    console.log("Bedrock Server listening on port " + server.address().port);
+}),
 router;
 
 //Setup Express App
@@ -61,6 +64,19 @@ app.use(express.static(config.dirs.pub));
 // Before uncommenting this line, go into config/index.js and add config.dirs.bower there.
 //app.use(express.static(config.dirs.bower));
 
+// Error handling middleware
+app.use(function(err, req, res, next) {
+    if(!err) return next();
+    console.log(err);
+    if (err.status && err.status === 404) {
+        res.render('404', {error: err});
+    }
+    else {
+        res.render('500', {error: err});
+    }
+});
+
+
 // Use the router.
 app.use(router);
 
@@ -78,15 +94,7 @@ router.get('/', [ middleware.exposeTemplates(), routes.render('home') ]);
 // A Route for Creating a 500 Error (Useful to keep around)
 router.get('/500', routes.render);
 
-// The 404 Route (ALWAYS Keep this as the last route)
-router.get('/*', function(req, res){
-    throw new NotFound;
+//The 404 Route (ALWAYS Keep this as the last route)
+router.get('/*', function(req, res, next){
+    next(utils.error(404, 'Page not found'));
 });
-
-function NotFound(msg){
-    this.name = 'NotFound';
-    Error.call(this, msg);
-    Error.captureStackTrace(this, arguments.callee);
-}
-
-console.log('Listening on http://localhost:' + port );
