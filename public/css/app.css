@@ -1,8 +1,36 @@
 /* Application CSS */
+/* You can probably delete all this once you're ready to make changes. */
 body {
-    background: #eee;
-    text-align: center;
+    background: black;
+    color: #ddd;
 }
+
+a, a:hover, a:visited, a:focus {
+    color: rgb(34, 161, 237);
+    text-decoration: none;
+}
+
 .jumbotron {
-    padding: 2em 6em;
+    padding: 2em;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 3px;
+    border: 2px solid #222;
+}
+
+.jumbotron p {
+    text-align: left;
+}
+
+h1 small {
+    color: #999;
+    font-weight: normal;
+}
+
+.btn, a.btn {
+    background: transparent;
+    border: 2px solid rgb(174, 216, 255);
+    border-radius: 20px;
+    color: rgb(174, 216, 255);
+
 }
