@@ -85,12 +85,12 @@ pre, code {
     font-size: 1.1em;
     background: rgb(174, 216, 255);
     border: 1px solid rgb(174, 216, 255);
-    color: #638eba !important;
+    color: #2A445F !important;
 }
 
 .header-button-primary:hover {
-    background: #638eba;
-    border: 1px solid #638eba;
+    background: #2A445F;
+    border: 1px solid #2A445F;
     color: white !important;
 }
 
@@ -120,7 +120,7 @@ pre, code {
 
 .release {
     background: rgb(174, 216, 255);
-    color: #638eba;
+    color: #2A445F;
     padding: 2px 7px;
     border-radius: 4px;
 }
