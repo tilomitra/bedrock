@@ -50,8 +50,7 @@ flickr: '02348notreal2394879137872358bla'
 </p>
 
 <h5 class="content-filename">server.js</h5>
-<pre class="code-snippet"><code>
-router.get('/user/:name', function (req, res, next) {
+<pre class="code-snippet"><code>router.get('/user/:name', function (req, res, next) {
 <span class="code-comment">// Get some user data</span>
 var user = getUserWithName(req.params.name);
 
@@ -85,19 +84,17 @@ res.render('userPage', {user: user});
 
 <h5 class="content-filename">name.handlebars</h5>
 <p>Let's assume we create a file called <code>name.handlebars</code> inside <code>shared/templates/</code></p>
-<pre class="code-snippet"><code>&lt;p&gt;Hello, my name is {{name}}.&lt;/p&gt;</code></pre>
+<pre class="code-snippet"><code>&lt;p&gt;Hello, my name is {{ "{{name" }}}}.&lt;/p&gt;</code></pre>
 
 <h5 class="content-filename">myView.handlebars</h5>
 <p>We can use it as a partial from the server, through the regular <code>{{> partial}}</code> syntax.</p>
-<pre class="code-snippet"><code>
-{{> name}}
+<pre class="code-snippet"><code>{{ "{{> name" }}}}
 &lt;p&gt;Hello World.&lt;/p&gt;
 </code></pre>
 
 <h5 class="content-filename">script.js</h5>
 <p>We can also access the partial on the client-side with JavaScript. You'll just need to pull in <a href="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js">Handlebars.js</a>.</p>
-<pre class="code-snippet"><code>
-var template = Handlebars.template(App.templates.name);
+<pre class="code-snippet"><code>var template = Handlebars.template(App.templates.name);
 var html = template({name: "Tilo"});
 
 <span class="code-comment">//&lt;p&gt;Hello, my name is Tilo.&lt;/p&gt;</span>
