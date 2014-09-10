@@ -89,7 +89,8 @@ appears on the left side of the page.
         */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
-            background: rgb(27, 33, 39);
+            background: #2A445F;
+            color: white;
         }
 
     /*
