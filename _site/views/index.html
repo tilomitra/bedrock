@@ -95,9 +95,7 @@
     To render a view, you can call <code>routes.render()</code> inside a route handler and pass in the file name of the view that you want to render. In the example below, <code>views/bar.handlebars</code> will get rendered when the user navigates to the <code>/bar</code> route. 
 </p>
 
-<pre class="code-snippet"><code>
-router.get('/bar', routes.render('bar'));
-</code></pre>
+<pre class="code-snippet"><code>router.get('/bar', routes.render('bar'));</code></pre>
 
 <h3 class="content-title">Passing in data to views</h3>
 <p>
@@ -112,8 +110,7 @@ router.get('/bar', routes.render('bar'));
 </p>
 
 <h5 class="content-filename">server.js</h5>
-<pre class="code-snippet"><code>
-router.get('/bar', function (req, res, next) {
+<pre class="code-snippet"><code>router.get('/bar', function (req, res, next) {
 res.locals.name = "Tilo";
 res.render('bar');
 <span class="code-comment">//Optionally, I could write res.render('bar', {name: "Tilo"});</span>
@@ -121,9 +118,7 @@ res.render('bar');
 </code></pre>
 
 <h5 class="content-filename">bar.handlebars</h5>
-<pre class="code-snippet"><code>
-Hello, my name is .
-</code></pre>
+<pre class="code-snippet"><code>Hello, my name is {{name}}</code></pre>
 
 <h3 class="content-title">Learn More</h3>
 <p>
