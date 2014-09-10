@@ -34,13 +34,17 @@ permalink: /
 </ul>
 
 <h3 class="content-title" id="installation">Installation</h3>
-<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off an <a href="https://github.com/tilomitra/bedrock/releases">existing release</a>.</p>
+<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off a <a href="https://github.com/tilomitra/bedrock/tags">release tag</a>. The latest release tag is <span class="release">{{site.version}}</span>.</p>
 
-<pre class="code-snippet"><code>
-git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
-git checkout &lt;latest-tag&gt;
+<pre class="code-snippet"><code>git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
+cd &lt;your-app-folder-name&gt;
+git checkout {{site.version}}
 npm install
 npm start
 </code></pre>
+
+<aside>
+    <p>If <code>npm install</code> does not work on your machine for some reason, try doing <code>sudo npm install</code>.</p>
+</aside>
 
 <p>Then, go to <a href="http://localhost:8000">http://localhost:8000</a>. I recommend using <code>--depth 1</code> so that you don't get Bedrock's commit history, which you probably don't care about since you'll be adding your application-specific commits.</p>

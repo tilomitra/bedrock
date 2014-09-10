@@ -75,10 +75,25 @@ pre, code {
     color: white !important;
 }
 
+
 .header-button:hover {
     background: white;
     color: #333 !important;
 }
+
+.header-button-primary {
+    font-size: 1.1em;
+    background: rgb(174, 216, 255);
+    border: 1px solid rgb(174, 216, 255);
+    color: #638eba !important;
+}
+
+.header-button-primary:hover {
+    background: #638eba;
+    border: 1px solid #638eba;
+    color: white !important;
+}
+
 
 .header-title {
     font-size: 2em;
@@ -101,6 +116,13 @@ pre, code {
 .l-inner {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.release {
+    background: rgb(174, 216, 255);
+    color: #638eba;
+    padding: 2px 7px;
+    border-radius: 4px;
 }
 
 .content-title,
