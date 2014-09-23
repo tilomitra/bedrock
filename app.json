@@ -1,0 +1,7 @@
+{
+  "name": "Bedrock",
+  "description": "A minimalist boilerplate for Express Apps",
+  "repository": "https://github.com/tilomitra/bedrock",
+  "logo": "http://f.cl.ly/items/1d0s062L2T2X2S012R2T/Screen%20Shot%202014-09-23%20at%203.13.34%20PM.png",
+  "keywords": ["node", "express", "boilerplate"]
+}
