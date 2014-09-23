@@ -1,4 +1,7 @@
 # Change Log
+## NEXT
+* Added Heroku Button to easily deploy to Heroku
+
 ## v0.1.2
 * Improve how the home page looks.
 * Improve error handling code in `server.js`.
