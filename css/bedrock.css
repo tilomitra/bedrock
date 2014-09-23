@@ -69,7 +69,12 @@ pre, code {
 }
 
 .header-button {
-    font-size: 1.1em;
+    position: relative;
+    margin-left: 5px;
+    top: -11px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1em;
     background: transparent;
     border: 1px solid white;
     color: white !important;

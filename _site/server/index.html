@@ -65,7 +65,9 @@
           <div class="header">
     <h1 class="header-title">Bedrock</h1>
     <h2 class="header-subtitle">A minimalist boilerplate for Express apps.</h2>
-    <a class="header-button header-button-primary pure-button" href="#installation">Install v0.1.2</a>
+    <a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-sample">
+      <img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy">
+    </a>
     <a class="header-button pure-button" href="http://github.com/tilomitra/bedrock">View on GitHub</a>
 </div>
 
@@ -125,7 +127,7 @@ res.render('foo');
 </p>
     <pre class="code-snippet"><code>router.get('/', [ middleware.exposeTemplates(), routes.render('home') ]);</code>    </pre>
 <p>
-    In the example above, all routes to <code>/</code> will go through <code>middleware.exposeTemplates</code>, which will expose Handlebars partials that are stored within the <code>shared/templates/</code> directory to the client-side JavaScript under <code>App.templates</code>. Read more about this in the <a href="../sharing/">Sharing Code</a> section.
+    In the example above, all routes to <code>/</code> will go through <code>middleware.exposeTemplates</code>, which will expose Handlebars partials that are stored within the <code>shared/templates/</code> directory to the client-side JavaScript under <code>App.templates</code>. Read more about this in the <a href="../sharing-code/">Sharing Code</a> section.
 </p>
 
 <h3 class="content-title" id="features">Static Files</h3>
