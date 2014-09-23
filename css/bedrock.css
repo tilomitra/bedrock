@@ -149,7 +149,17 @@ pre, code {
     text-align: left;
     padding: 1em;
     font-size: 80%;
+    background: #222729;
 }
+.footer-avatar {
+    border-radius: 50px;
+    width: 32px;
+    height: auto;
+    float: left;
+    margin-top: -8px;
+    margin-right: 8px;
+}
+
 .footer a {
     color: #ddd;
     font-weight: bold;
