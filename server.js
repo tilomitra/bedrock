@@ -2,6 +2,7 @@
 var express  = require('express'),
 bodyParser   = require('body-parser'),
 cookieParser = require('cookie-parser'),
+csrf         = require('csurf'),
 session      = require('express-session'),
 state        = require('express-state'),
 hbs          = require('./lib/exphbs'),
@@ -56,6 +57,7 @@ app.use(cookieParser());
 
 // Session Handling
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}));
+app.use(csrf());
 
 // Specify the public directory.
 app.use(express.static(config.dirs.pub));
