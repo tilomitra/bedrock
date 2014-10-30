@@ -5,6 +5,7 @@ cookieParser = require('cookie-parser'),
 csrf         = require('csurf'),
 session      = require('express-session'),
 state        = require('express-state'),
+flash        = require('express-flash'),
 hbs          = require('./lib/exphbs'),
 routes       = require('./routes'),
 middleware   = require('./middleware'),
@@ -58,6 +59,9 @@ app.use(cookieParser());
 // Session Handling
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}));
 app.use(csrf());
+
+// Flash Message Support
+app.use(flash());
 
 // Specify the public directory.
 app.use(express.static(config.dirs.pub));
