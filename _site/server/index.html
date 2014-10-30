@@ -119,6 +119,8 @@ res.render('foo');
 <p>
     Middleware can be defined inside the <code>middleware/</code> directory, and can be called inside a route handler within <code>server.js</code>. By default, Bedrock comes with Middleware to handle:
     <ul>
+        <li>Flash Message Support via <a href="https://www.npmjs.org/package/express-flash">express-flash</a></li>
+        <li>CSRF Protection via <a href="https://www.npmjs.org/package/csurf">csurf</a></li>
         <li>Logging</li>
         <li>Strict Routing</li>
         <li>Exposing Templates to the Client</li>
