@@ -58,7 +58,7 @@ app.use(cookieParser());
 
 // Session Handling
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}));
-app.use(csrf());
+
 
 // Flash Message Support
 app.use(flash());
@@ -82,6 +82,13 @@ app.use(function(err, req, res, next) {
     }
 });
 
+app.use(csrf());
+app.use(function(req, res, next) {
+    var token = req.csrfToken();
+    res.cookie('XSRF-TOKEN', token);
+    res.locals._csrf = token;
+    next();
+});
 
 // Use the router.
 app.use(router);
