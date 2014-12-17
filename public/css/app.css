@@ -1,12 +1,15 @@
 /* Application CSS */
 /* You can probably delete all this once you're ready to make changes. */
 body {
-    background: black;
-    color: #ddd;
+    background: white;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
 }
 
 a, a:hover, a:visited, a:focus {
-    color: rgb(34, 161, 237);
+    color: #3540ff;
     text-decoration: none;
 }
 
@@ -14,8 +17,9 @@ a, a:hover, a:visited, a:focus {
     padding: 2em;
     max-width: 700px;
     margin: 30px auto;
-    border-radius: 3px;
-    border: 2px solid #222;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
 }
 
 .jumbotron p {
@@ -27,10 +31,16 @@ h1 small {
     font-weight: normal;
 }
 
+
 .btn, a.btn {
     background: transparent;
-    border: 2px solid rgb(174, 216, 255);
+    border: 1px solid #3540ff;
     border-radius: 20px;
-    color: rgb(174, 216, 255);
-
+    color: #3540ff;
+    transition: all 0.33s;
+}
+.btn:hover, a.btn:hover,
+.btn:focus, a.btn:focus {
+    background: #3540ff;
+    color: white;
 }
