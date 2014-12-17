@@ -70,18 +70,6 @@ app.use(express.static(config.dirs.pub));
 // Before uncommenting this line, go into config/index.js and add config.dirs.bower there.
 //app.use(express.static(config.dirs.bower));
 
-// Error handling middleware
-app.use(function(err, req, res, next) {
-    if(!err) return next();
-    console.log(err);
-    if (err.status && err.status === 404) {
-        res.render('404', {error: err});
-    }
-    else {
-        res.render('500', {error: err});
-    }
-});
-
 app.use(csrf());
 app.use(function(req, res, next) {
     var token = req.csrfToken();
@@ -104,10 +92,14 @@ app.use(router);
 // available to the client.
 router.get('/', [ middleware.exposeTemplates(), routes.render('home') ]);
 
-// A Route for Creating a 500 Error (Useful to keep around)
-router.get('/500', routes.render);
+// Error handling middleware
+app.use(function(req, res, next){
+  res.render('404', { status: 404, url: req.url });
+});
 
-//The 404 Route (ALWAYS Keep this as the last route)
-router.get('/*', function(req, res, next){
-    next(utils.error(404, 'Page not found'));
+app.use(function(err, req, res, next){
+  res.render('500', {
+      status: err.status || 500,
+      error: err
+  });
 });
