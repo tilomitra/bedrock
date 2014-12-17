@@ -104,13 +104,11 @@
 </ul>
 
 <h3 class="content-title" id="installation">Installation</h3>
-<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off a <a href="https://github.com/tilomitra/bedrock/tags">release tag</a>. The latest release tag is <span class="release">v0.1.2</span>.</p>
+<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off a <a href="https://github.com/tilomitra/bedrock/tags">release tag</a>. The latest release tag is <span class="release">v0.1.4</span>.</p>
 
 <pre class="code-snippet"><code>git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
 cd &lt;your-app-folder-name&gt;
-git remote rename origin bedrock
-git fetch bedrock --tags
-git reset v0.1.3
+git checkout v0.1.4
 npm install
 npm start
 </code></pre>
