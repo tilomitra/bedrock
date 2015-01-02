@@ -16,10 +16,10 @@ port         = (process.env.PORT || 8000);
 
 
 //Comment out the line below if you want to enable cluster support.
-//setupServer();
+setupServer();
 
 //Uncomment the line below if you want to enable cluster support.
-cluster(setupServer);
+//cluster(setupServer);
 
 
 function setupServer (worker) {
