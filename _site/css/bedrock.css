@@ -23,7 +23,7 @@ a:focus {
 
 
 code {
-    color: rgb(174, 216, 255);
+    color: rgb(227, 227, 227);
     background: rgb(23, 23, 36);
 }
 
@@ -62,7 +62,7 @@ pre, code {
 .pure-menu-heading,
 .content-title,
 .content-subtitle {
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0;
@@ -130,19 +130,27 @@ pre, code {
     border-radius: 4px;
 }
 
-.content-title,
-.content-subtitle {
-    color: rgb(174, 216, 255);
+.content-title {
+    color: rgb(255, 185, 82);
     margin-top: 2em;
     border-bottom: 1px solid #333;
 }
 
+.content-subtitle,
 .content-filename {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-left: 2px solid rgb(35, 140, 238);
     padding-left: 1em;
+}
+
+.content-subtitle {
+    border-color: rgb(255, 185, 82);
+    margin-top: 1em;
+}
+.content-filename {
+    font-family: "Source Code", "Source Code Pro", monospace;
 }
 
 .footer {

@@ -75,7 +75,7 @@
             <div class="l-inner">
               <h3 class="content-title" id="overview">Overview</h3>
 <p>
-    Bedrock is a quick way to start an Express app with nice defaults without having to worry about setup and configuration. It is a collection of modules and libraries that I find myself using in almost every Express app that I make. Bedrock removes the repetition that is involved when building a new Express app.
+    Bedrock is a quick way to start an Express server with nice defaults without having to worry about setup and configuration. It has support for code sharing between server and client, clustering, deployment, and view helpers.
 </p>
 
 <h3 class="content-title" id="features">Features</h3>
@@ -86,11 +86,13 @@
     <li>Sets up a Handlebars View Engine</li>
     <li>Exposes useful Handlebars helpers</li>
     <li>Sets up a place to store config data</li>
-    <li>Creates 404/500 pages</li>
-    <li>Basic Route Handling</li>
+    <li>Error Handling for 404/500 pages</li>
+    <li>Route Handling</li>
     <li>Loads popular front-end code (jQuery/Pure by default)</li>
     <li>Shares Handlebars partials with the client</li>
     <li>Shares JavaScript variables with the client</li>
+    <li><a href="https://github.com/LearnBoost/cluster">Cluster</a> support</li>
+    <li><a href="https://github.com/Unitech/pm2">PM2</a> JSON App Configuration</li>
 </ul>
 
 <h3 class="content-title" id="stack">Stack</h3>
@@ -104,11 +106,11 @@
 </ul>
 
 <h3 class="content-title" id="installation">Installation</h3>
-<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off a <a href="https://github.com/tilomitra/bedrock/tags">release tag</a>. The latest release tag is <span class="release">v0.1.4</span>.</p>
+<p>You can clone Bedrock when creating a new project. Instead of working off master, you should work off a <a href="https://github.com/tilomitra/bedrock/tags">release tag</a>. The latest release tag is <span class="release">v0.1.5</span>.</p>
 
 <pre class="code-snippet"><code>git clone --depth 1 git@github.com:tilomitra/bedrock.git &lt;your-app-folder-name&gt;
 cd &lt;your-app-folder-name&gt;
-git checkout v0.1.4
+git checkout v0.1.5
 npm install
 npm start
 </code></pre>
@@ -135,7 +137,7 @@ npm start
     <div class="l-inner">
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <img src="https://pbs.twimg.com/profile_images/488721474979516417/E4zV-064.png" class="footer-avatar" width="16" height="16">
+                <img src="https://pbs.twimg.com/profile_images/529721134107734016/19rKbZoX_400x400.png" class="footer-avatar" width="16" height="16">
                 <a href="http://twitter.com/tilomitra">Made by Tilo</a>
             </div>
             <div class="pure-u-1-2 t-right">

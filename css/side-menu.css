@@ -89,7 +89,7 @@ appears on the left side of the page.
         */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
-            background: #2A445F;
+            background: rgb(65, 65, 65);
             color: white;
         }
 
@@ -97,14 +97,14 @@ appears on the left side of the page.
     This styles the selected menu item `<li>`.
     */
     #menu .pure-menu-selected {
-        background: rgb(174, 216, 255);
+        background: rgb(43, 43, 42);
     }
         /*
         This styles a link within a selected menu item `<li>`.
         */
         #menu .pure-menu-selected a {
-            color: #4E6583;
-            font-weight: bold;
+            color: rgb(255, 185, 82);
+            font-weight: 400;
         }
 
     /*
@@ -112,7 +112,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu-heading {
         font-size: 110%;
-        color: rgb(174, 216, 255);
+        color: rgb(255, 185, 82);
         margin: 0;
     }
 

@@ -74,12 +74,29 @@
           <div class="content">
             <div class="l-inner">
               <h3 class="content-title" id="overview">Starting the Server</h3>
+
+<h4 class="content-subtitle">Development Mode</h4>
 <p>
     The file that instantiates the Express server in Bedrock is <code>server.js</code>. To start Bedrock's server, just run:
     <pre class="code-snippet"><code>npm start</code></pre>
 </p>
 <p>
     I recommend using a tool like <a href="https://github.com/remy/nodemon">nodemon</a> or <a href="https://github.com/isaacs/node-supervisor">node-supervisor</a> so that your server restarts anytime a file is changed.
+</p>
+
+<p>If you decide to use nodemon, you can start a self-restarting server like this:</p>
+
+<pre class="code-snippet"><code>nodemon -e handlebars,css,js server.js</code></pre>
+
+<h4 class="content-subtitle">Production Mode</h4>
+<p>
+    When deploying to production, I recomment using <a href="https://github.com/Unitech/PM2/">PM2</a> to deploy your app. PM2 has a great API to help you manage your production instances. Bedrock supports PM2's <a href="https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md#json-app-declaration">JSON App Declaration</a>, so you can start a production instance of your app pretty easily:
+</p>
+
+<pre class="code-snippet"><code>pm2 start server.json</code></pre>
+
+<p>
+    You can update the <code>server.json</code> file and pass in the necessary NODE_ENV paramters that your app needs. If you decide to not use pm2, just delete that file.
 </p>
 
 <h3 class="content-title" id="features">Configuring the Server</h3>
@@ -134,6 +151,17 @@ res.render('foo');
 <p>
     Static files like images, CSS, and JS files should be stored inside the <code>public/</code> directory.
 </p>
+
+<h3 class="content-title" id="features">Cluster Support</h3>
+<p>
+    Cluster lets you spawn multiple instances of your app based on the number of CPUs available on the box that the app is being deployed on. It is a simple way to increase the performance of your app. Bedrock now has cluster support. If you want to enable it, go into <code>server.js</code> and do the following:
+</p>
+
+<p>Comment out this line:</p>
+
+<pre class="code-snippet"><code>setupServer();</code></pre>
+<p>And uncomment this line:</p>
+<pre class="code-snippet"><code>cluster(setupServer());</code></pre>
             </div>
           </div>
 
@@ -141,7 +169,7 @@ res.render('foo');
     <div class="l-inner">
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <img src="https://pbs.twimg.com/profile_images/488721474979516417/E4zV-064.png" class="footer-avatar" width="16" height="16">
+                <img src="https://pbs.twimg.com/profile_images/529721134107734016/19rKbZoX_400x400.png" class="footer-avatar" width="16" height="16">
                 <a href="http://twitter.com/tilomitra">Made by Tilo</a>
             </div>
             <div class="pure-u-1-2 t-right">
