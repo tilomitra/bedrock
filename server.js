@@ -7,6 +7,7 @@ session      = require('express-session'),
 state        = require('express-state'),
 flash        = require('express-flash'),
 cluster      = require('express-cluster'),
+compression  = require('compression'),
 hbs          = require('./lib/exphbs'),
 routes       = require('./routes'),
 middleware   = require('./middleware'),
@@ -73,6 +74,9 @@ function setupServer (worker) {
 
     // Flash Message Support
     app.use(flash());
+
+    //GZip Support
+    app.use(compression()); 
 
     // Specify the public directory.
     app.use(express.static(config.dirs.pub));

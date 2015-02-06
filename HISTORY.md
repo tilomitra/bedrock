@@ -1,6 +1,9 @@
 # Change Log
 ## NEXT
 
+## v0.1.6
+* Added gzip support via [compression](https://www.npmjs.com/package/compression).
+
 ## v0.1.5
 * Added server.json to help with [pm2](https://github.com/Unitech/pm2) deployment
 * Added Cluster support via [express-cluster](https://www.npmjs.com/package/express-cluster)
