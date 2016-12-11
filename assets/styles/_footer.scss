@@ -1,0 +1,14 @@
+.footer {
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 130px;
+    background-color: $med-grey !important;
+    padding: 20px 10px 20px;
+    margin-top: 4em !important;
+}
+
+.footer p {
+    padding-top: 0;
+    color: $light-grey;
+}

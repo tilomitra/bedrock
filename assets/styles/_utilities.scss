@@ -1,0 +1,93 @@
+/* general utilities */
+.centered {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.panel-inline {
+    display: inline-block;
+}
+
+.block-container {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.block-container .block-container-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 5px;
+}
+
+
+/* Layout Styles */
+.divider {
+    margin: 1em 0;
+}
+
+.divider-lg {
+    margin: 3em 0;
+}
+
+.l-box {
+    padding: 1em 2em;
+}
+
+.l-box-sm {
+    padding: 1em;
+}
+
+.l-box-bottom-lg {
+    padding-bottom: 3em;
+}
+.l-inset {
+    border: 1px solid #eee;
+    margin: 1em 0;
+    box-shadow: inset 0 0 7px #eee;
+}
+
+.l-max-height {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.embossed {
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+}
+
+#recaptcha_widget_div {
+    padding-bottom: 20px;
+}
+
+/* loading spinner */
+.loader {
+    min-height: 175px;
+}
+
+.muted {
+    color: darken($light-grey, 10%);
+}
+
+

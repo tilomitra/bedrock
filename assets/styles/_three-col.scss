@@ -1,0 +1,53 @@
+/* Styles for the 3-column layout. The body class will have a class `three-col` to distinguish this layout. */
+.three-col .container {
+    padding: 0;
+    max-width: 100%;
+}
+
+.container:before, .container:after {
+    display: table;
+    content: " ";
+}
+
+.three-col .sidebar {
+    position: absolute;
+    bottom: 0;
+    top: 88px;
+    left: 0;
+    width: 200px;
+}
+
+.three-col .sidebar-nav {
+    padding: 40px 20px;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 200px;
+}
+
+.three-col .section-right-parent {
+    padding-left: 200px;
+}
+
+.three-col .section-right {
+    width: 40%;
+    margin-left: 60%;
+    background-color: #45474b;
+}
+
+.three-col .docs-content {
+    background-color: #fff;
+    width: 150%;
+    margin-left: -150%;
+    border-top: 1px solid #ddd;
+    float: left;
+}
+
+.three-col .docs-right {
+    padding: 40px 47px 40px;
+    vertical-align: top;
+    width: 100%;
+}

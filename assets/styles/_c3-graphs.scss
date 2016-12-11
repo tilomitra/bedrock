@@ -1,0 +1,22 @@
+
+
+.c3-grid {
+  .c3-ygrid {
+    stroke-dasharray: 0;
+    opacity: 0.1;
+  }
+}
+
+.c3-axis {
+  line, path {
+    visibility: hidden;
+  }
+}
+
+g.c3-legend-background {
+  stroke-width: 0.2;
+}
+
+.c3 svg {
+  font-size: 12px!important;
+}

@@ -1,0 +1,114 @@
+//Color Palette
+$white        : #fff;
+$black        : #333;
+$dark-grey    : #1D1C2A;
+$med-grey     : #505050;
+$light-grey   : #F7F7F7;
+
+//Newer blues
+
+$v3_blue_01   :#2196f3;
+$v3_blue_02   :#b3e5fc;
+$v3_blue_03   :#e3f2fd;
+$v3_blue_04   :#eef7fd;
+$header_blue  :#61a8ef;
+
+// Brand Guidlines Colors
+$c_blue_01    :#0097a7;
+$c_blue_02    :#00acc1;
+$c_blue_03    :#00bcd4;
+$c_blue_04    :#26c6da;
+$c_blue_05    :#4dd0e1;
+$c_blue_06    :#80deea;
+$c_blue_07    :#b2ebf2;
+
+$blue_01      :#0d47a1;
+$blue_02      :#0076c0;
+$blue_03      :#a1d5fe;
+$blue_04      :#2196F3;
+$blue_05      :#82c3f6;
+$blue_06      :#a1d5fe;
+$blue_07      :#bbdefb;
+
+$grey_bl_01   :#455a64;
+$grey_bl_02   :#546e7a;
+$grey_bl_03   :#78909c;
+$grey_bl_04   :#90a4ae;
+$grey_bl_05   :#b0bec5;
+$grey_bl_06   :#cfd8dc;
+$grey_bl_07   :#eceff1;
+
+$grey_01      :#212121;
+$grey_02      :#424242;
+$grey_03      :#757575;
+$grey_04      :#9e9e9e;
+$grey_05      :#cccccc;
+$grey_06      :#e0e0e0;
+$grey_07      :#eeeeee;
+$grey_08      :#f5f5f5;
+
+$green_01     :#2BBD31;
+$green_02     :#43a047;
+$green_03     :#4caf50;
+$green_04     :#66bb6a;
+$green_05     :#81c784;
+$green_06     :#a5d6a7;
+$green_07     :#c8e6c9;
+
+$yellow_01    :#ffa000;
+$yellow_02    :#ffb300;
+$yellow_03    :#ffc107;
+$yellow_04    :#ffca28;
+$yellow_05    :#ffd54f;
+$yellow_06    :#ffe082;
+$yellow_07    :#ffecb3;
+
+$red_01       :#e53935;
+$red_02       :#f44336;
+$red_03       :#ef5350;
+$red_04       :#e57373;
+$red_05       :#ef9a9a;
+$red_06       :#ffcdd2;
+$red_07       :#ffebee;
+
+$primary-blue : #2095f3;
+$dark-blue    : #1D1C2A;
+
+$green        : rgb(53, 216, 55);
+$yellow       : rgb(207, 196, 5);
+$red          : rgb(232, 20, 20);
+
+
+
+// Component Colors
+$docs-background            : $white;
+$header-background          : $primary-blue;
+$code-background            : $dark-blue;
+
+$heading-color              : $black;
+$font-color                 : $dark-grey;
+
+// Dashboard
+$app-status--active-color   : $green;
+$app-status--disabled-color : $red;
+$app-status--default-color  : $yellow;
+
+
+// Buttons
+$button-bg-color-disabled: $grey_01 !default;
+$button-color: $grey_02 !default;
+$button-color-disabled: $grey_05 !default;
+$button-color-flat: $grey_01 !default;
+$button-color-raised: $white !default;
+$button-floating-size: 37px !default;
+$button-height: 36px !default;
+$button-font-size-shared: 1.3rem !default;
+$button-line-height: 36px !default;
+
+
+// Vertical Icons
+$vertical-green: $green_04;
+$vertical-yellow: $yellow_04;
+$vertical-blue: $c_blue_04;
+$vertical-red: $red_04;
+$vertical-default: $grey_bl_01;

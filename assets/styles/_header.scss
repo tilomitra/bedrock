@@ -1,0 +1,31 @@
+/* Header Styles */
+.houndify-menu.ui.menu {
+    margin-bottom: 0;
+}
+
+.houndify-menu.ui.menu.inverted {
+    border-radius: 0;
+    background: $dark-grey;
+}
+
+.splash-header {
+    background: #28395F;
+    color: #A089BD;
+}
+
+.splash-header h1 {
+    color: $white;
+}
+
+.splash-header a {
+    color: #28AFFA;
+}
+
+.page-header {
+    border: none;
+    margin-bottom: 0;
+}
+
+.splash-container {
+    width: 100%;
+}

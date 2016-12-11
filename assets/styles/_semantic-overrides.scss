@@ -1,0 +1,127 @@
+.ui.button {
+    transition: all 0.25s !important;
+}
+
+.ui.primary.button {
+    background-color: $primary-blue;
+}
+
+.ui.basic.blue.button {
+    box-shadow: 0 0 0 1px $primary-blue inset !important;
+    color: $primary-blue !important;
+}
+.ui.tiny.blue.label {
+    background-color: $primary-blue !important;
+    border-color: $primary-blue !important;
+    color: #FFF!important;
+}
+
+.ui.basic.blue.label {
+    background-color: #FFF!important;
+    color: $primary-blue !important;
+    border-color: $primary-blue !important;
+}
+
+// h1.ui.header,
+// h2.ui.header {
+//     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+//     font-weight: 400;
+// }
+
+// .ui.header,
+// .ui.input input,
+// .sub.header {
+//     font-family: Helvetica, Arial, "Lucida Grande", sans-serif; 
+// }
+
+.ui.main.container {
+    border-bottom: 1px solid #ddd;
+}
+
+.ui.segment {
+    box-shadow: none;
+}
+
+.ui.basic.segments {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+}
+.ui.basic.segments>.ui.basic.segments {
+    margin: 0;
+}
+
+.ui.primary.header {
+    color: $primary-blue;
+    font-weight: normal;
+}
+
+.ui.light.header {
+    font-weight: normal;
+}
+
+.ui.very.padded.header {
+    padding: 1.5em 0;
+}
+.ui.muted.header {
+    font-weight: normal;
+    color: lighten($med-grey, 30%);
+}
+.ui.top.padded.header {
+    padding: 1em 0 0;
+}
+
+.ui.red.text {
+    color: red;
+}
+
+.scrolling.undetached.dimmable .ui.fullscreen.modal.scrolling {
+    right: 0;
+} 
+ 
+.ui.fullscreen.modal {  
+    padding: 0;
+}
+
+.help.circle.icon {
+  cursor: pointer; 
+}
+
+.column.slim-top {
+    padding-top: 0.5rem !important;
+}
+
+.column.slim-bottom {
+    padding-bottom: 0.5rem !important;
+}
+
+.ui.progress .bar {
+    min-width: 0;
+}
+
+.ui.label .detail:first-letter {
+    text-transform: uppercase;
+}
+
+.ui.error.message {
+    background-color: $red_03;
+    color: $white;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+
+    .header {
+        color: $white;
+    }
+    a {
+        color: lighten($red_03, 50%);
+    }
+}
+
+.ui.tiny.label {
+    font-weight: 300;
+    font-size: 0.85em;
+}
+
+.ui.relaxed.list > li {
+    line-height: 1.6;
+}

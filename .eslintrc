@@ -1,0 +1,12 @@
+{
+   "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "mocha": true
+   },
+   "rules": {
+      "eol-last": 0,
+      "no-underscore-dangle": 0
+   }
+}
