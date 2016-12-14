@@ -16,18 +16,4 @@ module.exports = {
      * Set the default database connection for models in the development       *
      * environment (see config/connections.js and config/models.js )           *
      ***************************************************************************/
-
-    models: {
-        connection: 'mysql'
-    },
-
-    policies: {
-        '*': true
-    },
-    permissions: {
-        adminUsername: 'admin',
-        adminEmail: 'admin@example.com',
-        adminPassword: 'admin1234'
-    }
-
 };

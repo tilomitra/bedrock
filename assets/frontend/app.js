@@ -22,9 +22,7 @@ var routes = (
 var bootstrapActions = {
 
     "home": function(rs) {
-        // common.actions.fetchStats();
-        // dashboard.actions.fetchClientUsers(opts);
-        // dashboard.actions.fetchLanguages({ skip: 0, sort: "id"});
+        //Actions go here.
     }
 }
 
