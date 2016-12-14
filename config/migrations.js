@@ -1,3 +1,3 @@
 module.exports.migrations = {
-  connection: 'mysqlLocal'
+  connection: 'mysql'
 };

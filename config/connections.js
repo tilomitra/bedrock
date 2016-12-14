@@ -49,8 +49,8 @@ module.exports.connections = {
         host: '127.0.0.1',
         user: 'root',
         password: 'root',
-        database: 'your_db_name',
-        port: '8889'
+        database: 'bedrock',
+        port: '80'
     },
 
     /***************************************************************************
