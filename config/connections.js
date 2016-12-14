@@ -44,22 +44,14 @@ module.exports.connections = {
     // NOTE: Here is the connection for your local / dev Database
     // The production connection is defined within /config/env/production.js
 
-    // mysql: {
-    //     adapter: 'sails-mysql',
-    //     host: '127.0.0.1',
-    //     user: 'root',
-    //     password: 'root',
-    //     database: 'your_db_name',
-    //     port: '8889'
-    // },
-
-    // loggingLabeling: {
-    //   adapter: 'sails-mysql',
-    //   host: 'hound-mysql-a-1.sgs.melodis.com',
-    //   user: 'hound_mysql',
-    //   password: 'sjctech#099',
-    //   database: 'loggingLabeling'
-    // },
+    mysql: {
+        adapter: 'sails-mysql',
+        host: '127.0.0.1',
+        user: 'root',
+        password: 'root',
+        database: 'your_db_name',
+        port: '8889'
+    },
 
     /***************************************************************************
      *                                                                          *
