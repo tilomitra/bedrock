@@ -67,6 +67,16 @@ var Passport = {
     identifier : { type: 'string' },
     //tokens     : { type: 'json' },
 
+
+    // Reset Password Fields:
+    //
+    // "resetPasswordToken" will contain a token if a user asks to reset their password.
+    // "resetPasswordExpires" specifies how long the token is valid for. The token
+    // will be sent to the user via email. Check AuthController#resetPasswordSubmit
+    // for more details
+    resetPasswordToken: {type: 'string'},
+    resetPasswordExpires: {type: 'datetime'},
+
     // Associations
     //
     // Associate every passport with one, and only one, user. This requires an

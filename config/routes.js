@@ -48,7 +48,10 @@ module.exports.routes = {
   'get /login': 'PageController.login',
   'get /signup': 'PageController.signup',
   'get /logout': 'AuthController.logout',
-
+  'get /forgot': 'AuthController.forgotPassword',
+  'post /forgot': 'AuthController.forgotPasswordSubmit',
+  'get  /reset/:token': 'AuthController.resetPassword',
+  'post /reset': 'AuthController.resetPasswordSubmit',
   'get /register': 'AuthController.register',
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',

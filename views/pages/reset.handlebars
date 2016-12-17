@@ -1,0 +1,36 @@
+{{setTitle "Reset"}}
+<div class="ui container" style="margin-top: 100px;">
+    <div class="ui center aligned grid">
+        <div class="doubling two column row">
+            <div class="left aligned column">
+                <div class="ui very padded left aligned segment">
+                    {{> flash}}
+
+                    <div class="centered">
+                      <img src="/images/logo.png" class="ui centered circular image" width="128" height="auto">
+                    </div>
+
+                    <h1 class="ui header">
+                        Welcome to Shepherd
+                        <div class="sub header">Reset your password</div>
+                    </h1>
+
+                    <div class="ui divider"></div>
+                    <form class="form-signin ui form" role="form" method="POST" action="/reset">
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" required pattern=".{8,}" title="Minimum 8 Characters required">
+                        </div>
+                        <div class="field">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" name="confirmPassword" class="form-control" required pattern=".{8,}" title="Minimum 8 Characters required">
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{_csrf}}">
+                        <input type="hidden" name="token" value="{{token}}">
+                        <button class="ui primary fluid button" type="submit">Update password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
