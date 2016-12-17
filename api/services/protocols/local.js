@@ -1,5 +1,5 @@
 var validator = require('validator');
-var crypto = require('crypto');
+var crypto    = require('crypto');
 
 /**
  * Local Authentication Protocol
@@ -23,40 +23,64 @@ var crypto = require('crypto');
  * @param {Object}   res
  * @param {Function} next
  */
-exports.register = function(req, res, next) {
-    var email = req.param('email');
-    var username = req.param('username');
-    var password = req.param('password');
+exports.register = function (req, res, next) {
+  var email    = req.param('email')
+    , username = req.param('username')
+    , password = req.param('password');
 
-    Users.create(req.body, function(err, user) {
-        if (err) {
-            return next(err);
+  if (!email) {
+    req.flash('error', 'No email was entered.');
+    return next(new Error('No email was entered.'));
+  }
+
+  if (!username) {
+    req.flash('error', 'No username was entered.');
+    return next(new Error('No username was entered.'));
+  }
+
+  if (!password) {
+    req.flash('error', 'No password was entered.');
+    return next(new Error('No password was entered.'));
+  }
+
+  User.create({
+    username : username
+  , email    : email
+  }, function (err, user) {
+    if (err) {
+      if (err.code === 'E_VALIDATION') {
+        if (err.invalidAttributes.email) {
+          req.flash('error', 'This email address already exists.');
+        } else {
+          req.flash('error', 'This username already exists. Please choose a new one.');
+        }
+      }
+
+      return next(err);
+    }
+
+    // Generating accessToken for API authentication
+    var token = crypto.randomBytes(48).toString('base64');
+
+    Passport.create({
+      protocol    : 'local'
+    , password    : password
+    , user        : user.id
+    , accessToken : token
+    }, function (err, passport) {
+      if (err) {
+        if (err.code === 'E_VALIDATION') {
+          req.flash('error', 'The password that you created is invalid. Please create one with 8 or more characters.');
         }
 
-        // Generating accessToken for API authentication
-        var token = crypto.randomBytes(48).toString('base64');
-
-        Passport.create({
-            protocol: 'local',
-            password: req.body.password,
-            UserId: user.id,
-            accessToken: token
-        }, function(err, passport) {
-            if (err) {
-                if (err.code === 'E_VALIDATION') {
-                    req.flash('error', 'Password is not formatted correctly. It must be at least 8 characters.');
-                }
-
-                return user.destroy(function(destroyErr) {
-                    next(destroyErr || err);
-                });
-            }
-
-            user.passports = passport;
-
-            next(null, user);
+        return user.destroy(function (destroyErr) {
+          next(destroyErr || err);
         });
+      }
+
+      next(null, user);
     });
+  });
 };
 
 /**
@@ -70,30 +94,31 @@ exports.register = function(req, res, next) {
  * @param {Object}   res
  * @param {Function} next
  */
-exports.connect = function(req, res, next) {
-    var user = req.user;
-    var password = req.param('password');
+exports.connect = function (req, res, next) {
+  var user     = req.user
+    , password = req.param('password');
 
-    Passport.findOne({
-        protocol: 'local',
-        user: user.id
-    }, function(err, passport) {
-        if (err) {
-            return next(err);
-        }
+  Passport.findOne({
+    protocol : 'local'
+  , user     : user.id
+  }, function (err, passport) {
+    if (err) {
+      return next(err);
+    }
 
-        if (!passport) {
-            Passport.create({
-                protocol: 'local',
-                password: password,
-                user: user.id
-            }, function(err, passport) {
-                next(err, user);
-            });
-        } else {
-            next(null, user);
-        }
-    });
+    if (!passport) {
+      Passport.create({
+        protocol : 'local'
+      , password : password
+      , user     : user.id
+      }, function (err, passport) {
+        next(err, user);
+      });
+    }
+    else {
+      next(null, user);
+    }
+  });
 };
 
 /**
@@ -108,53 +133,58 @@ exports.connect = function(req, res, next) {
  * @param {string}   password
  * @param {Function} next
  */
-exports.login = function(req, identifier, password, next) {
-    var isEmail = validator.isEmail(identifier),
-        query = {};
+exports.login = function (req, identifier, password, next) {
+  var isEmail = validator.isEmail(identifier)
+    , query   = {};
 
-    if (isEmail) {
-        query.email = identifier;
-    } else {
-        query.username = identifier;
+  if (isEmail) {
+    query.email = identifier;
+  }
+  else {
+    query.username = identifier;
+  }
+
+  User.findOne(query, function (err, user) {
+    console.log('trying to find user');
+    console.log(arguments);
+    if (err) {
+      return next(err);
     }
 
-    Users.findOne(query)
-        .exec(function(err, user) {
-            if (err) {
-                return next(err);
-            }
+    if (!user) {
+      if (isEmail) {
+        req.flash('error', 'Error.Passport.Email.NotFound');
+      } else {
+        req.flash('error', 'Error.Passport.Username.NotFound');
+      }
 
-            if (!user) {
-                if (isEmail) {
-                    req.flash('error', 'That email does not match a record in our system');
-                } else {
-                    req.flash('error', 'That user does not match a record in our system');
-                }
+      return next(null, false);
+    }
 
-                return next(null, false);
-            }
+    Passport.findOne({
+      protocol : 'local'
+    , user     : user.id
+    }, function (err, passport) {
+      console.log('trying to find passport');
+      console.log(arguments);
+      if (passport) {
+        passport.validatePassword(password, function (err, res) {
+          if (err) {
+            return next(err);
+          }
 
-            Passport.findOne({
-                protocol: 'local',
-                UserId: user.id
-            }, function(err, passport) {
-                if (passport) {
-                    passport.validatePassword(password, function(err, res) {
-                        if (err) {
-                            return next(err);
-                        }
-
-                        if (!res) {
-                            req.flash('error', 'Email or password is incorrect');
-                            return next(null, false);
-                        } else {
-                            return next(null, user);
-                        }
-                    });
-                } else {
-                    req.flash('error', 'Permanent failure with user record');
-                    return next(null, false);
-                }
-            });
+          if (!res) {
+            req.flash('error', 'Error.Passport.Password.Wrong');
+            return next(null, false);
+          } else {
+            return next(null, user);
+          }
         });
+      }
+      else {
+        req.flash('error', 'Error.Passport.Password.NotSet');
+        return next(null, false);
+      }
+    });
+  });
 };

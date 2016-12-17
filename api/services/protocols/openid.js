@@ -15,11 +15,11 @@
  * @param {Object}   profile
  * @param {Function} next
  */
-module.exports = function(req, identifier, profile, next) {
-    var query = {
-        identifier: identifier,
-        protocol: 'openid'
-    };
+module.exports = function (req, identifier, profile, next) {
+  var query    = {
+    identifier : identifier
+  , protocol   : 'openid'
+  };
 
-    passport.connect(req, query, profile, next);
+  passport.connect(req, query, profile, next);
 };

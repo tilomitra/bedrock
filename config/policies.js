@@ -27,17 +27,7 @@ module.exports.policies = {
      ***************************************************************************/
 
     '*': ['passport', 'csrf', 'flash'],
-
-    'AuthController': {
-        register           : true,
-        login              : true,
-        reset              : true,
-        logout             : ['passport'],
-        generateResetToken : ['passport', 'sessionAuth'],
-        activateUser       : ['passport', 'sessionAuth', 'flash'],
-        sendActivationEmail: ['passport', 'sessionAuth', 'flash']
-    },
-
+    
     'PageController': {
         index: ['passport', 'sessionAuth']
     },

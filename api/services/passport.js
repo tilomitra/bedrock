@@ -1,4 +1,3 @@
-
 var path     = require('path')
   , url      = require('url')
   , passport = require('passport');
@@ -44,7 +43,6 @@ passport.protocols = require('./protocols');
  *          Passport that will be assigned to the user.
  *       2. If a Passport was found, get the user associated with the passport.
  *
-  console.log('calling passport.connect with , profile);
  *     - A user is currently logged in:
  *       1. If a Passport wasn't found, create a new Passport and associate it
  *          with the already logged in user (ie. "Connect")
@@ -99,75 +97,86 @@ passport.connect = function (req, query, profile, next) {
   }
 
   Passport.findOne({
-      provider: provider,
-      identifier: query.identifier.toString()
-  }, function(err, passport) {
-      if (err) {
-          return next(err);
-      }
+    provider   : provider
+  , identifier : query.identifier.toString()
+  }, function (err, passport) {
+    if (err) {
+      return next(err);
+    }
 
-      if (!req.user) {
-          // Scenario: A new user is attempting to sign up using a third-party
-          //           authentication provider.
-          // Action:   Create a new user and assign them a passport.
-          if (!passport) {
-              User.create(user, function(err, user) {
-                  if (err) {
-                      return next(err);
-                  }
-
-                  query.user = user.id;
-
-                  Passport.create(query, function(err, passport) {
-                      // If a passport wasn't created, bail out
-                      if (err) {
-
-                          return next(err);
-                      }
-                      next(err, user);
-                  });
-              });
-            }
-            // Scenario: An existing user is trying to log in using an already
-            //           connected passport.
-            // Action:   Get the user associated with the passport.
-            else {
-              // If the tokens have changed since the last session, update them
-              if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
-                passport.set({ tokens: query.tokens });
+    if (!req.user) {
+      // Scenario: A new user is attempting to sign up using a third-party
+      //           authentication provider.
+      // Action:   Create a new user and assign them a passport.
+      if (!passport) {
+        User.create(user, function (err, user) {
+          if (err) {
+            if (err.code === 'E_VALIDATION') {
+              if (err.invalidAttributes.email) {
+                req.flash('error', 'Error.Passport.Email.Exists');
               }
-              // Save any updates to the Passport before moving on
-              passport.save(function(err, passport) {
-                  if (err) {
-                      return next(err);
-                  }
-
-                  // Fetch the user associated with the Passport
-                  User.findOne(passport.user.id)
-                      .exec(next);
-              });
+              else {
+                req.flash('error', 'Error.Passport.User.Exists');
+              }
             }
-      } 
 
+            return next(err);
+          }
+
+          query.user = user.id;
+
+          Passport.create(query, function (err, passport) {
+            // If a passport wasn't created, bail out
+            if (err) {
+              return next(err);
+            }
+
+            next(err, user);
+          });
+        });
+      }
+      // Scenario: An existing user is trying to log in using an already
+      //           connected passport.
+      // Action:   Get the user associated with the passport.
       else {
-            // Scenario: A user is currently logged in and trying to connect a new
-            //           passport.
-            // Action:   Create and assign a new passport to the user.
-            if (!passport) {
-                query.user = req.user.id;
-                Passport.create(query, function(err, passport) {
-                    // If a passport wasn't created, bail out
-                    if (err) {
-                        return next(err);
-                    }
-                    next(err, req.user);
-                });
-            }
-            else {
-                 return req.user;
-            }
+        // If the tokens have changed since the last session, update them
+        if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
+          passport.tokens = query.tokens;
         }
-    })
+
+        // Save any updates to the Passport before moving on
+        passport.save(function (err, passport) {
+          if (err) {
+            return next(err);
+          }
+
+          // Fetch the user associated with the Passport
+          User.findOne(passport.user.id, next);
+        });
+      }
+    } else {
+      // Scenario: A user is currently logged in and trying to connect a new
+      //           passport.
+      // Action:   Create and assign a new passport to the user.
+      if (!passport) {
+        query.user = req.user.id;
+
+        Passport.create(query, function (err, passport) {
+          // If a passport wasn't created, bail out
+          if (err) {
+            return next(err);
+          }
+
+          next(err, req.user);
+        });
+      }
+      // Scenario: The user is a nutjob or spammed the back-button.
+      // Action:   Simply pass along the already established session.
+      else {
+        next(null, req.user);
+      }
+    }
+  });
 };
 
 /**
@@ -215,9 +224,8 @@ passport.callback = function (req, res, next) {
   var provider = req.param('provider', 'local')
     , action   = req.param('action');
 
-
-  console.log(action); //undef
-  console.log(provider); //local
+  console.log(provider);
+  console.log(action);
 
   // Passport.js wasn't really built for local user registration, but it's nice
   // having it tied into everything else.
@@ -229,7 +237,7 @@ passport.callback = function (req, res, next) {
       this.protocols.local.connect(req, res, next);
     }
     else if (action === 'disconnect' && req.user) {
-      this.protocols.local.disconnect(req, res, next);
+      this.disconnect(req, res, next);
     }
     else {
       next(new Error('Invalid action'));
@@ -248,7 +256,7 @@ passport.callback = function (req, res, next) {
 };
 
 /**
- * Load all strategies defned in the Passport configuration
+ * Load all strategies defined in the Passport configuration
  *
  * For example, we could add this to our config to use the GitHub strategy
  * with permission to access a users email address (even if it's marked as
@@ -273,10 +281,9 @@ passport.loadStrategies = function () {
   var self       = this
     , strategies = sails.config.passport;
 
-  console.log("Loading Passport Strategies...");
   Object.keys(strategies).forEach(function (key) {
     var options = { passReqToCallback: true }, Strategy;
-    console.log("Loading Strategies: " + key);
+
     if (key === 'local') {
       // Since we need to allow users to login using both usernames as well as
       // emails, we'll set the username field to something more generic.
@@ -292,12 +299,12 @@ passport.loadStrategies = function () {
         self.use(new Strategy(options, self.protocols.local.login));
       }
     } else if (key === 'bearer') {
-      
+
       if (strategies.bearer) {
         Strategy = strategies[key].strategy;
         self.use(new Strategy(self.protocols.bearer.authorize));
       }
-      
+
     } else {
       var protocol = strategies[key].protocol
         , callback = strategies[key].callback;
@@ -339,36 +346,35 @@ passport.loadStrategies = function () {
  * @param  {Object} req
  * @param  {Object} res
  */
-passport.disconnect = function(req, res, next) {
-    var user = req.user,
-        provider = req.param('provider');
+passport.disconnect = function (req, res, next) {
+  var user     = req.user
+    , provider = req.param('provider', 'local')
+    , query    = {};
 
-    Passport.findOne({
-        provider: provider,
-        user: user.id
-    }, function(err, passport) {
-        if (err) {
-            return next(err);
-        }
+  query.user = user.id;
+  query[provider === 'local' ? 'protocol' : 'provider'] = provider;
 
-        Passport.destroy(passport.id, function(error) {
-            if (err) {
-                return next(err);
-            }
+  Passport.findOne(query, function (err, passport) {
+    if (err) {
+      return next(err);
+    }
 
-            next(null, user);
-        });
+    Passport.destroy(passport.id, function (error) {
+      if (err) {
+          return next(err);
+      }
+
+      next(null, user);
     });
+  });
 };
 
-passport.serializeUser(function(user, next) {
-    console.log(arguments);
-    next(null, user.id);
+passport.serializeUser(function (user, next) {
+  next(null, user.id);
 });
 
-passport.deserializeUser(function(id, next) {
-    Users.findOne(id)
-        .exec(next);
+passport.deserializeUser(function (id, next) {
+  User.findOne(id, next);
 });
 
 module.exports = passport;

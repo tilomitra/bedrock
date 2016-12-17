@@ -18,8 +18,8 @@
                     <div class="ui divider"></div>
                     <form id="form-signin" class="form-signin ui form" role="form" method="POST" action="/auth/local">
                         <div class="field">
-                            <label for="email">Email Address</label>
-                            <input type="email" name="identifier" placeholder="john.smith@me.com" required autofocus>
+                            <label for="identifier">Email</label>
+                            <input type="text" name="identifier" placeholder="username" required autofocus>
                         </div>
                         <div class="field">
                             <label for="password">Password</label>
@@ -32,14 +32,12 @@
                             {{!-- <small>Don't have an account? <a href="/signup">Sign up for a account</a> --}}
                         </p>
                     </form>
+
+                    {{#each providers}}
+                        <a href="/auth/{{slug}}">{{name}}</a>
+                    {{/each}}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    var formElt = document.getElementById('form-signin');
-    var formAction = '/auth/local' + window.location.hash;
-    formElt.setAttribute('action', formAction);
-</script>

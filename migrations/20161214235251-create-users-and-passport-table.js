@@ -8,11 +8,12 @@ exports.up = function(db, callback) {
         function (cb) {
             db.createTable('Passports', {
                 id: { type: 'int', primaryKey: true, autoIncrement: true },
-                UserId: {type: 'int'},
+                user: {type: 'int'},
                 protocol: { type: 'string', length: 255 },
                 password: { type: 'string', length: 255 },
                 provider: 'string',
                 accessToken: 'string',
+                identifier: 'string',
                 activationToken: 'string',
                 resetPasswordToken: 'string',
                 resetPasswordExpires: 'datetime',
@@ -25,8 +26,8 @@ exports.up = function(db, callback) {
         function (cb) {
             db.createTable('Users', {
                 id: { type: 'int', primaryKey: true, autoIncrement: true },
-                email: { type: 'string', length: 255 },
-                isActivated: { type: 'boolean'},
+                email: { type: 'string', length: 255, unique: true },
+                username: { type: 'string', length: 255, unique: true },
                 createdAt: 'datetime',
                 updatedAt: 'timestamp'
             }, cb);
