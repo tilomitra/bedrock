@@ -33,7 +33,6 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /': 'PageController.index',
-  'get /example': 'PageController.index',
 
   /***************************************************************************
   *                                                                          *
@@ -44,4 +43,16 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  // Authentication EndPoints
+  'get /login': 'PageController.login',
+  'get /signup': 'PageController.signup',
+  'post /login': 'AuthController.login',
+  'get /logout': 'AuthController.logout',
+
+  'post /auth/local': 'AuthController.callback',
+  'post /auth/local/:action': 'AuthController.callback',
+  'get  /auth/:provider': 'AuthController.provider',
+  'get  /auth/:provider/callback': 'AuthController.callback',
+  'get  /auth/:provider/:action': 'AuthController.callback',
 };

@@ -1,0 +1,45 @@
+{{setTitle "Login"}}
+<div class="ui container" style="margin-top: 100px;">
+    <div class="ui center aligned grid">
+        <div class="doubling two column row">
+            <div class="left aligned column">
+                <div class="ui very padded left aligned segment">
+                    {{> flash}}
+
+                    <div class="centered">
+                      <img src="/images/logo.png" class="ui centered circular image" width="128" height="auto">
+                    </div>
+
+                    <h1 class="ui header">
+                        Welcome to Shepherd
+                        <div class="sub header">Login to your account</div>
+                    </h1>
+
+                    <div class="ui divider"></div>
+                    <form id="form-signin" class="form-signin ui form" role="form" method="POST" action="/auth/local">
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="identifier" placeholder="john.smith@me.com" required autofocus>
+                        </div>
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{_csrf}}">
+                        <button class="ui primary button" type="submit">Login</button>
+                        <p>
+                            <small><a href="/forgot">Forgot your password?</a></small> <br/>
+                            {{!-- <small>Don't have an account? <a href="/signup">Sign up for a account</a> --}}
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var formElt = document.getElementById('form-signin');
+    var formAction = '/auth/local' + window.location.hash;
+    formElt.setAttribute('action', formAction);
+</script>

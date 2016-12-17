@@ -1,4 +1,4 @@
-/** 
+/**
  * Passport configuration
  *
  * This is the configuration for your Passport.js setup and where you
@@ -18,17 +18,7 @@ module.exports.passport = {
     local: {
         strategy: require('passport-local').Strategy
     },
-
-    github: {
-        name: 'GitHub',
-        protocol: 'oauth2',
-        strategy: require('passport-github').Strategy,
-        options: {
-            clientID: '35619677269c36b77734',
-            clientSecret: '8937bc7de09d6977cbc0bf429aa87366e2910b1a'
-        }
-    },
-
+    
     bearer: {
         strategy: require('passport-http-bearer').Strategy
     },

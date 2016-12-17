@@ -1,0 +1,45 @@
+{{setTitle "Signup"}}
+
+<div class="ui main container">
+    <div class="ui centered grid">
+        <div class="doubling two column row">
+            <div class="left aligned column">
+                <div class="ui basic segment">
+                    {{> flash}}
+
+                    <form class="ui form form-signin" role="form" method="POST" action="/auth/local/register">
+                        <h3 class="ui header">
+                            Signup for a account
+                        </h3>
+
+                        <h4 class="ui dividing header">Primary Credentials</h4>
+
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email" placeholder="johnsmith@me.com"  required autofocus>
+                        </div>
+                        <div class="field">
+                            <div class="two fields">
+                                <div class="field">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" placeholder="Password" required pattern=".{8,}" title="Minimum 8 Characters required">
+                                </div>
+                                <div class="field">
+                                    <label for="password">Confirm Password</label>
+                                    <input type="password" name="confirmPassword" placeholder="Password" required pattern=".{8,}" title="Minimum 8 Characters required">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="{{_csrf}}">
+                        <button class="ui primary button" type="submit">Sign up</button>
+                    </form>
+                    <div class="ui section divider"></div>
+                    <p class="text-right">
+                        <small>Already have an account? <a href="/login">Login to view your account</a>.
+                    </p>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>

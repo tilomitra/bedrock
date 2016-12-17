@@ -16,9 +16,6 @@ module.exports = function (req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-
-  req.session.returnTo = req.originalUrl;
-
   // User is not allowed
   return res.redirect("/login");
 };
