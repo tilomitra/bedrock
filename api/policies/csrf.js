@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
     // This is sometimes undefined, but I have not been able to reproduce
     if (!req.csrfToken) {
         email = req.user ? req.user.email : 'undefined';
-        console.log("CSRF token function undefined for user: " + email + " on path: " + req.path);
+        sails.log.info("CSRF token function undefined for user: " + email + " on path: " + req.path);
         return next();
     }
 

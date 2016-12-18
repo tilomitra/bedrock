@@ -93,8 +93,6 @@ var Passport = {
      * @param {Function} next
      */
     validatePassword: function (password, next) {
-      console.log('validating password...');
-      console.log(bcrypt.compareSync(password, this.password));
       bcrypt.compare(password, this.password, next);
     }
 

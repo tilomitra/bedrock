@@ -152,10 +152,7 @@ var AuthController = {
         return tryAgain('Passwords do not match');
     }
 
-    console.log(req.body);
-
     passport.callback(req, res, function (err, user, challenges, statuses) {
-      console.log(arguments);
         if (err) {
             if (err.code === 'E_VALIDATION') {
                 return tryAgain(err.invalidAttributes);

@@ -145,8 +145,6 @@ exports.login = function (req, identifier, password, next) {
   }
 
   User.findOne(query, function (err, user) {
-    console.log('trying to find user');
-    console.log(arguments);
     if (err) {
       return next(err);
     }
