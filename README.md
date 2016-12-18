@@ -43,7 +43,14 @@ Then, run the migrations to create the relevant database tables.
 grunt db:migrate:up
 ```
 
-Then, start the server. You will be taken to the signup page.
+Then, build (and watch for changes) in the CSS and JS assets.
+
+```
+# Build and watch css/js
+grunt build
+```
+
+Finally, start the server. You will be taken to the signup page.
 
 ```
 # Start the server
@@ -80,6 +87,28 @@ grunt db:migrate:up
 After it runs, check your database and you should see `Users` and `Passports` table created.
 
 We will talk more about migrations in the Best Practices section.
+
+### Build JS/CSS assets
+Bedrock uses Grunt to build the CSS and JS assets. To build, just run:
+
+```
+grunt build
+```
+
+This will run the CSS and JS assets. It will also start watching for CSS and JS changes.
+
+### Run the server
+To run the server, run:
+
+```
+sails lift
+```
+
+By default, it will start up the server on port 1337. To configure the PORT or NODE_ENV, you can prefix those variables:
+
+```
+NODE_ENV=staging PORT=9999  sails --debug lift
+```
 
 ## Server-side Features
 Bedrock is built on [Sails](http://sailsjs.org), so it has all of the great features that Sails ships with.
