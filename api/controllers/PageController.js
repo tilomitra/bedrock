@@ -9,12 +9,12 @@
 
 module.exports = {
     index: function (req, res) {
-        res.view("index", { isIndex: true });
+        res.view("index");
     },
     login: function (req, res) {
-        res.view("pages/login");
+        res.view("pages/login", {layout: 'blank'});
     },
     signup: function (req, res) {
-        res.view("pages/signup");
+        res.view("pages/signup", {layout: 'blank'});
     }
 };

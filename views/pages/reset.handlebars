@@ -1,4 +1,9 @@
 {{setTitle "Reset"}}
+
+
+
+
+
 <div class="ui container" style="margin-top: 100px;">
     <div class="ui center aligned grid">
         <div class="doubling two column row">
@@ -6,16 +11,13 @@
                 <div class="ui very padded left aligned segment">
                     {{> flash}}
 
-                    <div class="centered">
-                      <img src="/images/logo.png" class="ui centered circular image" width="128" height="auto">
-                    </div>
-
                     <h1 class="ui header">
-                        Welcome to Shepherd
-                        <div class="sub header">Reset your password</div>
+                        Reset Password
+                        <div class="sub header">
+                            Enter your new password.
+                        </div>
                     </h1>
 
-                    <div class="ui divider"></div>
                     <form class="form-signin ui form" role="form" method="POST" action="/reset">
                         <div class="field">
                             <label for="password">Password</label>

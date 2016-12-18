@@ -26,7 +26,7 @@ module.exports.policies = {
      *                                                                          *
      ***************************************************************************/
 
-    '*': ['passport', 'csrf', 'flash'],
+    '*': ['passport', 'csrf', 'localize', 'flash'],
     
     'PageController': {
         index: ['passport', 'sessionAuth']

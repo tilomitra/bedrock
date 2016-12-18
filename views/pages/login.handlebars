@@ -6,12 +6,8 @@
                 <div class="ui very padded left aligned segment">
                     {{> flash}}
 
-                    <div class="centered">
-                      <img src="/images/logo.png" class="ui centered circular image" width="128" height="auto">
-                    </div>
-
                     <h1 class="ui header">
-                        Welcome to Shepherd
+                        Welcome
                         <div class="sub header">Login to your account</div>
                     </h1>
 
@@ -27,9 +23,10 @@
                         </div>
                         <input type="hidden" name="_csrf" value="{{_csrf}}">
                         <button class="ui primary button" type="submit">Login</button>
+                        <div class="ui section divider"></div>
                         <p>
                             <small><a href="/forgot">Forgot your password?</a></small> <br/>
-                            {{!-- <small>Don't have an account? <a href="/signup">Sign up for a account</a> --}}
+                            <small>Don't have an account? <a href="/signup">Sign up</a>.</small>
                         </p>
                     </form>
 

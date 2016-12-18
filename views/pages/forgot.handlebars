@@ -1,26 +1,37 @@
 {{setTitle "Forgot Password"}}
 
-<div class="ui main container">
-    <div class="ui middle aligned center aligned grid">
-        <div class="ten wide left aligned column">
-            <div class="ui very padded basic segment">
-                {{> flash}}
 
-                <form class="form-signin ui form" role="form" method="POST" action="/forgot">
-                    <h3 class="ui header">
-                        Forgot your Password?
+
+<div class="ui container" style="margin-top: 100px;">
+    <div class="ui center aligned grid">
+        <div class="doubling two column row">
+            <div class="left aligned column">
+                <div class="ui very padded left aligned segment">
+                    {{> flash}}
+
+                    <h1 class="ui header">
+                        Forgot Password
                         <div class="sub header">
                             Enter your email address below and we'll send you instructions to reset your password.
                         </div>
-                    </h3>
-                    <div class="field">
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" class="form-control" placeholder="john.smith@me.com" required autofocus>
-                        <input type="hidden" name="_csrf" value="{{_csrf}}">
-                    </div>
-                    <button class="ui primary button" type="submit">Reset Password</button>
-                </form>
-            </div>   
+                    </h1>
+
+                    <div class="ui divider"></div>
+                    <form class="form-signin ui form" role="form" method="POST" action="/forgot">
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="john.smith@me.com" required autofocus>
+                            <input type="hidden" name="_csrf" value="{{_csrf}}">
+                        </div>
+                        <button class="ui primary button" type="submit">Reset Password</button>
+                        <div class="ui section divider"></div>
+                        <p class="text-right">
+                            <small>Have an account and remember your password? <a href="/login">Login instead</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+

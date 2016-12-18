@@ -153,9 +153,9 @@ exports.login = function (req, identifier, password, next) {
 
     if (!user) {
       if (isEmail) {
-        req.flash('error', 'Error.Passport.Email.NotFound');
+        req.flash('error', "That email doesn't seem right.");
       } else {
-        req.flash('error', 'Error.Passport.Username.NotFound');
+        req.flash('error', "Uhm, what's your name again?");
       }
 
       return next(null, false);
@@ -165,8 +165,6 @@ exports.login = function (req, identifier, password, next) {
       protocol : 'local'
     , user     : user.id
     }, function (err, passport) {
-      console.log('trying to find passport');
-      console.log(arguments);
       if (passport) {
         passport.validatePassword(password, function (err, res) {
           if (err) {
@@ -174,7 +172,7 @@ exports.login = function (req, identifier, password, next) {
           }
 
           if (!res) {
-            req.flash('error', 'Error.Passport.Password.Wrong');
+            req.flash('error', "Whoa, that password wasn't quite right!");
             return next(null, false);
           } else {
             return next(null, user);
@@ -182,7 +180,7 @@ exports.login = function (req, identifier, password, next) {
         });
       }
       else {
-        req.flash('error', 'Error.Passport.Password.NotSet');
+        req.flash('error', "Oh no, you haven't set a password yet!");
         return next(null, false);
       }
     });

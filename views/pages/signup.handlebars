@@ -1,19 +1,19 @@
 {{setTitle "Signup"}}
 
-<div class="ui main container">
-    <div class="ui centered grid">
+<div class="ui container" style="margin-top: 100px;">
+    <div class="ui center aligned grid">
         <div class="doubling two column row">
             <div class="left aligned column">
-                <div class="ui basic segment">
+                <div class="ui very padded left aligned segment">
                     {{> flash}}
 
+                    <h1 class="ui header">
+                        Signup
+                        <div class="sub header">Create a new account.</div>
+                    </h1>
+
+                    <div class="ui divider"></div>
                     <form class="ui form form-signin" role="form" method="POST" action="/auth/local/register">
-                        <h3 class="ui header">
-                            Signup for a account
-                        </h3>
-
-                        <h4 class="ui dividing header">Primary Credentials</h4>
-
                         <div class="field">
                             <label for="username">Username</label>
                             <input type="text" name="username" placeholder="Pick a username"  required autofocus>
@@ -41,10 +41,11 @@
                     </form>
                     <div class="ui section divider"></div>
                     <p class="text-right">
-                        <small>Already have an account? <a href="/login">Login to view your account</a>.
+                        <small>Already have an account? <a href="/login">Login instead</a>.
                     </p>
-                </div>   
+                </div>
             </div>
         </div>
     </div>
 </div>
+

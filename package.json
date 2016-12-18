@@ -84,6 +84,7 @@
   "license": "",
   "devDependencies": {
     "babel": "^5.8.21",
+    "grunt-concurrent": "^2.3.1",
     "grunt-contrib-handlebars": "^0.11.0",
     "grunt-eslint": "^17.0.0",
     "jsdom": "^3.1.2",

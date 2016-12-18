@@ -192,7 +192,7 @@ var AuthController = {
     passport.disconnect(req, res);
   },
   forgotPassword: function (req, res, next) {
-      res.view('pages/forgot');
+      res.view('pages/forgot', {layout: 'blank'});
   },
   forgotPasswordSubmit: function (req, res, next) {
     var email = req.body.email;
@@ -217,7 +217,7 @@ var AuthController = {
               Mailer.sendWithGmail({
                 to: user.email,
                 subject: 'Reset your password',
-                text: 'Click this link to reset your password: ' + sails.config.url + '/reset/' + token
+                text: 'Go to this link to reset your password: ' + sails.config.url + '/reset/' + token
               }, function (err) {
                 if (err) {
                   sails.log.error('Error sending password reset mail');
@@ -248,7 +248,7 @@ var AuthController = {
           }
           res.locals.token = req.params.token;
           res.locals.user = passport.user;
-          res.view('pages/reset');
+          res.view('pages/reset', {layout: 'blank'});
       });
   },
   resetPasswordSubmit: function (req, res, next) {
