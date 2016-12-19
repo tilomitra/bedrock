@@ -1,7 +1,7 @@
 # Bedrock
-Bedrock lets you set up a production-ready webapp in under 10 minutes.
+Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a collection of popular frameworks that work well together. 
 
-It is a collection of popular frameworks that work well together. 
+## [Watch a 5-min step-by-step video on Youtube](https://www.youtube.com/watch?v=EdUuhdbhfDo)
 
 ## Features Overview
 
@@ -151,4 +151,5 @@ Bedrock is composed of these open-source frameworks.
 [NuclearJS](https://github.com/optimizely/nuclear-js): Traditional Flux architecture built with ImmutableJS data structures. Very similar to Redux.
 
 [Webpack](https://webpack.github.io/): A module bundler for front-end assets. It is used in Bedrock for chunking JavaScript files to be loaded on demand.
+
 
