@@ -30,7 +30,7 @@ At SoundHound, we use a version of Bedrock for many of our internal web applicat
 We will talk about the installation in more detail in the next section, but here is the quickstart guide.
 
 ```
-git clone ... <project-name>
+git clone git@github.com:tilomitra/bedrock.git <project-name>
 cd <project-name>
 npm install
 ```
