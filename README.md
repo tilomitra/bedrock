@@ -1,7 +1,7 @@
 # Bedrock
 Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a collection of popular frameworks that work well together. 
 
-## [Watch a 5-min step-by-step video on Youtube](https://www.youtube.com/watch?v=EdUuhdbhfDo)
+#### [Watch a video showing how to get a production-ready web app set up in 5 min using Bedrock](https://www.youtube.com/watch?v=EdUuhdbhfDo)
 
 ## Features Overview
 
