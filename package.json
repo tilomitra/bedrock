@@ -1,6 +1,6 @@
 {
   "name": "Bedrock",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Deploy a production-ready Node webapp with built-in user authentication, security, and more in <10 minutes.",
   "keywords": [
     "nodejs",
@@ -85,6 +85,7 @@
   "license": "",
   "devDependencies": {
     "babel": "^6.5.2",
+    "grunt-babel": "^6.0.0",
     "grunt-bump": "^0.8.0",
     "grunt-concurrent": "^2.3.1",
     "grunt-contrib-handlebars": "^1.0.0",
