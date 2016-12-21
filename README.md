@@ -111,18 +111,19 @@ NODE_ENV=staging PORT=9999  sails --debug lift
 ```
 
 ## Server-side Features
-Bedrock is built on [Sails](http://sailsjs.org), so it has all of the great features that Sails ships with.
+Bedrock is built on [Sails](http://sailsjs.org), so it has all of the great features that Sails ships with. 
 
 This includes, but is not limited to:
 
+- It's just an Express server under the hood, so all Express modules still work
 - Reusable Security Policies (Middleware)
-- Works with any database
-- Configurable 
-- Waterline ORM
-- Auto-generate REST APIs (or don't)
-- Follows MVC conventions
+- Configurable via a global `config` object.
+- Encourage use of reusable services, like a `Mailer` service.
+- Waterline ORM that works well with multiple databases. Can be swapped out if you need.
+- Auto-generate REST APIs (optional)
+- Follows MVC conventions, which keeps your code organized as your project grows.
 
-[Check out all the features](http://sailsjs.com/features) on the Sails documentation page.
+[Check out all the features](http://sailsjs.com/features) on the Sails documentation page. I've used raw Express and I've used Sails, and I will take Sails everytime guys. 
 
 
 ## Client-side Features
