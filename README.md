@@ -66,10 +66,6 @@ cd <project-name>
 npm install
 ```
 
-Next, you will want to configure some settings. Bedrock is a Sails Server, so if you have ever used Sails before, the next steps will be familiar.
-
-If you haven't used Sails before, don't worry. You'll just need to edit some JSON files.
-
 ### Configure Database Connection
 
 Go into `config/connections.js`. Update the `mysql` connection details. At this point, you may need to create a new database.
