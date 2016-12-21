@@ -138,6 +138,14 @@ Here's how it works at a high level:
 
 It is simple, one-way communication that scales to hundreds of components (We have 100+ components in our internal fork of Bedrock).
 
+## More Documentation
+Learn more about Bedrock on [Node Web Apps](http://nodewebapps.com). Here are some useful tutorials:
+
+* [Learn how to set up Bedrock](http://nodewebapps.com/2016/12/20/create-a-web-app-with-user-authentication-in-under-10-minutes/)
+* [Learn how to set up Reset Password Flow in Bedrock](http://nodewebapps.com/2016/12/21/how-to-send-emails-in-sails-bedrock/)
+* [Learn how to use migrations to make your database more stable](http://nodewebapps.com/2016/12/20/how-to-update-database-schema-for-a-production-web-app/)
+
+Sign up to the Node Web Apps newsletter to stay up to date on new tutorials.
 
 ## Built With
 Bedrock is composed of these open-source frameworks.

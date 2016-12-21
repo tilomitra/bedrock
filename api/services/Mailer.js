@@ -4,7 +4,7 @@ var emailConfig = sails.config.email;
 
 
 module.exports = {
-    sendWithGmail: function (options, callback) {
+    sendMail: function (options, callback) {
 
         var transporter = nodemailer.createTransport({
             service: 'gmail',

@@ -211,7 +211,7 @@ var AuthController = {
           ).exec(function (err, results) {
               if (err) return next(err);
 
-              Mailer.sendWithGmail({
+              Mailer.sendMail({
                 to: user.email,
                 subject: 'Reset your password',
                 text: 'Go to this link to reset your password: ' + sails.config.url + '/reset/' + token
