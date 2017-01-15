@@ -29,7 +29,8 @@ module.exports.policies = {
     '*': ['passport', 'csrf', 'localize', 'flash'],
     
     'PageController': {
-        index: ['passport', 'sessionAuth']
+        index: ['passport', 'sessionAuth'],
+        renderLoggedInReactPage: ['passport', 'sessionAuth']
     },
 
     /***************************************************************************

@@ -11,6 +11,9 @@ module.exports = {
     index: function (req, res) {
         res.view("index");
     },
+    renderLoggedInReactPage: function (req, res) {
+        res.view("pages/react-template");
+    },
     login: function (req, res) {
         res.view("pages/login", {layout: 'blank'});
     },
