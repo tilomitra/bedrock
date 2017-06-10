@@ -1,20 +1,61 @@
-var React = require('react');
+import React from "react";
+import { connect } from "react-redux";
 
-module.exports = React.createClass({
-    displayName: "HomePage",
-    render: function () {
+import Actions from "../../actions";
+
+var CounterComponent = React.createClass({
+    displayName: "Counter",
+    incrementIfOdd() {
+        if (this.props.value % 2 !== 0) {
+            this.onIncrement();
+        }
+    },
+
+    incrementAsync() {
+        setTimeout(this.onIncrement, 1000, this);
+    },
+
+    onIncrement() {
+        this.props.incrementCounter();
+    },
+    onDecrement() {
+        this.props.decrementCounter();
+    },
+    render: function() {
+        const value = this.props.value;
         return (
-            <div className='homePage'>
-                <div className="ui center aligned raised very padded text container segment">
-                    <h2 className="ui header">
-                        Hello World!
-                        <div className="sub header">
-                            I'm a React component. You can find me in <code>assets/frontend/components/home/index.js</code>.
-                        </div>
-                    </h2>
-                </div>
-            </div>
+            <p>
+                Clicked: {value} times
+                {" "}
+                <button onClick={this.onIncrement}>
+                    +
+                </button>
+                {" "}
+                <button onClick={this.onDecrement}>
+                    -
+                </button>
+                {" "}
+                <button onClick={this.incrementIfOdd}>
+                    Increment if odd
+                </button>
+                {" "}
+                <button onClick={this.incrementAsync}>
+                    Increment async
+                </button>
+            </p>
         );
     }
 });
 
+const mapStateToProps = state => {
+    return {
+        value: state.counter.value
+    };
+};
+const mapDispatchToProps = dispatch => {
+    return {
+        incrementCounter: url => dispatch(Actions.incrementCounter()),
+        decrementCounter: url => dispatch(Actions.decrementCounter())
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);

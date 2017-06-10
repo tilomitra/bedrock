@@ -1,32 +1,21 @@
-var React = require('react');
+// NPM
+import React from "react";
+import { Router, Route, hashHistory } from "react-router";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+// Local
+import configureStore from "./store/configureStore";
 
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var hashHistory = ReactRouter.hashHistory
-var ReactDOM = require('react-dom');
+// components
+import HomePage from "./components/home";
 
-var common = require('./modules/common');
-var HomePage = require('./components/home');
-
-
-
-var routes = (
-  <Router history={hashHistory}>
-    <Route path="/" name="home" component={HomePage} />
-  </Router>
-);
-
-//INITIAL ACTIONS
-
-var bootstrapActions = {
-
-    "home": function(rs) {
-        //Actions go here.
-    }
-}
-
+const store = configureStore(); // You can also pass in an initialState here
 
 //ENRTY POINT
 //render the view
-ReactDOM.render(routes, document.getElementById("main"));
+ReactDOM.render(
+    <Provider store={store}>
+        <HomePage />
+    </Provider>,
+    document.getElementById("main")
+);
