@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { Link } from "react-router-dom";
 import Actions from "../../actions";
 
 var CounterComponent = React.createClass({
@@ -16,10 +16,10 @@ var CounterComponent = React.createClass({
     },
 
     onIncrement() {
-        this.props.incrementCounter();
+        this.props.dispatch(Actions.incrementCounter());
     },
     onDecrement() {
-        this.props.decrementCounter();
+        this.props.dispatch(Actions.decrementCounter());
     },
     render: function() {
         const value = this.props.value;
@@ -42,6 +42,8 @@ var CounterComponent = React.createClass({
                 <button onClick={this.incrementAsync}>
                     Increment async
                 </button>
+
+                <Link to={"/foo"}>Go to foo</Link>
             </p>
         );
     }
@@ -52,10 +54,4 @@ const mapStateToProps = state => {
         value: state.counter.value
     };
 };
-const mapDispatchToProps = dispatch => {
-    return {
-        incrementCounter: url => dispatch(Actions.incrementCounter()),
-        decrementCounter: url => dispatch(Actions.decrementCounter())
-    };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);
+export default connect(mapStateToProps)(CounterComponent);
