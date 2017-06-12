@@ -1,5 +1,5 @@
-var Nuclear = require('nuclear-js');
+import Nuclear from "nuclear-js";
 
-module.exports = new Nuclear.Reactor({
+export default new Nuclear.Reactor({
     debug: true
 });

@@ -1,5 +1,7 @@
-var keyMirror = require('keymirror');
+import keyMirror from "keymirror";
 
-module.exports = keyMirror({
+export default keyMirror({
     //ActionTypes go here.
+    INCREMENT_COUNTER: null,
+    DECREMENT_COUNTER: null
 });

@@ -1,20 +1,31 @@
-var React = require('react');
+import React from "react";
+import reactor from "../../reactor";
+import CommonModule from "../../modules/common";
 
 module.exports = React.createClass({
     displayName: "HomePage",
-    render: function () {
+    mixins: [reactor.ReactMixin],
+    getDataBindings() {
+        return {
+            counter: CommonModule.getters.counter
+        };
+    },
+
+    onIncrement() {
+        CommonModule.actions.incrementCounter();
+    },
+
+    onDecrement() {
+        CommonModule.actions.decrementCounter();
+    },
+
+    render() {
         return (
-            <div className='homePage'>
-                <div className="ui center aligned raised very padded text container segment">
-                    <h2 className="ui header">
-                        Hello World!
-                        <div className="sub header">
-                            I'm a React component. You can find me in <code>assets/frontend/components/home/index.js</code>.
-                        </div>
-                    </h2>
-                </div>
+            <div className="homePage">
+                <span>{this.state.counter.get("value")}</span>
+                <button onClick={this.onIncrement}>+ Increment</button>
+                <button onClick={this.onDecrement}>- Decrement</button>
             </div>
         );
     }
 });
-
