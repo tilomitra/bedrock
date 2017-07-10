@@ -20,7 +20,6 @@
  */
 
 module.exports.connections = {
-
     /***************************************************************************
      *                                                                          *
      * Local disk storage for DEVELOPMENT ONLY                                  *
@@ -29,7 +28,7 @@ module.exports.connections = {
      *                                                                          *
      ***************************************************************************/
     localDiskDb: {
-        adapter: 'sails-disk'
+        adapter: "sails-disk"
     },
 
     /***************************************************************************
@@ -45,12 +44,12 @@ module.exports.connections = {
     // The production connection is defined within /config/env/production.js
 
     mysql: {
-        adapter: 'sails-mysql',
-        host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
-        database: 'bedrock'
-    },
+        adapter: "sails-mysql",
+        host: "127.0.0.1",
+        user: "root",
+        password: "root",
+        database: "presskitty"
+    }
 
     /***************************************************************************
      *                                                                          *
@@ -60,14 +59,15 @@ module.exports.connections = {
      * Run: npm install sails-mongo                                             *
      *                                                                          *
      ***************************************************************************/
-    // someMongodbServer: {
-    //   adapter: 'sails-mongo',
-    //   host: 'localhost',
-    //   port: 27017,
-    //   // user: 'username',
-    //   // password: 'password',
-    //   // database: 'your_mongo_db_name_here'
-    // },
+    // mongo: {
+    //     //mongodb://<dbuser>:<dbpassword>@ds153392.mlab.com:53392/presskitty-sandbox
+    //     adapter: "sails-mongo",
+    //     host: "ds153392.mlab.com",
+    //     port: 53392,
+    //     user: "tilo",
+    //     password: "2w1q@W!Q",
+    //     database: "presskitty-sandbox"
+    // }
 
     /***************************************************************************
      *                                                                          *
@@ -86,11 +86,9 @@ module.exports.connections = {
     //   database: 'YOUR_POSTGRES_DB'
     // }
 
-
     /***************************************************************************
      *                                                                          *
      * More adapters: https://github.com/balderdashy/sails                      *
      *                                                                          *
      ***************************************************************************/
-
 };

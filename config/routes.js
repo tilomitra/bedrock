@@ -21,8 +21,7 @@
  */
 
 module.exports.routes = {
-
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
   * etc. depending on your default view engine) your home page.              *
@@ -32,9 +31,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /': 'PageController.index',
+    "get /": "PageController.index",
 
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
@@ -44,18 +43,26 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  // Authentication EndPoints
-  'get /login': 'PageController.login',
-  'get /signup': 'PageController.signup',
-  'get /logout': 'AuthController.logout',
-  'get /forgot': 'AuthController.forgotPassword',
-  'post /forgot': 'AuthController.forgotPasswordSubmit',
-  'get  /reset/:token': 'AuthController.resetPassword',
-  'post /reset': 'AuthController.resetPasswordSubmit',
-  'get /register': 'AuthController.register',
-  'post /auth/local': 'AuthController.callback',
-  'post /auth/local/:action': 'AuthController.callback',
+    // Authentication EndPoints
+    "get /login": "PageController.login",
+    "get /signup": "PageController.signup",
+    "get /logout": "AuthController.logout",
+    "get /forgot": "AuthController.forgotPassword",
+    "post /forgot": "AuthController.forgotPasswordSubmit",
+    "get  /reset/:token": "AuthController.resetPassword",
+    "post /reset": "AuthController.resetPasswordSubmit",
+    "get /register": "AuthController.register",
+    "post /auth/local": "AuthController.callback",
+    "post /auth/local/:action": "AuthController.callback",
 
-  'get /auth/:provider': 'AuthController.provider',
-  'get /auth/:provider/callback': 'AuthController.callback',
+    "get /auth/:provider": "AuthController.provider",
+    "get /auth/:provider/callback": "AuthController.callback",
+
+    // SHopify Auth
+    "get /shopify_start_auth": "ShopifyAuthController.startAuth",
+    "get /shopify_finish_auth": "ShopifyAuthController.finishAuth",
+
+    // App Routes
+    "get /app": "PageController.app",
+    "get /app/*": "PageController.app"
 };
