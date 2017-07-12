@@ -1,8 +1,11 @@
-var flux = require('../../reactor');
+var flux = require("../../reactor");
 
-flux.registerStores({});
+flux.registerStores({
+    mission: require("./stores/mission-store"),
+    achievements: require("./stores/achievement-store")
+});
 
 module.exports = {
-    actions: require('./actions'),
-    getters: require('./getters')
+    actions: require("./actions"),
+    getters: require("./getters")
 };

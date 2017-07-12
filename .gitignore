@@ -42,7 +42,7 @@
 config/local.js
 .editorconfig
 node_modules
-
+npm-debug*
 
 
 

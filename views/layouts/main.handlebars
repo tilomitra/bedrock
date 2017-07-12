@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {{> meta}}
-        {{> style}}
-    </head>
 
-    <body lang="en">
-        <div class="wrapper">
-            <div class="ui main container" style="margin-top: 20px;">
-                <div class="ui padded segment">
-                    {{{body}}}
-                </div>
-            </div>
-        </div>
-        {{> scripts}}
-    </body>
+<head>
+    {{> meta}} {{> style}}
+</head>
+
+<body lang="en">
+    <div class="wrapper">
+        {{{body}}}
+    </div>
+    {{> scripts}}
+</body>
 
 </html>

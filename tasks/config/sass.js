@@ -6,18 +6,19 @@
  */
 
 module.exports = function(grunt) {
-
-    grunt.config.set('sass', {
+    grunt.config.set("sass", {
         dev: {
-            files: [{
-                expand: true,
-                cwd: 'assets/styles/',
-                src: ['app.scss'],
-                dest: '.tmp/public/styles/',
-                ext: '.css'
-            }]
+            files: [
+                {
+                    expand: true,
+                    cwd: "assets/styles/",
+                    src: ["App.scss"],
+                    dest: ".tmp/public/styles/",
+                    ext: ".css"
+                }
+            ]
         }
     });
 
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks("grunt-sass");
 };

@@ -31,7 +31,7 @@ module.exports = {
                             shopify_shared_secret:
                                 sails.config.presskitty.secret,
                             redirect_uri:
-                                "http://c6c1c8de.ngrok.io/shopify_finish_auth",
+                                "https://presskitty.fwd.wf/shopify_finish_auth",
                             shopify_scope:
                                 "write_content, read_content, read_script_tags, write_script_tags, read_themes",
                             nonce: nonce

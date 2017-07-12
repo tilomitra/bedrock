@@ -1,5 +1,42 @@
-@import "variables";
-
 body {
-    background: $light-grey;
+    font-size: 1em;
 }
+
+//base
+.pk-wrapper {
+    margin: 0 auto;
+}
+
+// milestone
+.pk-milestone {
+    padding: 50px;
+}
+
+//achievement
+.pk-achievement-pubname {
+    padding: 45px 0 45px !important;
+}
+
+.pk-achievement-image {
+    max-width: 200px;
+    max-height: 100px;
+    margin-bottom: 2em;
+    border-radius: 4px;
+}
+
+.pk-achievement-link {
+    font-size: 0.9em;
+}
+
+//gallery
+.pk-gallery-item img {
+    transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
+    cursor: pointer;
+}
+
+.pk-gallery-item-caption {
+    display: block;
+    font-size: 0.8em;
+}
+
+@import "./Template-Miller.scss";
