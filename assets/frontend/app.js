@@ -11,6 +11,7 @@ import MissionContainer from "./containers/mission-container";
 import AchievementContainer from "./containers/achievement-container";
 import PreviewContainer from "./containers/render-container";
 import MilestoneContainer from "./containers/milestone-container";
+import AboutContainer from "./containers/about-container";
 
 import config from "./config";
 const shopOrigin = "https://miller-furniture.myshopify.com";
@@ -45,6 +46,11 @@ class App extends React.Component {
                                 exact
                                 path="/app/milestones"
                                 component={MilestoneContainer}
+                            />
+                            <Route
+                                exact
+                                path="/app/about"
+                                component={AboutContainer}
                             />
                             <Route
                                 exact

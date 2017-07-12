@@ -17,13 +17,10 @@ import Preview from "../components/preview";
 
 class PreviewContainer extends Component {
     onPublish() {
-        //CommonModule.actions.publish
-        const { mission, achievements } = this.props;
         const markup = ReactDOMServer.renderToStaticMarkup(
-            <Preview mission={mission} achievements={achievements} />
+            <Preview {...this.props} />
         );
-        console.log(markup);
-        CommonModule.actions.publish({ mission, achievements }, markup);
+        CommonModule.actions.publish(this.props, markup);
     }
 
     onCancel() {
@@ -31,8 +28,6 @@ class PreviewContainer extends Component {
     }
 
     render() {
-        const { mission, achievements } = this.props;
-
         return (
             <Page title="Preview">
                 <PageActions
@@ -48,7 +43,7 @@ class PreviewContainer extends Component {
                     ]}
                 />
                 <hr />
-                <Preview mission={mission} achievements={achievements} />
+                <Preview {...this.props} />
             </Page>
         );
     }
@@ -56,8 +51,10 @@ class PreviewContainer extends Component {
 
 function mapStateToProps(props) {
     return {
+        about: CommonModule.getters.about,
         mission: CommonModule.getters.mission,
-        achievements: CommonModule.getters.achievements
+        achievements: CommonModule.getters.achievements,
+        milestones: CommonModule.getters.milestones
     };
 }
 

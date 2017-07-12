@@ -27,7 +27,7 @@ class MissionContainer extends Component {
                 tagline={this.props.mission.get("tagline")}
                 onMissionChange={this.onMissionChange.bind(this)}
                 onTaglineChange={this.onTaglineChange.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

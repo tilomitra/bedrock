@@ -2,6 +2,7 @@ var keyMirror = require("keymirror");
 
 module.exports = keyMirror({
     //ActionTypes go here.
+    UPDATE_ABOUT: null,
 
     UPDATE_MISSION: null,
     UPDATE_TAGLINE: null,

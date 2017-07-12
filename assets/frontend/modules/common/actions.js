@@ -2,6 +2,12 @@ var nuclear = require("../../reactor");
 var actionTypes = require("../action-types");
 import api from "../../api";
 
+/* About */
+
+exports.updateAbout = data => {
+    nuclear.dispatch(actionTypes.UPDATE_ABOUT, { data });
+};
+
 /* Mission and Tagline */
 
 exports.updateMission = data => {

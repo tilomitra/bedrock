@@ -44,6 +44,18 @@ class HomeContainer extends Component {
                 />
 
                 <LinkCard
+                    url={`/app/about`}
+                    buttonTitle={"Write About your Brand"}
+                    description={
+                        <p>
+                            <strong>About: </strong> Tell a story about your
+                            brand so customers can learn about what you are
+                            passionate about.
+                        </p>
+                    }
+                />
+
+                <LinkCard
                     url={`/app/preview`}
                     buttonTitle={"Preview and Publish"}
                     description={

@@ -5,16 +5,14 @@ class Hero extends Component {
         return (
             <section className="hero">
                 <div className="hero-body">
-                    <div className="container">
-                        <h1 className="title">
-                            {this.props.title}
-                        </h1>
-                        {this.props.subtitle
-                            ? <h2 className="subtitle">
-                                  {this.props.subtitle}
-                              </h2>
-                            : null}
-                    </div>
+                    <h1 className="title">
+                        {this.props.title}
+                    </h1>
+                    {this.props.subtitle
+                        ? <h2 className="subtitle">
+                              {this.props.subtitle}
+                          </h2>
+                        : null}
                 </div>
             </section>
         );

@@ -16,6 +16,7 @@ module.exports = {
             accessToken: { "!": null }
         })
             .then(store => {
+                req.session.store = store;
                 return res.redirect("/app");
             })
             .catch(err => {
@@ -37,7 +38,6 @@ module.exports = {
                             nonce: nonce
                         });
                         const auth_url = Shopify.buildAuthURL();
-                        console.log(auth_url);
                         res.redirect(auth_url);
                     }
                 });
@@ -46,7 +46,6 @@ module.exports = {
 
     finishAuth: function(req, res) {
         const Stores = sails.models.store;
-
         const suppliedNonce = req.query.state;
 
         Stores.findOne({
@@ -70,8 +69,8 @@ module.exports = {
                             accessToken: data.access_token
                         })
                             .then(store => {
-                                console.log(store);
-                                return res.ok("all good");
+                                req.session.store = store;
+                                return res.redirect("/app");
                             })
                             .catch(err => {
                                 console.log(err);
@@ -87,44 +86,68 @@ module.exports = {
     },
 
     publish: function(req, res) {
+        const Stores = sails.models.store;
+        const store = req.session.store;
+
         const markup = req.body.markup;
         const Shopify = new shopifyAPI({
-            shop: "miller-furniture",
+            shop: store.name.split(".")[0],
             shopify_api_key: sails.config.presskitty.apiKey,
             shopify_shared_secret: sails.config.presskitty.secret,
-            access_token: "e2425c159bc4883abac1b7481af69199"
+            access_token: store.accessToken
         });
+
+        const linktag = `
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css">
+        <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/app.css">
+        `;
 
         const pageData = {
             page: {
                 author: "Press Kitty",
-                body_html: markup,
+                body_html: linktag + markup,
                 title: "Press",
                 published: true
             }
         };
 
-        console.log(req.body);
-        console.log(pageData);
-
-        //252037639
-
         // See if Store object has a `pageId`
-
-        // If it does, update the contents of the page with that id
-
-        // If it does not, create a new page, get the new page ID and store it.
-
-        Shopify.post("/admin/pages.json", pageData, function(
-            err,
-            data,
-            headers
-        ) {
-            console.log(arguments);
-            if (err) return res.serverError(err);
-            else {
-                return res.json(data);
-            }
-        });
+        if (store.pageId) {
+            console.log(
+                `Updating Existing Press Kit with pageId ${store.pageId} for Store ID: ${store.id} `
+            );
+            // If it does, update the contents of the page with that id
+            Shopify.put(`/admin/pages/${store.pageId}.json`, pageData, function(
+                err,
+                data
+            ) {
+                if (err) return res.serverError(err);
+                else {
+                    Stores.update(store.id, { pageId: data.page.id })
+                        .then(() => {
+                            return res.json(data);
+                        })
+                        .catch(err => {
+                            return res.serverError(err);
+                        });
+                }
+            });
+        } else {
+            console.log(`Publishing New Press Kit for Store ID: ${store.id} `);
+            // If it does not, create a new page, get the new page ID and store it.
+            Shopify.post("/admin/pages.json", pageData, function(err, data) {
+                if (err) return res.serverError(err);
+                else {
+                    Stores.update(store.id, { pageId: data.page.id })
+                        .then(() => {
+                            req.session.store = store;
+                            return res.json(data);
+                        })
+                        .catch(err => {
+                            return res.serverError(err);
+                        });
+                }
+            });
+        }
     }
 };
