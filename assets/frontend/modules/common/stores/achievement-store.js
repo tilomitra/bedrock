@@ -6,11 +6,12 @@ module.exports = new Nuclear.Store({
     getInitialState() {
         return toImmutable([
             {
-                name: undefined,
-                publicationName: undefined,
-                publishLink: undefined,
-                imageUrl: undefined,
-                type: undefined
+                name: "A Sample Achievement",
+                publicationName: "Conde Nast",
+                publishLink: "https://presskitty.ca",
+                imageUrl:
+                    "http://www.adweek.com/wp-content/uploads/sites/9/2015/06/CondeNast304x200.jpg",
+                type: "feature"
             }
         ]);
     },

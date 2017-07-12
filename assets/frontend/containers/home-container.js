@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { EmbeddedApp } from "@shopify/polaris/embedded";
-import { Page, Card, Button } from "@shopify/polaris";
+import { Page, Card, Button, Stack, Subheading } from "@shopify/polaris";
 import { Link } from "react-router-dom";
 import "@shopify/polaris/styles.css";
 
@@ -18,24 +18,64 @@ class HomeContainer extends Component {
                 debug={true}
             >
                 <Page title="Press Kitty">
-                    <Card title="Mission and Tagline">
+                    <Card>
                         <Card.Section>
-                            <p>Specify your brand's mission and tagline.</p>
-                            <Link to={`/app/mission`}>
-                                <Button>View Details</Button>
-                            </Link>
+                            <Stack alignment="center">
+                                <Stack.Item fill>
+                                    <p>
+                                        <strong>Mission and Tagline: </strong>{" "}
+                                        Specify your brand's mission and
+                                        tagline.
+                                    </p>
+                                </Stack.Item>
+                                <Stack.Item>
+                                    <Link to={`/app/mission`}>
+                                        <Button>
+                                            Provide Mission and Tagline
+                                        </Button>
+                                    </Link>
+                                </Stack.Item>
+                            </Stack>
                         </Card.Section>
                     </Card>
-                    <Card title="About">
+                    <Card>
                         <Card.Section>
-                            <p>Tell your customers a bit about your store.</p>
-                            <Link to={`/app/achievements`}>
-                                <Button>View Details</Button>
-                            </Link>
+                            <Stack alignment="center">
+                                <Stack.Item fill>
+                                    <p>
+                                        <strong>Achievements: </strong>{" "}
+                                        Highlight notable achievements, blog
+                                        posts, media coverage and more.
+                                    </p>
+                                </Stack.Item>
+                                <Stack.Item>
+                                    <Link to={`/app/achievements`}>
+                                        <Button>List Achievements</Button>
+                                    </Link>
+                                </Stack.Item>
+                            </Stack>
+                        </Card.Section>
+                    </Card>
+                    <Card>
+                        <Card.Section>
+                            <Stack alignment="center">
+                                <Stack.Item fill>
+                                    <p>
+                                        <strong>Preview and Publish: </strong>{" "}
+                                        Preview your final press kit and publish
+                                        it to your store.
+                                    </p>
+                                </Stack.Item>
+                                <Stack.Item>
+                                    <Link to={`/app/preview`}>
+                                        <Button>Preview</Button>
+                                    </Link>
+                                </Stack.Item>
+                            </Stack>
                         </Card.Section>
                     </Card>
                     <Card
-                        title="Awards and Acknowledgements"
+                        title="About the Brand"
                         actions={{ content: "View Details" }}
                     >
                         <Card.Section>

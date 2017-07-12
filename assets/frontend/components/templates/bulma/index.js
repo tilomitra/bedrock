@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Hero from "./hero";
 import Section from "./section";
-import "bulma/css/bulma.css";
-
 class Miller extends Component {
     render() {
         return (

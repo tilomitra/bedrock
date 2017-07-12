@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import "bulma/css/bulma.css";
 
 class Modal extends Component {
     render() {

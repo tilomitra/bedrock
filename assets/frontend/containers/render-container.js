@@ -23,10 +23,6 @@ class RenderContainer extends Component {
         return (
             <EmbeddedApp shopOrigin={shopOrigin} apiKey={apiKey} debug={true}>
                 <section className="container pk-wrapper">
-                    <Page title="Example application">
-                        <Card sectioned />
-                    </Page>
-                    <h3>Rendered</h3>
                     <Mission
                         title={"Hello. We are Miller."}
                         subtitle={"To go where no man has been before."}

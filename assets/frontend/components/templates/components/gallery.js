@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Modal from "../bulma/modal";
-import "bulma/css/bulma.css";
-
 class Gallery extends Component {
     constructor(props) {
         super(props);

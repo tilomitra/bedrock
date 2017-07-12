@@ -131,6 +131,11 @@ class Achievement extends Component {
 
                 <Card title={"Preview"}>
                     <Card.Section>
+                        <p>
+                            Your achievements show up in a grid. Here's a
+                            preview of your current achievements.
+                        </p>
+                        <hr />
                         <div className="columns is-multiline">
                             {renderedJsx}
                         </div>

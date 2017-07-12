@@ -8,6 +8,7 @@ import CommonModule from "./modules/common";
 import HomeContainer from "./containers/home-container";
 import MissionContainer from "./containers/mission-container";
 import AchievementContainer from "./containers/achievement-container";
+import PreviewContainer from "./containers/render-container";
 
 class App extends React.Component {
     render() {
@@ -25,6 +26,11 @@ class App extends React.Component {
                             exact
                             path="/app/achievements"
                             component={AchievementContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/preview"
+                            component={PreviewContainer}
                         />
                     </div>
                 </Router>
