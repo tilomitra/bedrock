@@ -62,6 +62,9 @@ module.exports.routes = {
     "get /shopify_start_auth": "ShopifyAuthController.startAuth",
     "get /shopify_finish_auth": "ShopifyAuthController.finishAuth",
 
+    // SHopify API
+    "post /api/publish": "ShopifyAuthController.publish",
+
     // App Routes
     "get /app": "PageController.app",
     "get /app/*": "PageController.app"

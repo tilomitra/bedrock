@@ -8,5 +8,9 @@ module.exports = keyMirror({
 
     ADD_ACHIEVEMENT: null,
     REMOVE_ACHIEVEMENT: null,
-    UPDATE_ACHIEVEMENT: null
+    UPDATE_ACHIEVEMENT: null,
+
+    ADD_MILESTONE: null,
+    REMOVE_MILESTONE: null,
+    UPDATE_MILESTONE: null
 });

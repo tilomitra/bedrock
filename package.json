@@ -51,6 +51,7 @@
     "history": "4.5.0",
     "include-all": "~2.0.0",
     "jquery": "^3.1.1",
+    "json-loader": "^0.5.4",
     "keymirror": "^0.1.1",
     "nodemailer": "^2.7.0",
     "nodemailer-smtp-transport": "^2.7.2",

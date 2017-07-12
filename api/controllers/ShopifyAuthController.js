@@ -84,5 +84,47 @@ module.exports = {
                 console.log(err);
                 return res.notFound();
             });
+    },
+
+    publish: function(req, res) {
+        const markup = req.body.markup;
+        const Shopify = new shopifyAPI({
+            shop: "miller-furniture",
+            shopify_api_key: sails.config.presskitty.apiKey,
+            shopify_shared_secret: sails.config.presskitty.secret,
+            access_token: "e2425c159bc4883abac1b7481af69199"
+        });
+
+        const pageData = {
+            page: {
+                author: "Press Kitty",
+                body_html: markup,
+                title: "Press",
+                published: true
+            }
+        };
+
+        console.log(req.body);
+        console.log(pageData);
+
+        //252037639
+
+        // See if Store object has a `pageId`
+
+        // If it does, update the contents of the page with that id
+
+        // If it does not, create a new page, get the new page ID and store it.
+
+        Shopify.post("/admin/pages.json", pageData, function(
+            err,
+            data,
+            headers
+        ) {
+            console.log(arguments);
+            if (err) return res.serverError(err);
+            else {
+                return res.json(data);
+            }
+        });
     }
 };
