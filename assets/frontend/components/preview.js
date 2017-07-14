@@ -5,41 +5,65 @@ import "@shopify/polaris/styles.css";
 
 import config from "../config";
 
+import Header from "./templates/bulma/header";
 import AboutPreview from "./templates/components/about";
 import MissionPreview from "./templates/components/mission";
 import AchievementPreview from "./templates/components/achievement";
 import MilestonePreview from "./templates/components/milestone";
+import GalleryPreview from "./templates/components/gallery";
 
 class Preview extends Component {
     render() {
-        const { mission, achievements, milestones, about } = this.props;
+        const {
+            mission,
+            achievements,
+            milestones,
+            about,
+            gallery,
+            color
+        } = this.props;
 
         const achievementJsx = achievements.map((v, idx) => {
             const props = v.toJS();
-            return <AchievementPreview key={`ach-${idx}`} {...props} />;
+            return (
+                <AchievementPreview
+                    key={`ach-${idx}`}
+                    {...props}
+                    color={color}
+                />
+            );
         });
 
         const milestoneJsx = milestones.map((v, idx) => {
             const props = v.toJS();
-            return <MilestonePreview key={`ms-${idx}`} {...props} />;
+            return (
+                <MilestonePreview key={`ms-${idx}`} {...props} color={color} />
+            );
         });
 
         return (
             <section className="pk-wrapper">
+                <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+
                 <MissionPreview
                     title={mission.get("title")}
                     subtitle={mission.get("tagline")}
+                    color={color}
                 />
 
-                <h2 className="pk-header">About</h2>
-                <AboutPreview content={about.get("html")} />
+                <Header title="About" color={color} />
 
-                <h2 className="pk-header">Achievements and Awards</h2>
+                <AboutPreview content={about.get("html")} color={color} />
+
+                <Header title="Achievements and Awards" color={color} />
                 <div className="columns is-multiline">
                     {achievementJsx}
                 </div>
 
-                <h2 className="pk-header">Milestones</h2>
+                <Header title="Featured Images" color={color} />
+                <GalleryPreview images={gallery.toJS()} />
+
+                <Header title="Milestones" color={color} />
                 <div className="columns is-multiline">
                     {milestoneJsx}
                 </div>

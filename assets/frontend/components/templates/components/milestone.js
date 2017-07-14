@@ -21,6 +21,7 @@ class Milestone extends Component {
                         titleClass={"pk-milestone-title"}
                         heading={this.props.description}
                         headingClass={"pk-milestone-heading"}
+                        color={this.props.color}
                     />
                 </section>
             </section>
@@ -30,7 +31,8 @@ class Milestone extends Component {
 Milestone.PropTypes = {
     description: PropTypes.string,
     amount: PropTypes.number,
-    type: PropTypes.oneOf(["stars", "count"])
+    type: PropTypes.oneOf(["stars", "count"]),
+    color: PropTypes.string
 };
 
 export default Milestone;

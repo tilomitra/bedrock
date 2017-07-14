@@ -90,6 +90,7 @@ module.exports = {
         const store = req.session.store;
 
         const markup = req.body.markup;
+        const cssStyles = req.body.css;
         const Shopify = new shopifyAPI({
             shop: store.name.split(".")[0],
             shopify_api_key: sails.config.presskitty.apiKey,
@@ -102,10 +103,12 @@ module.exports = {
         <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/app.css">
         `;
 
+        const css = `<style>${cssStyles}</style>`;
+
         const pageData = {
             page: {
                 author: "Press Kitty",
-                body_html: linktag + markup,
+                body_html: linktag + css + markup,
                 title: "Press",
                 published: true
             }

@@ -1,20 +1,4 @@
-$bgcolor: #fff;
-$accentColor: #12b143;
-
-$accentDark1: darken($accentColor, 5%);
-$accentDark2: darken($accentColor, 10%);
-$accentDark3: darken($accentColor, 20%);
-$accentDark4: darken($accentColor, 30%);
-$accentDark5: darken($accentColor, 40%);
-
-$accentLight1: lighten($accentColor, 5%);
-$accentLight2: lighten($accentColor, 10%);
-$accentLight3: lighten($accentColor, 20%);
-$accentLight4: lighten($accentColor, 30%);
-$accentLight5: lighten($accentColor, 40%);
-
 .pk-wrapper {
-    background: $bgcolor !important;
     padding: 2em;
 }
 
@@ -24,19 +8,16 @@ $accentLight5: lighten($accentColor, 40%);
 }
 .pk-mission {
     .title {
-        color: $accentColor;
         font-weight: bold;
         font-size: 4em;
     }
     .subtitle {
-        color: $accentDark3 !important;
         font-weight: bold;
     }
 }
 
 //header
 .pk-header {
-    color: $accentColor !important;
     font-weight: bold !important;
     margin-top: 2em;
     display: flex;
@@ -76,7 +57,7 @@ $accentLight5: lighten($accentColor, 40%);
     transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
 
     &:hover {
-        border-color: $accentLight4;
+        //border-color: $accentLight4;
     }
 }
 
@@ -87,11 +68,11 @@ $accentLight5: lighten($accentColor, 40%);
 
 .pk-achievement-heading,
 .pk-milestone-heading {
-    color: $accentColor;
+    //color: $accentColor;
 }
 
 .pk-team {
     border-radius: 4px;
     box-shadow: none !important;
-    border: 1px solid #ddd;
+    //border: 1px solid #ddd;
 }

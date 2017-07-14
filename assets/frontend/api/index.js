@@ -31,10 +31,10 @@ function makeRequest(url, options, qs) {
 }
 
 module.exports = {
-    publish: function(data, markup, storeName) {
+    publish: function(data, markup, css, storeName) {
         return makeRequest("/publish", {
             method: "POST",
-            body: { data: data, markup: markup },
+            body: { data: data, markup: markup, css: css },
             qs: { storeName: storeName },
             json: true
         });

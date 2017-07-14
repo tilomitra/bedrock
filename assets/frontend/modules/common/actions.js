@@ -45,11 +45,25 @@ exports.updateMilestone = (index, attr, value) => {
     nuclear.dispatch(actionTypes.UPDATE_MILESTONE, { index, attr, value });
 };
 
+/* Gallery */
+
+exports.addGallery = () => {
+    nuclear.dispatch(actionTypes.ADD_GALLERY);
+};
+
+exports.removeGallery = index => {
+    nuclear.dispatch(actionTypes.REMOVE_GALLERY, { index });
+};
+
+exports.updateGallery = (index, attr, value) => {
+    nuclear.dispatch(actionTypes.UPDATE_GALLERY, { index, attr, value });
+};
+
 /* API Methods */
 
-exports.publish = (data, markup) => {
+exports.publish = (data, markup, css) => {
     api
-        .publish(data, markup, "https://miller-furniture.myshopify.com")
+        .publish(data, markup, css, "https://miller-furniture.myshopify.com")
         .then(resp => {
             console.log(resp);
         })

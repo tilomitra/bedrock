@@ -4,7 +4,8 @@ flux.registerStores({
     about: require("./stores/about-store"),
     mission: require("./stores/mission-store"),
     achievements: require("./stores/achievement-store"),
-    milestones: require("./stores/milestone-store")
+    milestones: require("./stores/milestone-store"),
+    gallery: require("./stores/gallery-store")
 });
 
 module.exports = {

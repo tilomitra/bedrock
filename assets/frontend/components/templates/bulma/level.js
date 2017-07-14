@@ -4,13 +4,25 @@ import classnames from "classnames";
 
 class Level extends Component {
     render() {
+        let styles = {};
+        if (this.props.color) {
+            styles.color = this.props.color;
+        }
+
         const titleJsx = (
-            <p className={classnames("title", this.props.titleClass)}>
+            <p
+                key="title"
+                className={classnames("title", this.props.titleClass)}
+            >
                 {this.props.title}
             </p>
         );
         const headingJsx = (
-            <p className={classnames("heading", this.props.headingClass)}>
+            <p
+                className={classnames("heading", this.props.headingClass)}
+                style={styles}
+                key="heading"
+            >
                 {this.props.heading}
             </p>
         );

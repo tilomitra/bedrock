@@ -13,5 +13,9 @@ module.exports = keyMirror({
 
     ADD_MILESTONE: null,
     REMOVE_MILESTONE: null,
-    UPDATE_MILESTONE: null
+    UPDATE_MILESTONE: null,
+
+    ADD_GALLERY: null,
+    REMOVE_GALLERY: null,
+    UPDATE_GALLERY: null
 });

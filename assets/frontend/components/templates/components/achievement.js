@@ -54,6 +54,7 @@ class Achievement extends Component {
                         title={this.props.name}
                         titleClass={"is-4 pk-achievement-title"}
                         reverse={true}
+                        color={this.props.color}
                     />
                     <a
                         href={this.props.publishLink}

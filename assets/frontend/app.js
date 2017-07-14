@@ -12,6 +12,7 @@ import AchievementContainer from "./containers/achievement-container";
 import PreviewContainer from "./containers/render-container";
 import MilestoneContainer from "./containers/milestone-container";
 import AboutContainer from "./containers/about-container";
+import GalleryContainer from "./containers/gallery-container";
 
 import config from "./config";
 const shopOrigin = "https://miller-furniture.myshopify.com";
@@ -20,46 +21,47 @@ class App extends React.Component {
     render() {
         return (
             <Provider reactor={reactor}>
-                <EmbeddedApp
+                {/*<EmbeddedApp
                     shopOrigin={shopOrigin}
                     apiKey={config.apiKey}
                     debug={true}
-                >
-                    <Router>
-                        <div>
-                            <Route
-                                exact
-                                path="/app"
-                                component={HomeContainer}
-                            />
-                            <Route
-                                exact
-                                path="/app/mission"
-                                component={MissionContainer}
-                            />
-                            <Route
-                                exact
-                                path="/app/achievements"
-                                component={AchievementContainer}
-                            />
-                            <Route
-                                exact
-                                path="/app/milestones"
-                                component={MilestoneContainer}
-                            />
-                            <Route
-                                exact
-                                path="/app/about"
-                                component={AboutContainer}
-                            />
-                            <Route
-                                exact
-                                path="/app/preview"
-                                component={PreviewContainer}
-                            />
-                        </div>
-                    </Router>
-                </EmbeddedApp>
+                >*/}
+                <Router>
+                    <div>
+                        <Route exact path="/app" component={HomeContainer} />
+                        <Route
+                            exact
+                            path="/app/mission"
+                            component={MissionContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/achievements"
+                            component={AchievementContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/milestones"
+                            component={MilestoneContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/about"
+                            component={AboutContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/gallery"
+                            component={GalleryContainer}
+                        />
+                        <Route
+                            exact
+                            path="/app/preview"
+                            component={PreviewContainer}
+                        />
+                    </div>
+                </Router>
+                {/*</EmbeddedApp>*/}
             </Provider>
         );
     }
