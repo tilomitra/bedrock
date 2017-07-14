@@ -17,5 +17,9 @@ module.exports = keyMirror({
 
     ADD_GALLERY: null,
     REMOVE_GALLERY: null,
-    UPDATE_GALLERY: null
+    UPDATE_GALLERY: null,
+
+    ADD_TEAM: null,
+    REMOVE_TEAM: null,
+    UPDATE_TEAM: null
 });

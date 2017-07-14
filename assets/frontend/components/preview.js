@@ -11,6 +11,34 @@ import MissionPreview from "./templates/components/mission";
 import AchievementPreview from "./templates/components/achievement";
 import MilestonePreview from "./templates/components/milestone";
 import GalleryPreview from "./templates/components/gallery";
+import TeamPreview from "./templates/components/team";
+
+class EditLink extends Component {
+    render() {
+        let contents = (
+            <div className="has-text-center">
+                <Link to={this.props.url}>
+                    <Button slim>
+                        {this.props.title}
+                    </Button>
+                </Link>
+            </div>
+        );
+        if (this.props.showHeader) {
+            return (
+                <section>
+                    <Header
+                        title={this.props.header}
+                        color={this.props.color}
+                    />
+                    {contents}
+                </section>
+            );
+        } else {
+            return contents;
+        }
+    }
+}
 
 class Preview extends Component {
     render() {
@@ -20,6 +48,7 @@ class Preview extends Component {
             milestones,
             about,
             gallery,
+            team,
             color
         } = this.props;
 
@@ -41,32 +70,129 @@ class Preview extends Component {
             );
         });
 
+        const teamJsx = team.map((v, idx) => {
+            const props = v.toJS();
+            return <TeamPreview key={`team-${idx}`} {...props} color={color} />;
+        });
+
         return (
             <section className="pk-wrapper">
                 <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
 
-                <MissionPreview
-                    title={mission.get("title")}
-                    subtitle={mission.get("tagline")}
-                    color={color}
-                />
+                {mission.size
+                    ? <MissionPreview
+                          title={mission.get("title")}
+                          subtitle={mission.get("tagline")}
+                          color={color}
+                      />
+                    : null}
 
-                <Header title="About" color={color} />
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/mission`}
+                          title={"Edit Mission and Tagline"}
+                          header="Mission"
+                          showHeader={!!!mission.size}
+                      />
+                    : null}
 
-                <AboutPreview content={about.get("html")} color={color} />
+                {about.get("html").length
+                    ? <section>
+                          <Header title="About" color={color} />
+                          <AboutPreview
+                              content={about.get("html")}
+                              color={color}
+                          />
+                      </section>
+                    : null}
 
-                <Header title="Achievements and Awards" color={color} />
-                <div className="columns is-multiline">
-                    {achievementJsx}
-                </div>
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/about`}
+                          title={"Edit About Contents"}
+                          header="About"
+                          showHeader={!!!about.get("html").length}
+                      />
+                    : null}
 
-                <Header title="Featured Images" color={color} />
-                <GalleryPreview images={gallery.toJS()} />
+                {achievementJsx.size
+                    ? <section>
+                          <Header
+                              title="Achievements and Awards"
+                              color={color}
+                          />
+                          <div className="columns is-multiline">
+                              {achievementJsx}
+                          </div>
+                      </section>
+                    : null}
 
-                <Header title="Milestones" color={color} />
-                <div className="columns is-multiline">
-                    {milestoneJsx}
-                </div>
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/achievements`}
+                          title={"Update Achievements"}
+                          header="Achievements"
+                          showHeader={!!!achievementJsx.size}
+                      />
+                    : null}
+
+                {teamJsx.size
+                    ? <section>
+                          <Header title="Team" color={color} />
+                          <div className="columns is-multiline">
+                              {teamJsx}
+                          </div>
+                      </section>
+                    : null}
+
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/team`}
+                          title={"Update Team Members"}
+                          header="Team"
+                          showHeader={!!!teamJsx.size}
+                      />
+                    : null}
+
+                {gallery.size
+                    ? <section>
+                          <Header title="Gallery" color={color} />
+                          <GalleryPreview images={gallery.toJS()} />
+                      </section>
+                    : null}
+
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/gallery`}
+                          title={"Update Gallery"}
+                          header="Gallery"
+                          showHeader={!!!gallery.size}
+                      />
+                    : null}
+
+                {milestoneJsx.size
+                    ? <section>
+                          <Header title="Milestones" color={color} />
+                          <div className="columns is-multiline">
+                              {milestoneJsx}
+                          </div>
+                      </section>
+                    : null}
+
+                {this.props.showEditLinks
+                    ? <EditLink
+                          color={color}
+                          url={`/app/milestones`}
+                          header="Milestones"
+                          title={"Update Milestones"}
+                          showHeader={!!!milestoneJsx.size}
+                      />
+                    : null}
             </section>
         );
     }

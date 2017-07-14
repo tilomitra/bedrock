@@ -59,6 +59,20 @@ exports.updateGallery = (index, attr, value) => {
     nuclear.dispatch(actionTypes.UPDATE_GALLERY, { index, attr, value });
 };
 
+/* TEam */
+
+exports.addTeam = () => {
+    nuclear.dispatch(actionTypes.ADD_TEAM);
+};
+
+exports.removeTeam = index => {
+    nuclear.dispatch(actionTypes.REMOVE_TEAM, { index });
+};
+
+exports.updateTeam = (index, attr, value) => {
+    nuclear.dispatch(actionTypes.UPDATE_TEAM, { index, attr, value });
+};
+
 /* API Methods */
 
 exports.publish = (data, markup, css) => {

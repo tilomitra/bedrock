@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { EmbeddedApp } from "@shopify/polaris/embedded";
-import { Page, Card, Button, Stack, DisplayText } from "@shopify/polaris";
+import { Page, Card, Button, Stack, Heading } from "@shopify/polaris";
 import { Link } from "react-router-dom";
 import "@shopify/polaris/styles.css";
 
@@ -10,7 +10,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <Page title="Home">
-                <DisplayText>Add Content</DisplayText>
+                <Heading>Add Content</Heading>
                 <LinkCard
                     url={`/app/mission`}
                     buttonTitle={"Provide Mission and Tagline"}
@@ -45,6 +45,17 @@ class HomeContainer extends Component {
                 />
 
                 <LinkCard
+                    url={`/app/team`}
+                    buttonTitle={"Add Team Members"}
+                    description={
+                        <p>
+                            <strong>Team Members: </strong> Highlight your
+                            executive team.
+                        </p>
+                    }
+                />
+
+                <LinkCard
                     url={`/app/gallery`}
                     buttonTitle={"Add Images"}
                     description={
@@ -67,26 +78,16 @@ class HomeContainer extends Component {
                     }
                 />
 
-                <DisplayText>Design</DisplayText>
-
-                <LinkCard
-                    url={`/app/theme`}
-                    buttonTitle={"Select a Theme"}
-                    description={
-                        <p>
-                            <strong>Select a theme: </strong> Choose one of our
-                            available themes for your Press Kit.
-                        </p>
-                    }
-                />
+                <Heading>Design</Heading>
 
                 <LinkCard
                     url={`/app/preview`}
-                    buttonTitle={"Preview and Publish"}
+                    buttonTitle={"Customize and Publish"}
                     description={
                         <p>
-                            <strong>Preview and Publish: </strong> Preview your
-                            final press kit and publish it to your store.
+                            <strong>Customize and Publish: </strong> Choose your
+                            theme, preview your Press Kit and publish it to your
+                            store.
                         </p>
                     }
                 />

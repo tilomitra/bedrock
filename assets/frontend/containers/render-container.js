@@ -7,7 +7,11 @@ import {
     Button,
     Stack,
     PageActions,
-    DisplayText
+    CalloutCard,
+    Banner,
+    DisplayText,
+    Subheading,
+    Popover
 } from "@shopify/polaris";
 import ColorPicker from "../components/colorpicker";
 import CSSEditor from "../components/css-editor";
@@ -53,21 +57,68 @@ class PreviewContainer extends Component {
         return (
             <Page
                 title="Preview"
-                breadcrumbs={[
-                    { content: "Settings", onClick: this.onCancel.bind(this) }
-                ]}
+                breadcrumbs={[{ content: "Settings", url: "/" }]}
                 primaryAction={{
                     content: "Publish",
                     onClick: this.onPublish.bind(this)
                 }}
             >
+                <Card>
+                    <Banner title="Build your Press Kit." status="info">
+                        <p>
+                            To make things easy, we've set you up with a sample
+                            Press Kit below.
+                        </p>
+                        <p>
+                            Edit the contents of each section to make this Press
+                            Kit your own. Once you are satisfied, click the
+                            Publish button to add it to your store.
+                        </p>
+                    </Banner>
+                </Card>
+
+                <Card>
+                    <Preview
+                        color={this.state.accentColor}
+                        css={this.state.css}
+                        {...this.props}
+                        showEditLinks={true}
+                    />
+                </Card>
+
+                <div
+                    className="has-text-center"
+                    style={{ marginTop: 30, marginBottom: 30 }}
+                >
+                    <DisplayText size="large">Display Options</DisplayText>
+                    <p>
+                        You've added your content. Now let's make sure your
+                        Press Kit looks good!
+                    </p>
+                </div>
+
+                <Card title="Choose Theme">
+                    <Card.Section>
+                        <p>
+                            The current theme for your Press Kit is{" "}
+                            <strong>Miller</strong>.
+                        </p>
+                        <p>
+                            New themes are still under development. You will be
+                            notified via email when they are released.
+                        </p>
+                        <Button disabled style={{ marginTop: 20 }}>
+                            Switch Themes
+                        </Button>
+                    </Card.Section>
+                </Card>
+
                 <Card title="Choose Accent Color">
                     <Card.Section>
                         <p>
                             Choose an accent color that matches your store's
-                            overall theme. This color will be used in your Press
-                            Kit. Once you choose a color, you can preview your
-                            results below.
+                            overall theme. Once you choose a color, the Press
+                            Kit Preview above will reflect your changes.
                         </p>
 
                         <div
@@ -83,17 +134,9 @@ class PreviewContainer extends Component {
 
                 <CSSEditor onChange={this.onCodeChange.bind(this)} />
 
-                <Card>
-                    <Preview
-                        color={this.state.accentColor}
-                        css={this.state.css}
-                        {...this.props}
-                    />
-                </Card>
-
                 <PageActions
                     primaryAction={{
-                        content: "Publish",
+                        content: "Publish to Store",
                         onClick: this.onPublish.bind(this)
                     }}
                     secondaryActions={[
@@ -114,7 +157,8 @@ function mapStateToProps(props) {
         mission: CommonModule.getters.mission,
         achievements: CommonModule.getters.achievements,
         milestones: CommonModule.getters.milestones,
-        gallery: CommonModule.getters.gallery
+        gallery: CommonModule.getters.gallery,
+        team: CommonModule.getters.team
     };
 }
 
