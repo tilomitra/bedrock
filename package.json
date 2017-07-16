@@ -27,7 +27,7 @@
     "draft-js": "^0.10.1",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.11.3",
-    "express-state": "^1.2.0",
+    "express-state": "^1.4.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "grunt": "1.0.1",
     "grunt-browserify": "^5.0.0",

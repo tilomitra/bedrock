@@ -60,6 +60,10 @@ class Achievement extends Component {
                         href={this.props.publishLink}
                         target="_blank"
                         className="pk-achievement-link"
+                        style={{
+                            color: this.props.color,
+                            textDecoration: "none"
+                        }}
                     >
                         {" "} Learn More →
                     </a>

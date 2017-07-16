@@ -18,6 +18,7 @@ module.exports = {
             .then(store => {
                 req.session.store = store;
                 res.locals.nonce = store.nonce;
+                sails.hooks.http.app.expose(store, "App.Store");
                 return res.redirect("/app");
             })
             .catch(err => {
@@ -72,6 +73,7 @@ module.exports = {
                             .then(store => {
                                 req.session.store = store;
                                 res.locals.nonce = store.nonce;
+                                sails.hooks.http.app.expose(store, "App.Store");
                                 return res.redirect("/app");
                             })
                             .catch(err => {
@@ -103,6 +105,7 @@ module.exports = {
         const linktag = `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css">
         <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/app.css">
+        <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/Template-Miller.css">
         `;
 
         const css = `<style>${cssStyles}</style>`;

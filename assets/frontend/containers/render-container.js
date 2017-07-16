@@ -27,7 +27,8 @@ class PreviewContainer extends Component {
         super(props);
         this.state = {
             accentColor: "#7fac63",
-            css: ""
+            css: "",
+            isPublishing: false
         };
     }
 
@@ -45,6 +46,7 @@ class PreviewContainer extends Component {
     }
 
     onPublish() {
+        this.setState({ isPublishing: true });
         const markup = ReactDOMServer.renderToStaticMarkup(
             <Preview
                 {...this.props}
@@ -74,6 +76,37 @@ class PreviewContainer extends Component {
     }
 
     render() {
+        let publishedPageBanner;
+        if (this.props.general.get("publishedPage")) {
+            let handle = this.props.general.getIn([
+                "publishedPage",
+                "page",
+                "handle"
+            ]);
+            publishedPageBanner = (
+                <Banner
+                    title="Your Press Kit was successfully published to your store."
+                    status="success"
+                    action={{
+                        content: "View Page",
+                        url: `https://${App.Store.name}/pages/${handle}`
+                    }}
+                >
+                    <p>
+                        Your published press kit may look a little different
+                        because it will adopt your store's style.
+                    </p>
+                </Banner>
+            );
+        } else if (this.state.isPublishing) {
+            publishedPageBanner = (
+                <Banner
+                    title="Publishing. Give us a few seconds."
+                    status="info"
+                />
+            );
+        }
+
         return (
             <Page
                 title="Preview"
@@ -175,6 +208,8 @@ class PreviewContainer extends Component {
 
                 <CSSEditor onChange={this.onCodeChange.bind(this)} />
 
+                {publishedPageBanner}
+
                 <PageActions
                     primaryAction={{
                         content: "Publish to Store",
@@ -199,7 +234,8 @@ function mapStateToProps(props) {
         achievements: CommonModule.getters.achievements,
         milestones: CommonModule.getters.milestones,
         gallery: CommonModule.getters.gallery,
-        team: CommonModule.getters.team
+        team: CommonModule.getters.team,
+        general: CommonModule.getters.general
     };
 }
 

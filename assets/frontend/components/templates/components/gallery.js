@@ -22,7 +22,7 @@ class Gallery extends Component {
         let imageJsx = this.props.images.map((i, idx) => {
             return (
                 <div
-                    className="pk-gallery-item column is-6"
+                    className="pk-gallery-item column is-4"
                     key={`gallery-${idx}`}
                 >
                     <img

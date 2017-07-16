@@ -10,9 +10,14 @@ body {
 // milestone
 .pk-milestone {
     padding: 50px;
+    min-height: 200px;
 }
 
 //achievement
+
+.pk-achievement {
+    min-height: 320px;
+}
 .pk-achievement-pubname {
     padding: 45px 0 45px !important;
 }

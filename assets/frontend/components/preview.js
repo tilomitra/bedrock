@@ -16,7 +16,7 @@ import TeamPreview from "./templates/components/team";
 class EditLink extends Component {
     render() {
         let contents = (
-            <div className="has-text-center">
+            <div className="has-text-center" style={{ marginTop: "1em" }}>
                 <Link to={this.props.url}>
                     <Button slim>
                         {this.props.title}

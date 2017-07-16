@@ -8,7 +8,7 @@ exports.publish = (data, markup, css) => {
     api
         .publish(data, markup, css, "https://miller-furniture.myshopify.com")
         .then(resp => {
-            console.log(resp);
+            nuclear.dispatch(actionTypes.PUBLISH_SUCCESS, { data: resp });
         })
         .catch(err => {
             console.log(err);
