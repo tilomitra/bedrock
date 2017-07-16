@@ -18,18 +18,6 @@ class Mission extends Component {
     render() {
         return (
             <Page title="Mission and Tagline">
-                <PageActions
-                    primaryAction={{
-                        content: "Save",
-                        onClick: this.props.onSave
-                    }}
-                    secondaryActions={[
-                        {
-                            content: "Cancel",
-                            onClick: this.props.onCancel
-                        }
-                    ]}
-                />
                 <Card title="Mission and Tagline">
                     <Card.Section>
                         <FormLayout>
@@ -59,6 +47,18 @@ class Mission extends Component {
                         />
                     </Card.Section>
                 </Card>
+                <PageActions
+                    primaryAction={{
+                        content: "Save",
+                        onClick: this.props.onSave
+                    }}
+                    secondaryActions={[
+                        {
+                            content: "Cancel",
+                            onClick: this.props.onCancel
+                        }
+                    ]}
+                />
             </Page>
         );
     }

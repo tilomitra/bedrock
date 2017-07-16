@@ -7,7 +7,7 @@ class Milestone extends Component {
         let contentJsx = [];
         if (this.props.type === "stars") {
             for (let i = 0; i < this.props.amount; i++) {
-                contentJsx.push(<span>★</span>);
+                contentJsx.push(<span key={`star-${i}`}>★</span>);
             }
         } else {
             contentJsx = [this.props.amount, <span>+</span>];

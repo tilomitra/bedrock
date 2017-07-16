@@ -9,20 +9,16 @@ class LinkCard extends Component {
 
     render() {
         return (
-            <Card>
+            <Card title={this.props.title}>
                 <Card.Section>
-                    <Stack alignment="center">
-                        <Stack.Item fill>
-                            {this.props.description}
-                        </Stack.Item>
-                        <Stack.Item>
-                            <Link to={this.props.url}>
-                                <Button>
-                                    {this.props.buttonTitle}
-                                </Button>
-                            </Link>
-                        </Stack.Item>
-                    </Stack>
+                    {this.props.description}
+                </Card.Section>
+                <Card.Section>
+                    <Link to={this.props.url}>
+                        <Button>
+                            {this.props.buttonTitle}
+                        </Button>
+                    </Link>
                 </Card.Section>
             </Card>
         );

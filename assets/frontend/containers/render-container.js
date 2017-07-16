@@ -11,7 +11,7 @@ import {
     Banner,
     DisplayText,
     Subheading,
-    Popover
+    EmptyState
 } from "@shopify/polaris";
 import ColorPicker from "../components/colorpicker";
 import CSSEditor from "../components/css-editor";
@@ -30,10 +30,30 @@ class PreviewContainer extends Component {
             css: ""
         };
     }
+
+    componentWillMount() {
+        CommonModule.actions.fetchEntity("missions");
+        CommonModule.actions.fetchEntity("achievements");
+        CommonModule.actions.fetchEntity("milestones");
+        CommonModule.actions.fetchEntity("teams");
+        CommonModule.actions.fetchEntity("images");
+        CommonModule.actions.fetchEntity("abouts");
+    }
+
+    componentDidMount() {
+        window.scroll(0, 0);
+    }
+
     onPublish() {
         const markup = ReactDOMServer.renderToStaticMarkup(
-            <Preview {...this.props} />
+            <Preview
+                {...this.props}
+                color={this.state.accentColor}
+                css={this.state.css}
+                showEditLinks={false}
+            />
         );
+        console.log(markup);
         CommonModule.actions.publish(this.props, markup, this.state.css);
     }
 
@@ -57,22 +77,43 @@ class PreviewContainer extends Component {
         return (
             <Page
                 title="Preview"
-                breadcrumbs={[{ content: "Settings", url: "/" }]}
                 primaryAction={{
                     content: "Publish",
                     onClick: this.onPublish.bind(this)
                 }}
             >
+                <EmptyState
+                    heading="Welcome to Press Kitty"
+                    action={{
+                        content: "Build your Press Kit",
+                        onClick: () => {
+                            this.props.history.push("/app/preview");
+                        }
+                    }}
+                    secondaryAction={{
+                        content: "Learn more",
+                        url: "https://help.shopify.com"
+                    }}
+                    image="https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg"
+                >
+                    <p>
+                        Start building your press kit by adding various
+                        sections.
+                    </p>
+                </EmptyState>
                 <Card>
-                    <Banner title="Build your Press Kit." status="info">
+                    <Banner
+                        title="Here's a Preview of your Press Kit"
+                        status="info"
+                    >
                         <p>
-                            To make things easy, we've set you up with a sample
-                            Press Kit below.
+                            Here's a preview of your Press Kit. Make changes to
+                            it, and click Publish once you are ready to add it
+                            to your store.
                         </p>
                         <p>
-                            Edit the contents of each section to make this Press
-                            Kit your own. Once you are satisfied, click the
-                            Publish button to add it to your store.
+                            Your published kit will look slightly different as
+                            it will adopt the styles from your website.
                         </p>
                     </Banner>
                 </Card>

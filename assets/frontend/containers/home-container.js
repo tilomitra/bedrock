@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { EmbeddedApp } from "@shopify/polaris/embedded";
-import { Page, Card, Button, Stack, Heading } from "@shopify/polaris";
+import {
+    Page,
+    Card,
+    Button,
+    Stack,
+    Heading,
+    EmptyState,
+    DisplayText
+} from "@shopify/polaris";
 import { Link } from "react-router-dom";
 import "@shopify/polaris/styles.css";
 
@@ -10,84 +18,89 @@ class HomeContainer extends Component {
     render() {
         return (
             <Page title="Home">
-                <Heading>Add Content</Heading>
                 <LinkCard
+                    title={"Mission and Tagline"}
                     url={`/app/mission`}
                     buttonTitle={"Provide Mission and Tagline"}
                     description={
-                        <p>
-                            <strong>Mission and Tagline: </strong> Specify your
-                            brand's mission and tagline.
-                        </p>
+                        <p>Specify your brand's mission and tagline.</p>
                     }
                 />
 
                 <LinkCard
+                    title={"Achievements"}
                     url={`/app/achievements`}
                     buttonTitle={"List Achievements"}
                     description={
                         <p>
-                            <strong>Achievements: </strong> Highlight notable
-                            achievements, blog posts, media coverage and more.
+                            Highlight notable achievements, blog posts, media
+                            coverage and more.
                         </p>
                     }
                 />
 
                 <LinkCard
+                    title={"Milestones"}
                     url={`/app/milestones`}
                     buttonTitle={"List Milestones"}
                     description={
                         <p>
-                            <strong>Milestones: </strong> Highlight impressive
-                            numbers, sales targets, or customer ratings.
+                            Highlight impressive numbers, sales targets, or
+                            customer ratings.
                         </p>
                     }
                 />
 
                 <LinkCard
+                    title={"Team Members"}
                     url={`/app/team`}
                     buttonTitle={"Add Team Members"}
-                    description={
-                        <p>
-                            <strong>Team Members: </strong> Highlight your
-                            executive team.
-                        </p>
-                    }
+                    description={<p>Highlight your executive team.</p>}
                 />
 
                 <LinkCard
+                    title={"Gallery"}
                     url={`/app/gallery`}
                     buttonTitle={"Add Images"}
                     description={
                         <p>
-                            <strong>Featured Gallery: </strong> Add featured
-                            images that highlight your products and brand.
+                            Add featured images that highlight your products and
+                            brand.
                         </p>
                     }
                 />
 
                 <LinkCard
+                    title={"About your Store"}
                     url={`/app/about`}
                     buttonTitle={"Write About your Brand"}
                     description={
                         <p>
-                            <strong>About: </strong> Tell a story about your
-                            brand so customers can learn about what you are
-                            passionate about.
+                            Tell a story about your brand so customers can learn
+                            about what you are passionate about.
                         </p>
                     }
                 />
 
-                <Heading>Design</Heading>
+                <div
+                    className="has-text-center"
+                    style={{ marginTop: 30, marginBottom: 30 }}
+                >
+                    <DisplayText size="large">Display Options</DisplayText>
+                    <p>
+                        You've added your content. Now let's make sure your
+                        Press Kit looks good!
+                    </p>
+                </div>
 
                 <LinkCard
+                    title={"Preview and Publish"}
                     url={`/app/preview`}
                     buttonTitle={"Customize and Publish"}
                     description={
                         <p>
-                            <strong>Customize and Publish: </strong> Choose your
-                            theme, preview your Press Kit and publish it to your
-                            store.
+                            Choose your theme, preview your Press Kit and
+                            publish it to your store.
                         </p>
                     }
                 />

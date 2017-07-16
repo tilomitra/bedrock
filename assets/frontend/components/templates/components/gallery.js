@@ -22,7 +22,7 @@ class Gallery extends Component {
         let imageJsx = this.props.images.map((i, idx) => {
             return (
                 <div
-                    className="pk-gallery-item column is-3"
+                    className="pk-gallery-item column is-6"
                     key={`gallery-${idx}`}
                 >
                     <img
@@ -49,7 +49,7 @@ class Gallery extends Component {
                         this.setState({ isOpen: false });
                     }}
                 />
-                <section className="columns is-multline">
+                <section className="columns is-multiline">
                     {imageJsx}
                 </section>
             </section>

@@ -6,6 +6,10 @@ import CommonModule from "../modules/common";
 import Mission from "../components/mission";
 
 class MissionContainer extends Component {
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("missions");
+    }
+
     onMissionChange(val) {
         CommonModule.actions.updateMission(val);
     }
@@ -14,7 +18,13 @@ class MissionContainer extends Component {
         CommonModule.actions.updateTagline(val);
     }
 
-    onSave(e) {}
+    onSave(e) {
+        CommonModule.actions.saveEntity("missions", {
+            title: this.props.mission.get("title"),
+            subtitle: this.props.mission.get("tagline")
+        });
+        this.props.history.push("/app");
+    }
 
     onCancel(e) {
         this.props.history.push("/app");

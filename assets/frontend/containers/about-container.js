@@ -6,8 +6,15 @@ import CommonModule from "../modules/common";
 import About from "../components/about";
 
 class AboutContainer extends Component {
-    onSave(htmlText) {
-        console.log(htmlText);
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("abouts");
+    }
+
+    onSave() {
+        CommonModule.actions.saveEntity("abouts", {
+            html: this.props.about.get("html")
+        });
+        this.props.history.push("/app");
     }
 
     onCancel(e) {
@@ -23,7 +30,7 @@ class AboutContainer extends Component {
             <About
                 content={this.props.about}
                 onUpdate={this.onUpdate.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

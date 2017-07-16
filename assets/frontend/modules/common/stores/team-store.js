@@ -21,6 +21,8 @@ module.exports = new Nuclear.Store({
         this.on(actionTypes.UPDATE_TEAM, handleUpdate);
         this.on(actionTypes.ADD_TEAM, handleAdd);
         this.on(actionTypes.REMOVE_TEAM, handleRemove);
+        this.on(actionTypes.SAVE_TEAMS_SUCCESS, handleFetchAndSaveSuccess);
+        this.on(actionTypes.FETCH_TEAMS_SUCCESS, handleFetchAndSaveSuccess);
     }
 });
 
@@ -53,4 +55,8 @@ function handleUpdate(state, payload) {
     let data = state.get(payload.index);
     data = data.set(payload.attr, payload.value);
     return state.set(payload.index, data);
+}
+
+function handleFetchAndSaveSuccess(state, payload) {
+    return toImmutable(payload.data);
 }

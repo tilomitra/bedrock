@@ -6,6 +6,9 @@ import CommonModule from "../modules/common";
 import Gallery from "../components/gallery";
 
 class GalleryContainer extends Component {
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("images");
+    }
     onAddGallery(val) {
         CommonModule.actions.addGallery();
     }
@@ -18,7 +21,10 @@ class GalleryContainer extends Component {
         CommonModule.actions.updateGallery(idx, attr, value);
     }
 
-    onSave(e) {}
+    onSave(e) {
+        CommonModule.actions.saveEntity("images", this.props.gallery.toJS());
+        this.props.history.push("/app");
+    }
 
     onCancel(e) {
         this.props.history.push("/app");
@@ -31,7 +37,7 @@ class GalleryContainer extends Component {
                 onAdd={this.onAddGallery.bind(this)}
                 onRemove={this.onRemoveGallery.bind(this)}
                 onUpdate={this.onUpdateGallery.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

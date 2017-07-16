@@ -14,9 +14,11 @@ module.exports = new Nuclear.Store({
     },
 
     initialize() {
-        this.on(actionTypes.UPDATE_GALLERY, handleUpdate);
-        this.on(actionTypes.ADD_GALLERY, handleAdd);
-        this.on(actionTypes.REMOVE_GALLERY, handleRemove);
+        this.on(actionTypes.UPDATE_IMAGE, handleUpdate);
+        this.on(actionTypes.ADD_IMAGE, handleAdd);
+        this.on(actionTypes.REMOVE_IMAGE, handleRemove);
+        this.on(actionTypes.FETCH_IMAGES_SUCCESS, handleFetchAndSaveSuccess);
+        this.on(actionTypes.SAVE_IMAGES_SUCCESS, handleFetchAndSaveSuccess);
     }
 });
 
@@ -46,4 +48,8 @@ function handleUpdate(state, payload) {
     let data = state.get(payload.index);
     data = data.set(payload.attr, payload.value);
     return state.set(payload.index, data);
+}
+
+function handleFetchAndSaveSuccess(state, payload) {
+    return toImmutable(payload.data);
 }

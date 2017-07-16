@@ -6,6 +6,9 @@ import CommonModule from "../modules/common";
 import Team from "../components/team";
 
 class TeamContainer extends Component {
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("teams");
+    }
     onAddTeam(val) {
         CommonModule.actions.addTeam();
     }
@@ -18,7 +21,10 @@ class TeamContainer extends Component {
         CommonModule.actions.updateTeam(idx, attr, value);
     }
 
-    onSave(e) {}
+    onSave(e) {
+        CommonModule.actions.saveEntity("teams", this.props.team.toJS());
+        this.props.history.push("/app");
+    }
 
     onCancel(e) {
         this.props.history.push("/app");
@@ -31,7 +37,7 @@ class TeamContainer extends Component {
                 onAdd={this.onAddTeam.bind(this)}
                 onRemove={this.onRemoveTeam.bind(this)}
                 onUpdate={this.onUpdateTeam.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

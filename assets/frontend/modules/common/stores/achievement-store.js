@@ -20,6 +20,14 @@ module.exports = new Nuclear.Store({
         this.on(actionTypes.UPDATE_ACHIEVEMENT, handleUpdate);
         this.on(actionTypes.ADD_ACHIEVEMENT, handleAdd);
         this.on(actionTypes.REMOVE_ACHIEVEMENT, handleRemove);
+        this.on(
+            actionTypes.SAVE_ACHIEVEMENTS_SUCCESS,
+            handleFetchAndSaveSuccess
+        );
+        this.on(
+            actionTypes.FETCH_ACHIEVEMENTS_SUCCESS,
+            handleFetchAndSaveSuccess
+        );
     }
 });
 
@@ -52,4 +60,8 @@ function handleUpdate(state, payload) {
     let data = state.get(payload.index);
     data = data.set(payload.attr, payload.value);
     return state.set(payload.index, data);
+}
+
+function handleFetchAndSaveSuccess(state, payload) {
+    return toImmutable(payload.data);
 }

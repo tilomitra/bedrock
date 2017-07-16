@@ -6,6 +6,10 @@ import CommonModule from "../modules/common";
 import Achievements from "../components/achievements";
 
 class AchievementContainer extends Component {
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("achievements");
+    }
+
     onAddAchievement(val) {
         CommonModule.actions.addAchievement();
     }
@@ -18,7 +22,14 @@ class AchievementContainer extends Component {
         CommonModule.actions.updateAchievement(idx, attr, value);
     }
 
-    onSave(e) {}
+    onSave(e) {
+        CommonModule.actions.saveEntity(
+            "achievements",
+            this.props.achievements.toJS()
+        );
+
+        this.props.history.push("/app");
+    }
 
     onCancel(e) {
         this.props.history.push("/app");
@@ -31,7 +42,7 @@ class AchievementContainer extends Component {
                 onAdd={this.onAddAchievement.bind(this)}
                 onRemove={this.onRemoveAchievement.bind(this)}
                 onUpdate={this.onUpdateAchievement.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

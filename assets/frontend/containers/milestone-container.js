@@ -6,6 +6,9 @@ import CommonModule from "../modules/common";
 import Milestones from "../components/milestones";
 
 class MilestoneContainer extends Component {
+    componentDidMount() {
+        CommonModule.actions.fetchEntity("milestones");
+    }
     onAddMilestone(val) {
         CommonModule.actions.addMilestone();
     }
@@ -18,7 +21,13 @@ class MilestoneContainer extends Component {
         CommonModule.actions.updateMilestone(idx, attr, value);
     }
 
-    onSave(e) {}
+    onSave(e) {
+        CommonModule.actions.saveEntity(
+            "milestones",
+            this.props.milestones.toJS()
+        );
+        this.props.history.push("/app");
+    }
 
     onCancel(e) {
         this.props.history.push("/app");
@@ -31,7 +40,7 @@ class MilestoneContainer extends Component {
                 onAdd={this.onAddMilestone.bind(this)}
                 onRemove={this.onRemoveMilestone.bind(this)}
                 onUpdate={this.onUpdateMilestone.bind(this)}
-                onSave={this.onSave.bind.bind(this)}
+                onSave={this.onSave.bind(this)}
                 onCancel={this.onCancel.bind(this)}
             />
         );

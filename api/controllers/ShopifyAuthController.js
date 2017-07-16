@@ -17,6 +17,7 @@ module.exports = {
         })
             .then(store => {
                 req.session.store = store;
+                res.locals.nonce = store.nonce;
                 return res.redirect("/app");
             })
             .catch(err => {
@@ -70,6 +71,7 @@ module.exports = {
                         })
                             .then(store => {
                                 req.session.store = store;
+                                res.locals.nonce = store.nonce;
                                 return res.redirect("/app");
                             })
                             .catch(err => {
@@ -144,6 +146,7 @@ module.exports = {
                     Stores.update(store.id, { pageId: data.page.id })
                         .then(() => {
                             req.session.store = store;
+                            res.locals.nonce = store.nonce;
                             return res.json(data);
                         })
                         .catch(err => {

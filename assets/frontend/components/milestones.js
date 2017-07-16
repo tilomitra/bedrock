@@ -106,6 +106,21 @@ class Milestone extends Component {
 
         return (
             <Page title="Milestones">
+                {milestoneFormJsx}
+
+                <Card title={"Preview"}>
+                    <Card.Section>
+                        <p>
+                            Your milestones show up in a grid. Here's a preview
+                            of your current milestones.
+                        </p>
+                        <hr />
+                        <div className="columns is-multiline">
+                            {renderedJsx}
+                        </div>
+                    </Card.Section>
+                </Card>
+
                 <PageActions
                     primaryAction={{
                         content: "Save",
@@ -122,21 +137,6 @@ class Milestone extends Component {
                         }
                     ]}
                 />
-
-                {milestoneFormJsx}
-
-                <Card title={"Preview"}>
-                    <Card.Section>
-                        <p>
-                            Your milestones show up in a grid. Here's a preview
-                            of your current milestones.
-                        </p>
-                        <hr />
-                        <div className="columns is-multiline">
-                            {renderedJsx}
-                        </div>
-                    </Card.Section>
-                </Card>
             </Page>
         );
     }

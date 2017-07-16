@@ -35,26 +35,10 @@ const formats = [
 ];
 
 class About extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <Page title="About">
                 <Heading>About</Heading>
-                <PageActions
-                    primaryAction={{
-                        content: "Save",
-                        onClick: this.props.onSave
-                    }}
-                    secondaryActions={[
-                        {
-                            content: "Cancel",
-                            onClick: this.props.onCancel
-                        }
-                    ]}
-                />
                 <Card title="Write your content">
                     <Card.Section>
                         <ReactQuill
@@ -73,6 +57,19 @@ class About extends React.Component {
                         />
                     </Card.Section>
                 </Card>
+
+                <PageActions
+                    primaryAction={{
+                        content: "Save",
+                        onClick: this.props.onSave
+                    }}
+                    secondaryActions={[
+                        {
+                            content: "Cancel",
+                            onClick: this.props.onCancel
+                        }
+                    ]}
+                />
             </Page>
         );
     }

@@ -110,6 +110,20 @@ class Achievement extends Component {
 
         return (
             <Page title="Achievements">
+                {achievementFormJsx}
+
+                <Card title={"Preview"}>
+                    <Card.Section>
+                        <p>
+                            Your achievements show up in a grid. Here's a
+                            preview of your current achievements.
+                        </p>
+                        <hr />
+                        <div className="columns is-multiline">
+                            {renderedJsx}
+                        </div>
+                    </Card.Section>
+                </Card>
                 <PageActions
                     primaryAction={{
                         content: "Save",
@@ -126,21 +140,6 @@ class Achievement extends Component {
                         }
                     ]}
                 />
-
-                {achievementFormJsx}
-
-                <Card title={"Preview"}>
-                    <Card.Section>
-                        <p>
-                            Your achievements show up in a grid. Here's a
-                            preview of your current achievements.
-                        </p>
-                        <hr />
-                        <div className="columns is-multiline">
-                            {renderedJsx}
-                        </div>
-                    </Card.Section>
-                </Card>
             </Page>
         );
     }

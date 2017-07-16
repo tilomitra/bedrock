@@ -29,6 +29,25 @@ module.exports.policies = {
     PageController: {
         index: ["passport", "sessionAuth"],
         renderLoggedInReactPage: ["passport", "sessionAuth"]
+    },
+
+    MissionController: {
+        refresh: ["getStore"]
+    },
+    AchievementController: {
+        refresh: ["getStore"]
+    },
+    MilestoneConTroller: {
+        refresh: ["getStore"]
+    },
+    TeamController: {
+        refresh: ["getStore"]
+    },
+    AboutController: {
+        refresh: ["getStore"]
+    },
+    ImageController: {
+        refresh: ["getStore"]
     }
 
     /***************************************************************************

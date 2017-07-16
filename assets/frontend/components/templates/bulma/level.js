@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
+import uuidv4 from "uuid/v4";
+
 class Level extends Component {
     render() {
         let styles = {};
@@ -11,7 +13,7 @@ class Level extends Component {
 
         const titleJsx = (
             <p
-                key="title"
+                key={uuidv4()}
                 className={classnames("title", this.props.titleClass)}
             >
                 {this.props.title}
@@ -21,7 +23,7 @@ class Level extends Component {
             <p
                 className={classnames("heading", this.props.headingClass)}
                 style={styles}
-                key="heading"
+                key={uuidv4()}
             >
                 {this.props.heading}
             </p>

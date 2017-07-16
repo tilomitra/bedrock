@@ -20,6 +20,8 @@ module.exports = new Nuclear.Store({
 
     initialize() {
         this.on(actionTypes.UPDATE_ABOUT, handleUpdate);
+        this.on(actionTypes.SAVE_ABOUTS_SUCCESS, handleSaveSuccess);
+        this.on(actionTypes.FETCH_ABOUTS_SUCCESS, handleFetchSuccess);
     }
 });
 
@@ -34,4 +36,18 @@ module.exports = new Nuclear.Store({
  */
 function handleUpdate(state, payload) {
     return state.set("html", payload.data);
+}
+
+function handleFetchSuccess(state, payload) {
+    if (payload.data[0]) {
+        let newState = state.set("html", payload.data[0].html);
+        newState = newState.set("isSaved", true);
+        return newState;
+    } else return state;
+}
+
+function handleSaveSuccess(state, payload) {
+    let newState = state.set("html", payload.data.html);
+    newState = newState.set("isSaved", true);
+    return newState;
 }

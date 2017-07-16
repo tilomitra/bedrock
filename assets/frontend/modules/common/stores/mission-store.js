@@ -6,13 +6,16 @@ module.exports = new Nuclear.Store({
     getInitialState() {
         return toImmutable({
             title: "Hello, We are Miller",
-            tagline: "Test Tagline"
+            tagline: "Test Tagline",
+            isSaved: false
         });
     },
 
     initialize() {
         this.on(actionTypes.UPDATE_MISSION, handleMissionUpdate);
         this.on(actionTypes.UPDATE_TAGLINE, handleTaglineUpdate);
+        this.on(actionTypes.SAVE_MISSIONS_SUCCESS, handleSaveSuccess);
+        this.on(actionTypes.FETCH_MISSIONS_SUCCESS, handleFetchSuccess);
     }
 });
 
@@ -26,9 +29,31 @@ module.exports = new Nuclear.Store({
  * @param {object} payload
  */
 function handleMissionUpdate(state, payload) {
-    return state.set("title", payload.data);
+    let newState = state.set("title", payload.data);
+    newState = newState.set("isSaved", false);
+    return newState;
 }
 
 function handleTaglineUpdate(state, payload) {
-    return state.set("tagline", payload.data);
+    let newState = state.set("tagline", payload.data);
+    newState = newState.set("isSaved", false);
+    return newState;
+}
+
+function handleFetchSuccess(state, payload) {
+    if (payload.data[0]) {
+        let newState = state.set("title", payload.data[0].title);
+        newState = newState.set("tagline", payload.data[0].subtitle);
+        newState = newState.set("isSaved", true);
+        return newState;
+    } else {
+        return state;
+    }
+}
+
+function handleSaveSuccess(state, payload) {
+    let newState = state.set("title", payload.data.title);
+    newState = newState.set("tagline", payload.data.subtitle);
+    newState = newState.set("isSaved", true);
+    return newState;
 }

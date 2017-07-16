@@ -38,5 +38,29 @@ module.exports = {
             qs: { storeName: storeName },
             json: true
         });
+    },
+
+    fetch: function(entity, storeId = 8) {
+        return makeRequest(`/${entity}?storeId=${storeId}`, {
+            json: true,
+            headers: {
+                nonce:
+                    document.getElementById("nonce").text ||
+                    "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
+            }
+        });
+    },
+
+    refresh: function(entity, data) {
+        return makeRequest(`/${entity}/refresh`, {
+            method: "POST",
+            body: data,
+            json: true,
+            headers: {
+                nonce:
+                    document.getElementById("nonce").text ||
+                    "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
+            }
+        });
     }
 };

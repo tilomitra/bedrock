@@ -22,6 +22,8 @@ module.exports = {
     },
 
     app: function(req, res) {
-        res.view("pages/react-template");
+        res.view("pages/react-template", {
+            nonce: res.locals.nonce
+        });
     }
 };
