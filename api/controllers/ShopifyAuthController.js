@@ -20,6 +20,7 @@ module.exports = {
                 req.session.store = store;
                 res.locals.nonce = store.nonce;
                 sails.hooks.http.app.expose(store.id, "App.Store.id");
+                sails.hooks.http.app.expose(store.name, "App.Store.name");
                 return res.redirect("/app");
             })
             .catch(err => {
@@ -167,6 +168,10 @@ module.exports = {
                                         sails.hooks.http.app.expose(
                                             storeId,
                                             "App.Store.id"
+                                        );
+                                        sails.hooks.http.app.expose(
+                                            store.name,
+                                            "App.Store.name"
                                         );
                                         return res.redirect("/app");
                                     }

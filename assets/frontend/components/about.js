@@ -65,7 +65,7 @@ class About extends React.Component {
                     }}
                     secondaryActions={[
                         {
-                            content: "Cancel",
+                            content: "Go Back",
                             onClick: this.props.onCancel
                         }
                     ]}

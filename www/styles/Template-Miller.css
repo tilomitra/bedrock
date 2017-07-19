@@ -1,0 +1,57 @@
+.pk-wrapper {
+  padding: 2em; }
+
+.pk-mission {
+  text-align: center; }
+
+.pk-mission .title {
+  font-weight: bold;
+  font-size: 4em; }
+
+.pk-mission .subtitle {
+  font-size: 1.5em;
+  margin-top: -0.5em !important;
+  font-weight: normal; }
+
+.pk-header {
+  margin-top: 2em !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center; }
+
+.pk-header:before,
+.pk-header:after {
+  background-color: #eee;
+  content: '\a0';
+  flex-grow: 1;
+  height: 1px;
+  position: relative;
+  top: 0.5em; }
+
+.pk-header:before {
+  margin-right: 1em; }
+
+.pk-header:after {
+  margin-left: 1em; }
+
+.pk-milestone,
+.pk-achievement,
+.pk-gallery-item img {
+  border-radius: 4px; }
+
+.pk-achievement {
+  padding: 2em 1em; }
+
+.pk-achievement-link {
+  margin-top: 1em;
+  display: inline-block; }
+
+.pk-milestone,
+.pk-achievement {
+  border: 1px solid #ddd;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+.pk-team {
+  border-radius: 4px;
+  box-shadow: none !important; }

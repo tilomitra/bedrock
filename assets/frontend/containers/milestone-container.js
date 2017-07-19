@@ -26,11 +26,11 @@ class MilestoneContainer extends Component {
             "milestones",
             this.props.milestones.toJS()
         );
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     onCancel(e) {
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     render() {

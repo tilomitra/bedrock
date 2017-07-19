@@ -60,7 +60,7 @@ class PreviewContainer extends Component {
     }
 
     onCancel() {
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     onColorChange(color) {
@@ -76,14 +76,29 @@ class PreviewContainer extends Component {
     }
 
     render() {
-        let publishedPageBanner;
-        if (this.props.general.get("publishedPage")) {
+        let footerBanner;
+        const defaultTopBanner = (
+            <Banner title="Let's start building your Press Kit." status="info">
+                <p>
+                    Here's a preview of your Press Kit. Make changes to it, and
+                    click Publish once you are ready to add it to your store.
+                </p>
+            </Banner>
+        );
+        let topBanner;
+
+        let isPublishedAndSaved =
+            this.props.general.get("publishedPage") &&
+            this.props.general.get("isSaved");
+        let hasUnsavedChanges = !this.props.general.get("isSaved");
+
+        if (isPublishedAndSaved) {
             let handle = this.props.general.getIn([
                 "publishedPage",
                 "page",
                 "handle"
             ]);
-            publishedPageBanner = (
+            footerBanner = (
                 <Banner
                     title="Your Press Kit was successfully published to your store."
                     status="success"
@@ -94,61 +109,43 @@ class PreviewContainer extends Component {
                 >
                     <p>
                         Your published press kit may look a little different
-                        because it will adopt your store's style.
+                        because it will adopt your store's style. Here's a link
+                        to it:
+                        <a
+                            href={`https://${App.Store.name}/pages/${handle}`}
+                        >{`https://${App.Store.name}/pages/${handle}`}</a>
                     </p>
                 </Banner>
             );
+            topBanner = defaultTopBanner;
         } else if (this.state.isPublishing) {
-            publishedPageBanner = (
+            footerBanner = (
                 <Banner
                     title="Your Press Kit is being published. Give us a few seconds."
                     status="info"
                 />
             );
+            topBanner = defaultTopBanner;
+        } else if (hasUnsavedChanges) {
+            topBanner = (
+                <Banner
+                    title="Your Press Kit has unsaved changes. Make sure to Save and Publish before leaving the page."
+                    status="warning"
+                />
+            );
+            footerBanner = topBanner;
         }
 
         return (
             <Page
-                title="Preview"
+                title="Build"
                 primaryAction={{
-                    content: "Publish",
+                    content: "Save and Publish",
                     onClick: this.onPublish.bind(this)
                 }}
             >
-                <EmptyState
-                    heading="Welcome to Press Kitty"
-                    action={{
-                        content: "Build your Press Kit",
-                        onClick: () => {
-                            this.props.history.push("/app/preview");
-                        }
-                    }}
-                    secondaryAction={{
-                        content: "Learn more",
-                        url: "https://help.shopify.com"
-                    }}
-                    image="images/cat/hi.svg"
-                >
-                    <p>
-                        Start building your press kit by adding various
-                        sections.
-                    </p>
-                </EmptyState>
                 <Card>
-                    <Banner
-                        title="Here's a Preview of your Press Kit"
-                        status="info"
-                    >
-                        <p>
-                            Here's a preview of your Press Kit. Make changes to
-                            it, and click Publish once you are ready to add it
-                            to your store.
-                        </p>
-                        <p>
-                            Your published kit will look slightly different as
-                            it will adopt the styles from your website.
-                        </p>
-                    </Banner>
+                    {topBanner}
                 </Card>
 
                 <Card>
@@ -208,11 +205,11 @@ class PreviewContainer extends Component {
 
                 <CSSEditor onChange={this.onCodeChange.bind(this)} />
 
-                {publishedPageBanner}
+                {footerBanner}
 
                 <PageActions
                     primaryAction={{
-                        content: "Publish to Store",
+                        content: "Save and Publish this Press Kit",
                         onClick: this.onPublish.bind(this)
                     }}
                     secondaryActions={[

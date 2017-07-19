@@ -6,8 +6,7 @@ module.exports = new Nuclear.Store({
     getInitialState() {
         return toImmutable({
             title: "Hello, We are Miller",
-            tagline: "Test Tagline",
-            isSaved: false
+            tagline: "Test Tagline"
         });
     },
 
@@ -30,13 +29,11 @@ module.exports = new Nuclear.Store({
  */
 function handleMissionUpdate(state, payload) {
     let newState = state.set("title", payload.data);
-    newState = newState.set("isSaved", false);
     return newState;
 }
 
 function handleTaglineUpdate(state, payload) {
     let newState = state.set("tagline", payload.data);
-    newState = newState.set("isSaved", false);
     return newState;
 }
 
@@ -44,7 +41,6 @@ function handleFetchSuccess(state, payload) {
     if (payload.data[0]) {
         let newState = state.set("title", payload.data[0].title);
         newState = newState.set("tagline", payload.data[0].subtitle);
-        newState = newState.set("isSaved", true);
         return newState;
     } else {
         return state;
@@ -54,6 +50,5 @@ function handleFetchSuccess(state, payload) {
 function handleSaveSuccess(state, payload) {
     let newState = state.set("title", payload.data.title);
     newState = newState.set("tagline", payload.data.subtitle);
-    newState = newState.set("isSaved", true);
     return newState;
 }

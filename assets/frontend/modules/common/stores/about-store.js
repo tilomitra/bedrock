@@ -35,19 +35,18 @@ module.exports = new Nuclear.Store({
  * @param {object} payload
  */
 function handleUpdate(state, payload) {
-    return state.set("html", payload.data);
+    let newState = state.set("html", payload.data);
+    return newState.set("isSaved", false);
 }
 
 function handleFetchSuccess(state, payload) {
     if (payload.data[0]) {
         let newState = state.set("html", payload.data[0].html);
-        newState = newState.set("isSaved", true);
         return newState;
     } else return state;
 }
 
 function handleSaveSuccess(state, payload) {
     let newState = state.set("html", payload.data.html);
-    newState = newState.set("isSaved", true);
     return newState;
 }

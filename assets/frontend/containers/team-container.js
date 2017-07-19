@@ -23,11 +23,11 @@ class TeamContainer extends Component {
 
     onSave(e) {
         CommonModule.actions.saveEntity("teams", this.props.team.toJS());
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     onCancel(e) {
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     render() {

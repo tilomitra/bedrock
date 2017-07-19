@@ -14,11 +14,11 @@ class AboutContainer extends Component {
         CommonModule.actions.saveEntity("abouts", {
             html: this.props.about.get("html")
         });
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     onCancel(e) {
-        this.props.history.push("/app");
+        this.props.history.push("/app/build");
     }
 
     onUpdate(html) {

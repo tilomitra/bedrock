@@ -102,7 +102,7 @@ class Milestone extends Component {
                     }}
                     secondaryActions={[
                         {
-                            content: "Cancel",
+                            content: "Go Back",
                             onClick: this.props.onCancel
                         },
                         {

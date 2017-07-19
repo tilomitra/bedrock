@@ -32,6 +32,11 @@ class App extends React.Component {
                             <Route
                                 exact
                                 path="/app"
+                                component={HomeContainer}
+                            />
+                            <Route
+                                exact
+                                path="/app/build"
                                 component={PreviewContainer}
                             />
                             <Route
