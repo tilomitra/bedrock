@@ -42,5 +42,7 @@ module.exports = keyMirror({
     SAVE_TEAMS_SUCCESS: null,
     SAVE_TEAMS_FAILURE: null,
 
-    PUBLISH_SUCCESS: null
+    PUBLISH_SUCCESS: null,
+    FEEDBACK_SEND_SUCCESS: null,
+    FEEDBACK_SEND_FAILURE: null
 });

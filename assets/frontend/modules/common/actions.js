@@ -4,6 +4,18 @@ import api from "../../api";
 
 /* API Methods */
 
+exports.sendFeedback = (email, feedback) => {
+    api
+        .feedback(email, feedback)
+        .then(resp => {
+            nuclear.dispatch(actionTypes.FEEDBACK_SEND_SUCCESS);
+        })
+        .catch(err => {
+            console.log(err);
+            nuclear.dispatch(actionTypes.FEEDBACK_SEND_FAILURE);
+        });
+};
+
 exports.publish = (data, markup, css) => {
     api
         .publish(data, markup, css, "https://miller-furniture.myshopify.com")

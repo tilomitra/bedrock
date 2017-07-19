@@ -65,5 +65,20 @@ module.exports = {
                     "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
             }
         });
+    },
+
+    feedback: function(email, feedback) {
+        return makeRequest("/feedbacks", {
+            method: "POST",
+            json: true,
+            body: {
+                storeId: App.Store.id,
+                email: email,
+                feedback: feedback
+            },
+            headers: {
+                "X-CSRF-Token": App._csrf
+            }
+        });
     }
 };

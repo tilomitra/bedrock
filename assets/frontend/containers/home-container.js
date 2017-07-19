@@ -12,6 +12,8 @@ import {
 import { Link } from "react-router-dom";
 import "@shopify/polaris/styles.css";
 
+import FeedbackCard from "../components/feedback";
+
 class HomeContainer extends Component {
     onBuild() {
         this.props.history.push("/app/build");
@@ -58,23 +60,8 @@ class HomeContainer extends Component {
                         </List>
                     </Card.Section>
                 </Card>
-                <Card
-                    title="Give Feedback"
-                    primaryFooterAction={{ content: "Send" }}
-                >
-                    <Card.Section>
-                        We love hearing from you! Let us know what features you
-                        are looking for, and we'll do our best to add them to
-                        Press Kitty.
-                    </Card.Section>
-                    <Card.Section>
-                        <FormLayout>
-                            <TextField label="Store name" />
-                            <TextField type="email" label="Your email" />
-                            <TextField label="Your Feedback" multiline={true} />
-                        </FormLayout>
-                    </Card.Section>
-                </Card>
+
+                <FeedbackCard />
 
                 <Card title="Learn More">
                     <Card.Section>
