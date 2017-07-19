@@ -5,7 +5,6 @@ module.exports = function(req, res, next) {
     Stores.findOne({ nonce: nonce })
         .then(store => {
             res.locals.store = store;
-            console.log(store);
             next();
         })
         .catch(err => {

@@ -43,7 +43,7 @@ class Gallery extends Component {
         return (
             <section className="pk-gallery">
                 <Modal
-                    isOpen={this.state.isOpen}
+                    isOpen={false}
                     imageUrl={this.state.selectedImageUrl}
                     handleClose={() => {
                         this.setState({ isOpen: false });

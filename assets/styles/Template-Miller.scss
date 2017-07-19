@@ -12,7 +12,9 @@
         font-size: 4em;
     }
     .subtitle {
-        font-weight: bold;
+        font-size: 1.5em;
+        margin-top: -0.5em !important;
+        font-weight: normal;
     }
 }
 
@@ -65,10 +67,10 @@
     }
 }
 
-.pk-gallery-item img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 1px 3em rgba(0, 0, 0, 0.2);
-}
+// .pk-gallery-item img:hover {
+//     transform: scale(1.05);
+//     box-shadow: 0 1px 3em rgba(0, 0, 0, 0.2);
+// }
 
 .pk-achievement-heading,
 .pk-milestone-heading {

@@ -101,7 +101,7 @@ class PreviewContainer extends Component {
         } else if (this.state.isPublishing) {
             publishedPageBanner = (
                 <Banner
-                    title="Publishing. Give us a few seconds."
+                    title="Your Press Kit is being published. Give us a few seconds."
                     status="info"
                 />
             );
@@ -127,7 +127,7 @@ class PreviewContainer extends Component {
                         content: "Learn more",
                         url: "https://help.shopify.com"
                     }}
-                    image="https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg"
+                    image="images/cat/hi.svg"
                 >
                     <p>
                         Start building your press kit by adding various

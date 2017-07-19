@@ -9,6 +9,7 @@ module.exports = {
     tableName: "Milestones",
     attributes: {
         description: "string",
+        includePlus: "boolean",
         amount: "float",
         type: "string",
         color: "string",

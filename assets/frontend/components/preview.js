@@ -142,9 +142,7 @@ class Preview extends Component {
                 {teamJsx.size
                     ? <section>
                           <Header title="Team" color={color} />
-                          <div className="columns is-multiline">
-                              {teamJsx}
-                          </div>
+                          {teamJsx}
                       </section>
                     : null}
 

@@ -121,9 +121,7 @@ class Milestone extends Component {
                             preview of your current team members.
                         </p>
                         <hr />
-                        <div className="columns is-multiline">
-                            {renderedJsx}
-                        </div>
+                        {renderedJsx}
                     </Card.Section>
                 </Card>
             </Page>

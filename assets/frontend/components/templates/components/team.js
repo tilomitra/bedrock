@@ -5,38 +5,34 @@ import Level from "../bulma/level";
 class Team extends Component {
     render() {
         return (
-            <div className="column is-one-third">
-                <div className="card pk-team">
-                    <div className="card-image">
-                        <figure className="image">
-                            <img
-                                src={this.props.imageUrl}
-                                alt={`Portrait of ${this.props.name}`}
-                            />
-                        </figure>
-                    </div>
-                    <div className="card-content">
-                        <div className="content">
-                            <p className="title is-4">
-                                {this.props.name}
-                            </p>
-                            <p className="subtitle is-6">
-                                <span>
-                                    {this.props.position}
-                                </span>
-                            </p>
-                            <p>
-                                {this.props.description}
-                            </p>
-                            <p>
+            <article className="media">
+                <figure className="media-left">
+                    <p className="image is-128x128">
+                        <img
+                            src={this.props.imageUrl}
+                            alt={`Photo of ${this.props.name}`}
+                        />
+                    </p>
+                </figure>
+                <div className="media-content">
+                    <div className="content">
+                        <p>
+                            <strong
+                                style={{
+                                    marginRight: 5,
+                                    color: this.props.color
+                                }}
+                            >
                                 <a href={`mailto:${this.props.email}`}>
-                                    Contact ->
+                                    {this.props.name}
                                 </a>
-                            </p>
-                        </div>
+                            </strong>
+                            <small>{this.props.position}</small> <br />
+                            {this.props.description}
+                        </p>
                     </div>
                 </div>
-            </div>
+            </article>
         );
     }
 }

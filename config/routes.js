@@ -70,10 +70,12 @@ module.exports.routes = {
     "get /app/*": "PageController.app",
 
     //API Routes
-    "post /api/missions/refresh": "MissionController.refresh",
-    "post /api/achievements/refresh": "AchievementController.refresh",
-    "post /api/milestones/refresh": "MilestoneController.refresh",
-    "post /api/teams/refresh": "TeamController.refresh",
-    "post /api/abouts/refresh": "AboutController.refresh",
-    "post /api/images/refresh": "ImageController.refresh"
+    "post /api/stores/:storeId/missions/refresh": "MissionController.refresh",
+    "post /api/stores/:storeId/achievements/refresh":
+        "AchievementController.refresh",
+    "post /api/stores/:storeId/milestones/refresh":
+        "MilestoneController.refresh",
+    "post /api/stores/:storeId/teams/refresh": "TeamController.refresh",
+    "post /api/stores/:storeId/abouts/refresh": "AboutController.refresh",
+    "post /api/stores/:storeId/images/refresh": "ImageController.refresh"
 };

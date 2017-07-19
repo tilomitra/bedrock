@@ -40,10 +40,12 @@ module.exports = {
         });
     },
 
-    fetch: function(entity, storeId = 8) {
+    fetch: function(entity) {
+        let storeId = App.Store.id;
         return makeRequest(`/${entity}?storeId=${storeId}`, {
             json: true,
             headers: {
+                "X-CSRF-Token": App._csrf,
                 nonce:
                     document.getElementById("nonce").text ||
                     "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
@@ -52,11 +54,12 @@ module.exports = {
     },
 
     refresh: function(entity, data) {
-        return makeRequest(`/${entity}/refresh`, {
+        return makeRequest(`/stores/${App.Store.id}/${entity}/refresh`, {
             method: "POST",
             body: data,
             json: true,
             headers: {
+                "X-CSRF-Token": App._csrf,
                 nonce:
                     document.getElementById("nonce").text ||
                     "c30ed4c7-c521-4869-9f3a-6b3caafd958e"

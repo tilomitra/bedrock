@@ -32,21 +32,27 @@ module.exports.policies = {
     },
 
     MissionController: {
+        find: ["getStore"],
         refresh: ["getStore"]
     },
     AchievementController: {
+        find: ["getStore"],
         refresh: ["getStore"]
     },
     MilestoneConTroller: {
+        find: ["getStore"],
         refresh: ["getStore"]
     },
     TeamController: {
+        find: ["getStore"],
         refresh: ["getStore"]
     },
     AboutController: {
+        find: ["getStore"],
         refresh: ["getStore"]
     },
     ImageController: {
+        find: ["getStore"],
         refresh: ["getStore"]
     }
 

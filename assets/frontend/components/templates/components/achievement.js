@@ -61,7 +61,10 @@ class Achievement extends Component {
                         target="_blank"
                         className="pk-achievement-link"
                         style={{
-                            color: this.props.color,
+                            background: this.props.color,
+                            color: "#fff",
+                            padding: "3px 10px",
+                            borderRadius: 5,
                             textDecoration: "none"
                         }}
                     >
