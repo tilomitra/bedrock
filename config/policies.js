@@ -33,28 +33,28 @@ module.exports.policies = {
     },
 
     MissionController: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     },
     AchievementController: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     },
     MilestoneConTroller: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     },
     TeamController: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     },
     AboutController: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     },
     ImageController: {
-        find: ["getStore"],
-        refresh: ["getStore"]
+        find: ["verifyNonce"],
+        refresh: ["verifyStoreId"]
     }
 
     /***************************************************************************
