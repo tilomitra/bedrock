@@ -22,6 +22,9 @@ module.exports = {
     },
 
     app: function(req, res) {
+        sails.hooks.http.app.expose(req.session.store.id, "App.Store.id");
+        sails.hooks.http.app.expose(req.session.store.name, "App.Store.name");
+        sails.hooks.http.app.expose(req.session.store.nonce, "App.Store.nonce");
         res.view("pages/react-template", {
             nonce: res.locals.nonce
         });
