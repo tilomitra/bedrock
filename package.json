@@ -1,5 +1,5 @@
 {
-    "name": "Press Kitty Server",
+    "name": "presskittyserver",
     "version": "1.1",
     "description": "Press Kitty Web Application.",
     "dependencies": {
