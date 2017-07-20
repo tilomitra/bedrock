@@ -1,7 +1,9 @@
 module.exports = function(req, res, next) {
     const Stores = sails.models.store;
-    var storeId = req.params.storeId || req.query.storeId;
-    var nonce = req.headers.nonce;
+    let storeId = req.params.storeId || req.query.storeId;
+    let nonce = req.headers.nonce;
+
+    storeId = parseInt(storeId);
 
     if (storeId === req.session.store.id) {
         res.locals.store = req.session.store;
