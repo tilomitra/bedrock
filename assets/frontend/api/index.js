@@ -46,9 +46,7 @@ module.exports = {
             json: true,
             headers: {
                 "X-CSRF-Token": App._csrf,
-                nonce:
-                    document.getElementById("nonce").text ||
-                    "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
+                nonce: App.Store.nonce
             }
         });
     },
@@ -60,9 +58,7 @@ module.exports = {
             json: true,
             headers: {
                 "X-CSRF-Token": App._csrf,
-                nonce:
-                    document.getElementById("nonce").text ||
-                    "c30ed4c7-c521-4869-9f3a-6b3caafd958e"
+                nonce: App.Store.nonce
             }
         });
     },
@@ -77,7 +73,8 @@ module.exports = {
                 feedback: feedback
             },
             headers: {
-                "X-CSRF-Token": App._csrf
+                "X-CSRF-Token": App._csrf,
+                nonce: App.Store.nonce
             }
         });
     }

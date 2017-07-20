@@ -21,6 +21,7 @@ module.exports = {
                 res.locals.nonce = store.nonce;
                 sails.hooks.http.app.expose(store.id, "App.Store.id");
                 sails.hooks.http.app.expose(store.name, "App.Store.name");
+                sails.hooks.http.app.expose(nonce, "App.Store.nonce");
                 return res.redirect("/app");
             })
             .catch(err => {
@@ -172,6 +173,10 @@ module.exports = {
                                         sails.hooks.http.app.expose(
                                             store.name,
                                             "App.Store.name"
+                                        );
+                                        sails.hooks.http.app.expose(
+                                            store.nonce,
+                                            "App.Store.nonce"
                                         );
                                         return res.redirect("/app");
                                     }
