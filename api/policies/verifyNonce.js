@@ -6,6 +6,6 @@ module.exports = function(req, res, next) {
         res.locals.store = req.session.store;
         next();
     } else {
-        return res.redirect(401);
+        return res.render("401");
     }
 };
