@@ -11,24 +11,22 @@
  */
 
 module.exports = {
+    url: "https://presskitty.ca",
 
-
-    url: 'https://my-production-url.com',
-    
     /***************************************************************************
      * Set the default database connection for models in the production        *
      * environment (see config/connections.js and config/models.js )           *
      ***************************************************************************/
 
-    // connections: {
-    //     mysql: {
-    //         adapter: 'sails-mysql',
-    //         host: 'proudction-connection.sgs.melodis.com',
-    //         user: 'production-user',
-    //         password: 'production-password',
-    //         database: 'your-production-db-name'
-    //     },
-    // },
+    connections: {
+        mysql: {
+            adapter: "sails-mysql",
+            host: "a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            user: "inoizxwbfb9db0kc",
+            password: "rbpp0tteb6f32i98",
+            database: "ryr3h8sihdejqzft"
+        }
+    }
 
     /***************************************************************************
      * Set the port in the production environment to 80                        *
@@ -43,5 +41,4 @@ module.exports = {
     // log: {
     //   level: "silent"
     // }
-
 };
