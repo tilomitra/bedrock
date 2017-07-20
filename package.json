@@ -1,6 +1,7 @@
 {
     "name": "presskittyserver",
-    "version": "1.1",
+    "version": "v1.1",
+    "private": true,
     "description": "Press Kitty Web Application.",
     "dependencies": {
         "@shopify/polaris": "^1.1.1",
