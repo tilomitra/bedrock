@@ -16,7 +16,7 @@ import GalleryContainer from "./containers/gallery-container";
 import TeamContainer from "./containers/team-container";
 
 import config from "./config";
-const shopOrigin = "https://miller-furniture.myshopify.com";
+const shopOrigin = App.Store.name;
 
 class App extends React.Component {
     render() {
