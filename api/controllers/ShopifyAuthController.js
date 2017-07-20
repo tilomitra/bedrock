@@ -210,7 +210,7 @@ module.exports = {
 
         const linktag = `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css">
-        <link rel="stylesheet" href="https://www.presskitty.ca/styles/app.css">
+        <link rel="stylesheet" href="https://www.presskitty.ca/styles/Base.css">
         <link rel="stylesheet" href="https://www.presskitty.ca/styles/Template-Miller.css">
         `;
 
