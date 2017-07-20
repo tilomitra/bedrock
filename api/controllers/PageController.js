@@ -9,7 +9,7 @@
 
 module.exports = {
     index: function(req, res) {
-        res.view("index");
+        res.view("index", { layout: "home" });
     },
     renderLoggedInReactPage: function(req, res) {
         res.view("pages/react-template");
