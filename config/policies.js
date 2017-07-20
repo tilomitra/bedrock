@@ -33,27 +33,27 @@ module.exports.policies = {
     },
 
     MissionController: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     },
     AchievementController: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     },
     MilestoneConTroller: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     },
     TeamController: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     },
     AboutController: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     },
     ImageController: {
-        find: ["verifyNonce"],
+        find: ["verifyNonce", "verifyStoreId"],
         refresh: ["verifyStoreId"]
     }
 
