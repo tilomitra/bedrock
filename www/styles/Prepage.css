@@ -1,0 +1,202 @@
+/* BROWSER IMAGE */
+.browser-mockup {
+  margin: 2em;
+  flex: 1; }
+
+.browser-mockup {
+  border-top: 2em solid rgba(230, 230, 230, 0.7);
+  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  border-radius: 3px; }
+
+.browser-mockup:before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: -1.25em;
+  left: 1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: #f44;
+  box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5; }
+
+.browser-mockup > * {
+  display: block; }
+
+.browser-wrapper {
+  height: 500px;
+  overflow: hidden; }
+
+.browser-image {
+  background: url("/images/miller.png") no-repeat 0 0;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+  transition: all 10s ease-out;
+  border-radius: 3px; }
+
+.browser-image.active {
+  background-position: 0 100%; }
+
+/* UTILITIES */
+.is-grid-centered {
+  align-items: center; }
+
+/* BASE CLASSES */
+body {
+  font: 17px -apple-system, BlinkMacSystemFont, "Avenir Next", Helvetica, Arial, sans-serif;
+  line-height: 1.6; }
+
+a {
+  color: #00b7ff;
+  transition: all 300ms; }
+
+a:hover {
+  color: #00d1b2; }
+
+ul {
+  padding-top: 10px;
+  padding-left: 20px; }
+
+li {
+  list-style-type: circle;
+  padding: 5px; }
+
+.is-main-hero .title {
+  font-weight: bold;
+  font-size: 2.5em; }
+
+nav {
+  border-bottom: 1px solid #ddd;
+  width: 100%; }
+
+blockquote {
+  font-weight: bold;
+  font-size: 24px; }
+
+small {
+  line-height: 1.6;
+  display: inline-block; }
+
+.nav-header {
+  font-weight: bold;
+  color: black;
+  font-size: 24px; }
+
+.nav-header .subheader {
+  display: none;
+  font-size: 14px;
+  margin-top: -10px;
+  color: #333;
+  position: relative;
+  top: -2px;
+  font-weight: normal; }
+
+.section.is-light {
+  background: #f6f9fc;
+  color: #404040;
+  border-top: 2px solid #e8ebef;
+  border-bottom: 2px solid #e8ebef; }
+
+.section.is-gradient {
+  color: white;
+  background: #396afc;
+  background: -webkit-linear-gradient(to right, #1c2979, #003ae6);
+  background: linear-gradient(to right, #1c2979, #003ae6); }
+
+.section.is-bordered {
+  border-top: 2px solid #e8ebef; }
+
+.image.with-shadow {
+  box-shadow: 0 0.3em 2em 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 0 auto; }
+
+.image-is-80 {
+  width: 80%; }
+
+.title {
+  font-weight: bold; }
+
+.hand-written-note {
+  display: none;
+  width: 40%;
+  position: absolute;
+  left: -35%;
+  top: 100px;
+  z-index: 10; }
+
+.instructions {
+  padding: 3px 15px;
+  border: 2px solid #3273dc;
+  color: #3273dc;
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 12px; }
+
+.copyright {
+  font-size: 0.8em;
+  list-style: none;
+  padding-left: 0; }
+
+.copyright li {
+  display: inline-block; }
+
+.join,
+.join .title,
+.join .subtitle {
+  background: #eaf3ff; }
+
+.join small {
+  color: #999; }
+
+.testimonial {
+  color: white;
+  background: #000428;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
+.testimonial .header {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 20px; }
+
+.testimonial blockquote {
+  border-left: 2px solid yellow;
+  padding-left: 20px;
+  font-weight: normal; }
+
+.testimonial .cite {
+  padding: 20px 0; }
+
+.button {
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 300ms; }
+
+.button:hover,
+#mc-embedded-subscribe:hover {
+  background: #03a9f4 !important; }
+
+#mce-EMAIL {
+  font-size: 30px !important; }
+
+#mc-embedded-subscribe-form {
+  padding: 0 !important; }
+
+#mc-embedded-subscribe {
+  background: #3273dc !important;
+  color: white !important; }
+
+@media (min-width: 767px) {
+  nav {
+    position: fixed !important; }
+  .hand-written-note {
+    display: inline; }
+  .instructions {
+    display: none; }
+  .nav-header .subheader {
+    display: inline; } }

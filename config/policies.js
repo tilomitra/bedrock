@@ -28,7 +28,8 @@ module.exports.policies = {
 
     PageController: {
         index: true,
-        renderLoggedInReactPage: ["passport", "sessionAuth"]
+        renderLoggedInReactPage: ["passport", "sessionAuth"],
+        app: ["shopifyAuth"]
     },
 
     MissionController: {
