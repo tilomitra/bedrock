@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: "assets/styles/",
                     src: [
-                        "App.scss",
+                        "Base.scss",
                         "Admin.scss",
                         "Template-*.scss",
                         "Prepage.scss"
