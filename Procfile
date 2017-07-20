@@ -1,1 +1,1 @@
-web: ./node_modules/sails/bin/sails.js lift
+web: npm start

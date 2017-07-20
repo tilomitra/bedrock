@@ -93,9 +93,9 @@
         "webpack-livereload-plugin": "^0.9.0"
     },
     "scripts": {
-        "debug": "./node_modules/sails/bin/sails.js --debug lift",
+        "debug": "node --debug app.js",
         "postinstall": "grunt buildProd",
-        "start": "./node_modules/sails/bin/sails.js lift"
+        "start": "sails lift"
     },
     "main": "app.js",
     "repository": {
