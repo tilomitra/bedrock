@@ -36,7 +36,7 @@ module.exports = {
                             shopify_shared_secret:
                                 sails.config.presskitty.secret,
                             redirect_uri:
-                                "https://presskitty.fwd.wf/shopify_finish_auth",
+                                "https://www.presskitty.ca/shopify_finish_auth",
                             shopify_scope:
                                 "write_content, read_content, read_script_tags, write_script_tags, read_themes",
                             nonce: nonce
@@ -205,8 +205,8 @@ module.exports = {
 
         const linktag = `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css">
-        <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/app.css">
-        <link rel="stylesheet" href="https://presskitty.fwd.wf/styles/Template-Miller.css">
+        <link rel="stylesheet" href="https://www.presskitty.ca/styles/app.css">
+        <link rel="stylesheet" href="https://www.presskitty.ca/styles/Template-Miller.css">
         `;
 
         const css = `<style>${cssStyles}</style>`;
