@@ -22,11 +22,7 @@ class App extends React.Component {
     render() {
         return (
             <Provider reactor={reactor}>
-                <EmbeddedApp
-                    shopOrigin={shopOrigin}
-                    apiKey={config.apiKey}
-                    debug={true}
-                >
+                <EmbeddedApp shopOrigin={shopOrigin} apiKey={config.apiKey}>
                     <Router>
                         <div>
                             <Route

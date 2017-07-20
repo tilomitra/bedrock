@@ -18,7 +18,7 @@ exports.sendFeedback = (email, feedback) => {
 
 exports.publish = (data, markup, css) => {
     api
-        .publish(data, markup, css, "https://miller-furniture.myshopify.com")
+        .publish(data, markup, css, App.Store.name)
         .then(resp => {
             nuclear.dispatch(actionTypes.PUBLISH_SUCCESS, { data: resp });
         })
