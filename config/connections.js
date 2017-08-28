@@ -20,7 +20,6 @@
  */
 
 module.exports.connections = {
-
     /***************************************************************************
      *                                                                          *
      * Local disk storage for DEVELOPMENT ONLY                                  *
@@ -29,7 +28,7 @@ module.exports.connections = {
      *                                                                          *
      ***************************************************************************/
     localDiskDb: {
-        adapter: 'sails-disk'
+        adapter: "sails-disk"
     },
 
     /***************************************************************************
@@ -45,12 +44,12 @@ module.exports.connections = {
     // The production connection is defined within /config/env/production.js
 
     mysql: {
-        adapter: 'sails-mysql',
-        host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
-        database: 'bedrock'
-    },
+        adapter: "sails-mysql",
+        host: "127.0.0.1",
+        user: "root",
+        password: "root",
+        database: "bedrock"
+    }
 
     /***************************************************************************
      *                                                                          *
@@ -86,11 +85,9 @@ module.exports.connections = {
     //   database: 'YOUR_POSTGRES_DB'
     // }
 
-
     /***************************************************************************
      *                                                                          *
      * More adapters: https://github.com/balderdashy/sails                      *
      *                                                                          *
      ***************************************************************************/
-
 };
