@@ -10,12 +10,13 @@ Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a c
 
 ## Features Overview
 
-- An Sails (Express) server with user authentication
+- An Sails (Express) server with **user authentication built in**. :hushed:
 - Auto-generated REST API for all your models
 - Signup, Login, Reset Password Pages
 - SMTP Email Support
 - Server-side rendered pages
 - Client-side rendered components using React
+- **New** React Hot Loading enabled to allow super-fast development of React components without page refreshes. :boom: :star:
 - Communication between React and Server-side API with Flux. 
 - Client-side routing with React Router
 - Incremental builds using Webpack, facilitated through Grunt.
@@ -24,9 +25,9 @@ Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a c
 - Support for multiple environments (dev, stage, prod)
 
 ## Why should you use it?
-Use Bedrock to set up a production-ready Node webapp in under 10 minutes. 
+Use Bedrock to set up a production-ready Node webapp in under 10 minutes. You get user authentication, security, a front-end framework, and more.
 
-You get user authentication, security, a front-end framework, and more.
+Bedrock provides a great development experience. It supports React Hot Loading so you can build React components and view your changes in real-time without refreshing your page. If your data is stored in a Flux Store, it is preserved while you make changes. 
 
 At SoundHound, we use a version of Bedrock for many of our internal web applications. It is great for dashboards, CRUD webapps, and more.
 
@@ -39,7 +40,7 @@ git clone git@github.com:tilomitra/bedrock.git <project-name>
 cd <project-name>
 npm install
 ```
-Then, open config/connections.js and update your database connection details.
+Then, open `config/connections.js` and update your database connection details.
 
 Then, run the migrations to create the relevant database tables.
 
@@ -48,19 +49,13 @@ Then, run the migrations to create the relevant database tables.
 grunt db:migrate:up
 ```
 
-Then, build (and watch for changes) in the CSS and JS assets.
+Then, simply start everything.
 
 ```
-# Build and watch css/js
-grunt build
+# Start servers
+npm start
 ```
 
-Finally, start the server. You will be taken to the signup page.
-
-```
-# Start the server
-sails lift
-```
 
 ## Detailed Installation and Setup
 Bedrock is the *starting point* of your Node application. To install, you should clone the project, and then build on top of it.
@@ -89,34 +84,43 @@ After it runs, check your database and you should see `Users` and `Passports` ta
 
 We will talk more about migrations in the Best Practices section.
 
-### Build JS/CSS assets
-Bedrock uses Grunt to build the CSS and JS assets. To build, just run:
+
+### Run servers in development mode
+To start developing, run:
 
 ```
-grunt build
+npm start
 ```
 
-This will run the CSS and JS assets. It will also start watching for CSS and JS changes.
+This will start up 3 things:
 
-### Run the server
-To run the server, run:
+- An Express server on Port 1337. This is the primary NodeJS server.
+- A Webpack Dev Server on Port 3000. Any static assets will be served by Webpack in development mode. This allows for Hot Module Replacement.
+- Assets will be built by Webpack, and a watch task will be started. Any CSS and JS changes will trigger a new incremental build.
 
-```
-sails lift
-```
-
-By default, it will start up the server on port 1337. To configure the PORT or NODE_ENV, you can prefix those variables:
+### Run servers in production mode
+In production mode, you'll want to build your assets ahead of time. To do this, run:
 
 ```
-NODE_ENV=staging PORT=9999  sails --debug lift
+grunt buildProd
 ```
+
+This will build your assets and store it in the `www/` directory.
+
+Then, you can run your server in production mode:
+
+```
+NODE_ENV=production sails lift
+```
+
+This will start up the NodeJS server in production mode. If you want this to be a long-lived background task, consider using a [Node Process Manager like pm2](http://pm2.keymetrics.io).
 
 ## Server-side Features
 Bedrock is built on [Sails](http://sailsjs.org), so it has all of the great features that Sails ships with. 
 
 This includes, but is not limited to:
 
-- It's just an Express server under the hood, so all Express modules still work
+- It's an Express server under the hood, so all Express modules still work
 - Reusable Security Policies (Middleware)
 - Configurable via a global `config` object.
 - Encourage use of reusable services, like a `Mailer` service.
@@ -160,6 +164,6 @@ Bedrock is composed of these open-source frameworks.
 
 [NuclearJS](https://github.com/optimizely/nuclear-js): Traditional Flux architecture built with ImmutableJS data structures. Very similar to Redux.
 
-[Webpack](https://webpack.github.io/): A module bundler for front-end assets. It is used in Bedrock for chunking JavaScript files to be loaded on demand.
+[Webpack](https://webpack.github.io/): A module bundler for front-end assets. It is used in Bedrock for chunking JavaScript files to be loaded on demand and hot reloading.
 
-
+[React Hot Loader](https://github.com/gaearon/react-hot-loader): Tweak React components in real time without page refreshes.
