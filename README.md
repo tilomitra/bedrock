@@ -1,6 +1,12 @@
 # Bedrock
-Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a collection of popular frameworks that work well together. 
+Bedrock lets you set up a production-ready webapp in under 10 minutes.
 
+## Why should you use it?
+Three primary reasons:
+
+1. You want a production-ready Node server in under 5 minutes.
+2. You want user authentication, password resets, and more to be setup for you.
+3. You want React, Flux, and React Router enabled with [Hot Loading](https://github.com/gaearon/react-hot-loader) for super-fast development.
 
 ## [Go to Documentation Site](https://tilomitra.github.io/bedrock)
 
@@ -16,20 +22,13 @@ Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a c
 - SMTP Email Support
 - Server-side rendered pages
 - Client-side rendered components using React
-- **New** React Hot Loading enabled to allow super-fast development of React components without page refreshes. :boom: :star:
+- [**New**] React Hot Loading enabled to allow super-fast development of React components without page refreshes. :boom: :star:
 - Communication between React and Server-side API with Flux. 
 - Client-side routing with React Router
 - Incremental builds using Webpack, facilitated through Grunt.
 - Migrations to help coordinate database changes
 - Production-ready such as API access tokens, CSRF protection, CORS, and more.
 - Support for multiple environments (dev, stage, prod)
-
-## Why should you use it?
-Use Bedrock to set up a production-ready Node webapp in under 10 minutes. You get user authentication, security, a front-end framework, and more.
-
-Bedrock provides a great development experience. It supports React Hot Loading so you can build React components and view your changes in real-time without refreshing your page. If your data is stored in a Flux Store, it is preserved while you make changes. 
-
-At SoundHound, we use a version of Bedrock for many of our internal web applications. It is great for dashboards, CRUD webapps, and more.
 
 
 ## Quickstart
