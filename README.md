@@ -30,13 +30,6 @@ Three primary reasons:
 - Production-ready such as API access tokens, CSRF protection, CORS, and more.
 - Support for multiple environments (dev, stage, prod)
 
-## Why should you use it?
-Use Bedrock to set up a production-ready Node webapp in under 10 minutes. You get user authentication, security, a front-end framework, and more.
-
-Bedrock provides a great development experience. It supports React Hot Loading so you can build React components and view your changes in real-time without refreshing your page. If your data is stored in a Flux Store, it is preserved while you make changes. 
-
-At SoundHound, we use a version of Bedrock for many of our internal web applications. It is great for dashboards, CRUD webapps, and more.
-
 
 ## Quickstart
 We will talk about the installation in more detail in the next section, but here is the quickstart guide.
