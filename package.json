@@ -71,7 +71,7 @@
         "webpack-dev-server": "^2.7.1"
     },
     "scripts": {
-        "debug": "node --debug app.js",
+        "debug": "node webpackDevServer.js & grunt build & node --debug app.js",
         "start": "node webpackDevServer.js & grunt build & node app.js"
     },
     "main": "app.js",
