@@ -1,6 +1,12 @@
 # Bedrock
-Bedrock lets you set up a production-ready webapp in under 10 minutes. It is a collection of popular frameworks that work well together. 
+Bedrock lets you set up a production-ready webapp in under 10 minutes.
 
+## Why should you use it?
+Three primary reasons:
+
+1. You want a production-ready Node server in under 10 minutes.
+2. You want user authentication, password resets, and more to be setup for you.
+3. You want React, Flux, and React Router enabled with [Hot Loading](https://github.com/gaearon/react-hot-loader) for super-fast development.
 
 ## [Go to Documentation Site](https://tilomitra.github.io/bedrock)
 
