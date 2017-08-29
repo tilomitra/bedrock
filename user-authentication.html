@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/bedrock.css">
+    <script src="http://localhost:35729/livereload.js"></script>
+    <title>User Authentication</title>
+</head>
+<body>
+    <header class="header">
+        <h1>
+            Bedrock
+            <div class="subheader">Create a production-ready Node web app in minutes.</div>
+        </h1>
+
+        <div class="header-buttons">
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock" data-style="mega" data-count-href="/tilomitra/bedrock/stargazers" data-count-api="/repos/tilomitra/bedrock#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star tilomitra/bedrock on GitHub">Star</a>
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock/archive/master.zip" data-style="mega" aria-label="Download tilomitra/bedrock on GitHub">Download</a>
+        </div>
+    </header>
+    <section class="navigation">
+      <nav class="navigation-nav">
+            <a class="navigation-nav-item" href="index.html">Get Started</a>
+            <a class="navigation-nav-item" href="tutorials.html">Tutorials</a>
+            <a class="navigation-nav-item" href="user-authentication.html">User Authentication</a>
+            <a class="navigation-nav-item" href="frontend-development.html">Building with React &amp; Flux</a>
+      </nav>
+    </section>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+            <section class="toc sticky">
+                    <a class="toc-item" href="#user-authentication">User Authentication</a>
+                    <a class="toc-item" href="#what-does-bedrock-provide-">What does Bedrock provide?</a>
+                    <a class="toc-item" href="#setup-user-authentication-for-your-project">Setup user authentication for your project</a>
+                    <a class="toc-item" href="#check-if-things-are-working">Check if things are working</a>
+                    <a class="toc-item" href="#setup-emails-to-reset-passwords">Setup Emails to Reset Passwords</a>
+            </section>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="content">
+                <h2 id="user-authentication">User Authentication</h2>
+<p>Bedrock lets you set up a web application with user authentication (login, signup, and reset password pages) in under 5 minutes. I strongly recommend <a href="https://www.youtube.com/watch?v=EdUuhdbhfDo">viewing the Youtube screencast</a> where I walk through the entire process, or read on below to find more details on how things work under the hood.</p>
+<h2 id="what-does-bedrock-provide-">What does Bedrock provide?</h2>
+<p>Bedrock comes with all the code you need to setup a local user signup and login flow. It does this by using <a href="http://passportjs.org">PassportJS</a> under the hood to setup a local user authentication strategy. It also gives you a few other things for free:</p>
+<h3 id="routes">Routes</h3>
+<p>Bedrock sets up the necessary routes that are necessary for user login, signup, and password reset. These are all defined inside <code>config/routes.js</code>.</p>
+<h3 id="controllers-and-services">Controllers and Services</h3>
+<p>All necessary logic to facilitate logging in, signing up, and resetting passwords is defined in <code>/api/controllers/AuthController.js</code>. The controller calls the Passport service located at <code>api/services/Passport.js</code>. Services are just singletons that are available to any controller. </p>
+<h3 id="policies-middleware-">Policies (Middleware)</h3>
+<blockquote>
+<p><strong>What are policies?</strong> Policies in Sails are the same as “middleware” in traditional Express applications. They are versatile tools for authorization and access control– they let you allow or deny access to your controllers down to a fine level of granularity. 
+<a href="http://sailsjs.com/documentation/concepts/policies">Learn more about how middleware works</a>.</p>
+</blockquote>
+<p>Bedrock provides middleware to ensure that a user is logged in. You can find this middleware in <code>api/policies/passport.js</code> and <code>/api/policies/sessionAuth.js</code>.</p>
+<p>The <code>passport</code> policy initializes a session, and the <code>sessionAuth</code> policy ensures that a request is authenticated. You should include both if you are creating pages behind an authentication wall. For example, you may want to write something like this:</p>
+<pre><code class="hljs"><span class="hljs-symbol">'PageController</span>': {
+    // The page <span class="hljs-keyword">at</span> PageController.js#everyone() <span class="hljs-keyword">is</span> available to everyone.
+    everyone: <span class="hljs-literal">true</span>
+    // The page <span class="hljs-keyword">at</span> PageController.js#onlyLoggedIn() <span class="hljs-keyword">is</span> only available to logged <span class="hljs-keyword">in</span> users.
+    onlyLoggedIn: [<span class="hljs-symbol">'passport</span>', <span class="hljs-symbol">'sessionAuth</span>']
+}</code></pre>
+
+<h3 id="views">Views</h3>
+<p>Bedrock provides the necessary views for the login, signup, reset password pages. These views are located in <code>views/pages/*.handlebars</code>. </p>
+<h2 id="setup-user-authentication-for-your-project">Setup user authentication for your project</h2>
+<p>To enable user authentication, you just have to tell Bedrock what database you are using and how to connect to it. You want to provide this information in <code>config/connections.js</code>.</p>
+<p>If you’re using MySQL, you can update the <code>mysql</code> object:</p>
+<pre><code class="hljs"><span class="hljs-attribute">mysql</span>: {
+    <span class="hljs-attribute">adapter</span>: 'sails-mysql',
+
+<span class="less">    <span class="hljs-comment">//update these values</span>
+    <span class="hljs-attribute">host</span>: <span class="hljs-string">'127.0.0.1'</span>,
+    <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>,
+    <span class="hljs-attribute">password</span>: <span class="hljs-string">'root'</span>,
+    <span class="hljs-attribute">database</span>: <span class="hljs-string">'bedrock'</span>
+}</span></code></pre>
+
+<p>If you are using another database like Mongo, Postgres, Redis, etc. check the comments inside <code>config/connections.js</code> to see code snippets on how to setup your database connections. They look very similar to the code snippet above.</p>
+<p>After setting up the database connections, you need to run a migration. To do that, run this command:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">grunt</span> <span class="hljs-selector-tag">db</span><span class="hljs-selector-pseudo">:migrate</span><span class="hljs-selector-pseudo">:up</span></code></pre>
+
+<p>This will create three database tables in your newly connected database:</p>
+<ul>
+<li><strong>Users</strong>: Will store all user information</li>
+<li><strong>Passports</strong>: Will store passwords, API access tokens and other authentication-related information</li>
+<li><strong>migrations</strong>: Will store a list of all migrations that have been run.</li>
+</ul>
+<blockquote>
+<p><strong>What are migrations?</strong> Migrations are important in production web applications as they let you specify database changes in a systematic and retraceable way. <a href="&#39;http://nodewebapps.com/2016/12/20/how-to-update-database-schema-for-a-production-web-app/&#39;">Learn more about migrations</a> and how they work in Bedrock.</p>
+</blockquote>
+<p>After running the migrations, you should get a success message in your terminal window. At that point, start up the server:</p>
+<pre><code class="hljs"><span class="hljs-attribute">sails lift</span></code></pre>
+
+<h2 id="check-if-things-are-working">Check if things are working</h2>
+<p>Then, visit <a href="http://localhost:1337/signup">http://localhost:1337/signup</a>, and create an account. Verify that a new entry was created in the <code>Users</code> and <code>Passports</code> table. If so, login with your new credentials. You should see a logged in page! Try logging out, and you should be back on the Login page!</p>
+<h2 id="setup-emails-to-reset-passwords">Setup Emails to Reset Passwords</h2>
+<p>At this point, the login and signup flow should be working but if a user forgets their password, they won’t be able to receive a new one. To accomplish this, you need to tell Bedrock how to send emails. </p>
+<p>This is covered in the tutorial on <a href="http://nodewebapps.com/2016/12/21/how-to-send-emails-in-sails-bedrock/">How to send emails in Sails &amp; Bedrock</a> over on Node Web Apps.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Licensed MIT. Built by <a href="https://twitter.com/tilomitra">Tilo Mitra</a> in Canada. I blog about this and more at <a href="http://nodewebapps.com">Node Web Apps</a>.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+    var stickyElements = document.getElementsByClassName('sticky');
+        for (var i = stickyElements.length - 1; i >= 0; i--) {
+            Stickyfill.add(stickyElements[i]);
+        }
+    </script>
+</body>
+</html>

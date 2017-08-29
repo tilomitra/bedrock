@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/bedrock.css">
+    <script src="http://localhost:35729/livereload.js"></script>
+    <title>Bedrock</title>
+</head>
+<body>
+    <header class="header">
+        <h1>
+            Bedrock
+            <div class="subheader">Create a production-ready Node web app in minutes.</div>
+        </h1>
+
+        <div class="header-buttons">
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock" data-style="mega" data-count-href="/tilomitra/bedrock/stargazers" data-count-api="/repos/tilomitra/bedrock#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star tilomitra/bedrock on GitHub">Star</a>
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock/archive/master.zip" data-style="mega" aria-label="Download tilomitra/bedrock on GitHub">Download</a>
+        </div>
+    </header>
+    <section class="navigation">
+      <nav class="navigation-nav">
+            <a class="navigation-nav-item" href="index.html">Get Started</a>
+            <a class="navigation-nav-item" href="tutorials.html">Tutorials</a>
+            <a class="navigation-nav-item" href="user-authentication.html">User Authentication</a>
+            <a class="navigation-nav-item" href="frontend-development.html">Building with React &amp; Flux</a>
+      </nav>
+    </section>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+            <section class="toc sticky">
+                    <a class="toc-item" href="#about-bedrock">About Bedrock</a>
+                    <a class="toc-item" href="#features">Features</a>
+                    <a class="toc-item" href="#quickstart">Quickstart</a>
+                    <a class="toc-item" href="#built-with">Built With</a>
+            </section>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="content">
+                <h2 id="about-bedrock">About Bedrock</h2>
+<p>Bedrock lets you set up a production-ready Node web application in under 10 minutes. It is a collection of popular frameworks that work well together. It is great for dashboards, CRUD webapps, and more.</p>
+<blockquote>
+<h4 id="-watch-a-video-showing-how-to-get-a-production-ready-web-app-with-user-authentication-set-up-in-5-minutes-using-bedrock-https-www-youtube-com-watch-v-eduuhdbhfdo-"><a href="https://www.youtube.com/watch?v=EdUuhdbhfDo">Watch a video showing how to get a production-ready web app with user authentication set up in 5 minutes using Bedrock</a></h4>
+</blockquote>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/EdUuhdbhfDo" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="features">Features</h2>
+<p>The main features of Bedrock are:</p>
+<ul>
+<li>User authentication setup in under 10 minutes</li>
+<li>React Hot Loading for super fast frontend development with React and Flux</li>
+<li>A server with all the features you need to get to production quickly and securely</li>
+</ul>
+<p>The list below has some more details.</p>
+<h3 id="server-side-features">Server-side Features</h3>
+<p>Bedrock is built on <a href="http://sailsjs.org">Sails</a>, which is a popular MVC Framework that is built on Express. It has all of the great features that Sails ships with, such as:</p>
+<ul>
+<li>Reusable Security Policies (Middleware)</li>
+<li>Configurable via a global <code>sails.config</code> object.</li>
+<li>Encourages use of reusable services.</li>
+<li>Waterline ORM that works well with multiple popular databases such as MySQL, Postgres, Mongo, etc.</li>
+<li>Follows MVC conventions, which keeps your code organized as your project grows.</li>
+<li>Auto-generates simple REST APIs based on your models, using Blueprint.</li>
+<li>It is just an Express server under the hood, so all Express modules still work.</li>
+</ul>
+<blockquote>
+<p><a href="http://sailsjs.com/features">Check out all the features</a> on the Sails documentation page.</p>
+</blockquote>
+<p>On top of the Sails features, Bedrock adds in a few nice-to-haves on the server side:</p>
+<ul>
+<li>All the code you need to setup user authentication flow</li>
+<li>Support for Database Migrations</li>
+<li>Configure the server for various <code>NODE_ENV</code> such as development, staging, and production</li>
+</ul>
+<h3 id="frontend-features">Frontend Features</h3>
+<p>Bedrock hooks up React, Flux, and React Router to make frontend development very enjoyable. Here are the features that you get:</p>
+<ul>
+<li><a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a> enabled to enable super-fast development of React components without page refreshes, while saving your component state.</li>
+<li><a href="https://github.com/ReactTraining/react-router">React Router</a> to help you build efficient front-end routing. </li>
+<li>File and folder structure for building front-end components with React and Flux.</li>
+<li>Webpack is used to watch and build the JavaScript and <a href="https://webpack.github.io/docs/code-splitting.html">chunk it</a> so pages don’t end up with unneccessary code. </li>
+</ul>
+<p>You can learn more about Bedrock’s frontend stack on the <a href="/frontend-development.html">Frontend Development with Bedrock</a> page. </p>
+<h2 id="quickstart">Quickstart</h2>
+<p>Bedrock is the <em>starting point</em> of your Node application. To install, you should clone the project, and then build on top of it.</p>
+<pre><code class="hljs">git clone ... &lt;<span class="hljs-keyword">project</span>-name&gt;
+cd &lt;<span class="hljs-keyword">project</span>-name&gt;
+npm <span class="hljs-keyword">install</span></code></pre>
+
+<h3 id="configure-database-connection">Configure Database Connection</h3>
+<p>Go into <code>config/connections.js</code>. Update the <code>mysql</code> connection details. At this point, you may need to create a new database.</p>
+<p>If you want to use a different database (PostgreSQL or Mongo), remove the <code>mysql</code> connection, and create a new connection, as shown in the comments in the file.</p>
+<p>If you don’t want any database, you can just remove everything in <code>config/connections.js</code> but understand that user authentication won’t work. </p>
+<h3 id="migrate-database-tables">Migrate database tables</h3>
+<p>Bedrock sets up authentication for your server, and creates Login, Signup, and Reset password pages. It uses PassportJS to accomplish this.</p>
+<p>To facilitate this, you need to run a migration to create the <code>Users</code> and <code>Passports</code> table. Just run this from the command line:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">grunt</span> <span class="hljs-selector-tag">db</span><span class="hljs-selector-pseudo">:migrate</span><span class="hljs-selector-pseudo">:up</span></code></pre>
+After it runs, check your database and you should see `Users` and `Passports` table created.
+
+We will talk more about migrations in the Best Practices section.
+
+
+### Run servers in development mode
+To start developing, run:
+
+<pre><code class="hljs"><span class="hljs-built_in">npm</span> start</code></pre>
+
+<p>This will start up 3 things:</p>
+<ul>
+<li>An Express server on Port 1337. This is the primary NodeJS server.</li>
+<li>A Webpack Dev Server on Port 3000. Any static assets will be served by Webpack in development mode. This allows for Hot Module Replacement.</li>
+<li>Assets will be built by Webpack, and a watch task will be started. Any CSS and JS changes will trigger a new incremental build.</li>
+</ul>
+<h3 id="run-servers-in-production-mode">Run servers in production mode</h3>
+<p>In production mode, you’ll want to build your assets ahead of time. To do this, run:</p>
+<pre><code class="hljs"><span class="hljs-attribute">grunt buildProd</span></code></pre>
+
+<p>This will build your assets and store it in the <code>www/</code> directory.</p>
+<p>Then, you can run your server in production mode:</p>
+<pre><code class="hljs"><span class="hljs-attr">NODE_ENV</span>=production sails lift</code></pre>
+
+<p>This will start up the NodeJS server in production mode. If you want this to be a long-lived background task, consider using a <a href="http://pm2.keymetrics.io">Node Process Manager like pm2</a>.</p>
+<h2 id="built-with">Built With</h2>
+<p>Bedrock is composed of these open-source frameworks.</p>
+<p><a href="http://sailsjs.com/">Sails</a>: Sails makes it easy to build custom, enterprise-grade Node.js apps. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture</p>
+<p><a href="https://facebook.github.io/react/">React</a>: A JavaScript Library for building user interfaces</p>
+<p><a href="https://github.com/ReactTraining/react-router">React Router</a>: React Router is a complete routing library for React.</p>
+<p><a href="https://github.com/optimizely/nuclear-js">NuclearJS</a>: Traditional Flux architecture built with ImmutableJS data structures. Very similar to Redux.</p>
+<p><a href="https://webpack.github.io/">Webpack</a>: A module bundler for front-end assets. It is used in Bedrock for chunking JavaScript files to be loaded on demand.</p>
+<p><a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a>: Tweak React components in real time without page refreshes.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Licensed MIT. Built by <a href="https://twitter.com/tilomitra">Tilo Mitra</a> in Canada. I blog about this and more at <a href="http://nodewebapps.com">Node Web Apps</a>.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+    var stickyElements = document.getElementsByClassName('sticky');
+        for (var i = stickyElements.length - 1; i >= 0; i--) {
+            Stickyfill.add(stickyElements[i]);
+        }
+    </script>
+</body>
+</html>
