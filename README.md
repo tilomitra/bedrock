@@ -4,7 +4,7 @@ Bedrock lets you set up a production-ready webapp in under 10 minutes.
 ## Why should you use it?
 Three primary reasons:
 
-1. You want a production-ready Node server in under 10 minutes.
+1. You want a production-ready Node server in under 5 minutes.
 2. You want user authentication, password resets, and more to be setup for you.
 3. You want React, Flux, and React Router enabled with [Hot Loading](https://github.com/gaearon/react-hot-loader) for super-fast development.
 
@@ -22,7 +22,7 @@ Three primary reasons:
 - SMTP Email Support
 - Server-side rendered pages
 - Client-side rendered components using React
-- **New** React Hot Loading enabled to allow super-fast development of React components without page refreshes. :boom: :star:
+- [**New**] React Hot Loading enabled to allow super-fast development of React components without page refreshes. :boom: :star:
 - Communication between React and Server-side API with Flux. 
 - Client-side routing with React Router
 - Incremental builds using Webpack, facilitated through Grunt.
