@@ -1,7 +1,8 @@
 {
     "name": "Bedrock",
-    "version": "2.2.0",
-    "description": "Deploy a production-ready Node webapp with built-in user authentication, security, and more in <10 minutes.",
+    "version": "3.0.1",
+    "description":
+        "Deploy a production-ready Node webapp with built-in user authentication, security, and more in <10 minutes.",
     "keywords": ["nodejs", "react", "flux", "sails"],
     "dependencies": {
         "babel": "^5.8.23",
